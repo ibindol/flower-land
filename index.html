@@ -38,7 +38,8 @@ header.top{border-bottom:1px solid var(--line);background:rgba(255,253,249,.85);
 .top nav{display:flex;gap:4px;flex-wrap:wrap}
 .top nav a{text-decoration:none;color:var(--muted);padding:6px 10px;border-radius:8px;font-size:15px}
 .top nav a:hover{color:var(--ink);background:var(--rose-soft)}
-
+footer .admin-link{display:inline-flex;align-items:center;gap:4px;color:#b3a594;text-decoration:none;font-size:13px;margin-left:10px}
+footer .admin-link:hover{color:var(--rose)}
 /* 첫 화면 */
 .hero{padding:44px 0 26px}
 .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:center}
@@ -523,7 +524,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 <footer>
   <div class="wrap">
     <span>꽃나라 Flower Land · 경상북도 포항시 북구 삼호로 67 · 0507-1396-0776</span>
-    <span>꽃말은 자료마다 조금씩 다를 수 있어요. 가게 꽃 사진 © 꽃나라</span>
+    <span>꽃말은 자료마다 조금씩 다를 수 있어요. 가게 꽃 사진 © 꽃나라<a class="admin-link" href="admin.html" aria-label="관리자 페이지"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>관리자</a></span>
   </div>
 </footer>
 <div class="toast" id="toast" role="status" hidden></div>
