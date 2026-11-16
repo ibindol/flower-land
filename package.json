@@ -1,0 +1,8 @@
+{
+  "name": "flower-land",
+  "private": true,
+  "description": "꽃나라 Flower Land",
+  "dependencies": {
+    "@vercel/blob": "2.8.2"
+  }
+}

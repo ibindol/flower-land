@@ -51,7 +51,9 @@ header.top{border-bottom:1px solid var(--line);background:rgba(255,253,249,.85);
 .hero-steps i{font-style:normal;font-family:var(--f-title);font-weight:700;color:var(--rose);border:1.5px solid var(--rose);border-radius:50%;width:24px;height:24px;display:inline-grid;place-items:center;font-size:13px}
 .hero-pic{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:14px 14px 10px;box-shadow:0 1px 0 var(--line2),0 14px 30px -18px rgba(80,50,30,.35);transform:rotate(1.2deg)}
 .hero-pic .tape{position:absolute;top:-12px;left:50%;width:96px;height:24px;margin-left:-48px;background:rgba(228,212,186,.75);transform:rotate(-3deg)}
-.hero-pic .stagebox{background:var(--stage);border-radius:3px;aspect-ratio:600/700;overflow:hidden}
+.hero-pic .stagebox{background:var(--stage);border-radius:3px;aspect-ratio:1/1;overflow:hidden;position:relative;display:block}
+.hero-pic .stagebox img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease}
+.hero-pic .stagebox img.on{opacity:1}
 .hero-pic .stagebox svg{width:100%;height:100%;display:block}
 .hero-pic figcaption{font-family:var(--f-hand);font-size:22px;color:var(--muted);text-align:center;padding-top:6px}
 
@@ -340,8 +342,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
     </div>
     <figure class="hero-pic" style="margin:0">
       <span class="tape" aria-hidden="true"></span>
-      <div class="stagebox" id="heroBox"></div>
-      <figcaption id="heroCap">오늘의 꽃다발</figcaption>
+      <a class="stagebox" id="heroBox" href="#shop" aria-label="가게 꽃다발 보기"></a>
+      <figcaption id="heroCap">꽃나라에서 만든 꽃</figcaption>
     </figure>
   </div>
 </section>
@@ -432,7 +434,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       </div>
 
       <aside class="preview" id="preview" aria-label="꽃다발 미리보기">
-        <div class="look" role="group" aria-label="보기 방식"><button type="button" class="chip" data-look="draw" aria-pressed="true">그림으로 보기</button><button type="button" class="chip" data-look="photo" aria-pressed="false">사진으로 보기</button></div>
         <div class="pv-stage" id="stage"></div>
         <div class="pv-cap">
           <div class="t"><b id="pvName"></b><small id="pvMeta"></small></div>
@@ -466,7 +467,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
           <button type="button" class="btn" id="dlSvg">꽃다발 그림만 (SVG)</button>
           <button type="button" class="btn" id="copyMemo">주문 메모 복사</button>
         </div>
-        <p class="dl-note">그림과 사진 모두 분위기를 보여 주는 시안이에요. 사진 보기는 실제 꽃 사진을 오려 붙여 만든 거라 색과 크기가 실제와 조금 다를 수 있어요. 실제 꽃은 계절과 들어오는 상태에 따라 색과 모양이 조금씩 달라요.</p>
+        <p class="dl-note">그림은 분위기를 보여 주는 시안이에요. 실제 꽃은 계절과 들어오는 상태에 따라 색과 모양이 조금씩 달라요.</p>
       </div>
     </div>
   </div>
@@ -888,7 +889,7 @@ var PH={
  hypericum:['red',130,190,75,75,409],cotton:['white',255,128,70,70,286],euca:['silver',196,152,66,66,300],ruscus:['green',200,250,180,180,582],gyp:['white',165,160,140,130,295,'screen']
 };
 var WHITE_GERBERA=[262,135,125,125];
-var LOOK='draw';try{if(localStorage.getItem('kkotnara-look')==='photo')LOOK='photo';}catch(e){}
+var LOOK='draw'; /* 사진으로 보기는 2026-11-16 사장님 요청으로 뺐어요 (코드만 남겨 둠) */
 function phref(id){return (window.__phData&&window.__phData[id])||('photos/'+id+'.jpg');}
 function hsl(c){var x=hx(c).map(function(v){return v/255;}),mx=Math.max.apply(null,x),mn=Math.min.apply(null,x),l=(mx+mn)/2,h=0,s2=0,d=mx-mn;
   if(d>0){s2=l>.5?d/(2-mx-mn):d/(mx+mn);h=mx===x[0]?(x[1]-x[2])/d+(x[1]<x[2]?6:0):mx===x[1]?(x[2]-x[0])/d+2:(x[0]-x[1])/d+4;h*=60;}return [h,s2,l];}
@@ -1191,8 +1192,6 @@ function bind(){
   $('inFont').addEventListener('change',function(){S.font=this.value;update();});
   $('sugg').addEventListener('click',function(e){var b=e.target.closest('[data-m]');if(!b)return;S.msg=b.dataset.m;$('inMsg').value=S.msg;$('msgCount').textContent=S.msg.length;update();});
   $('dlPng').addEventListener('click',function(){loadPhotoData().then(downloadPNG);});
-  document.querySelector('.look').addEventListener('click',function(e){var b=e.target.closest('[data-look]');if(!b)return;LOOK=b.dataset.look;try{localStorage.setItem('kkotnara-look',LOOK);}catch(e){}
-    this.querySelectorAll('[data-look]').forEach(function(x){x.setAttribute('aria-pressed',String(x===b));});update();});
   $('dlSvg').addEventListener('click',function(){saveBlob(fileBase()+'.svg',new Blob([bouquetSVG(design(),'sv')],{type:'image/svg+xml'}));});
   $('copyMemo').addEventListener('click',function(){copyText(memoText(),'주문 메모를 복사했어요. 문자나 메신저에 붙여 넣으세요.');});
   $('copyAddr').addEventListener('click',function(){copyText('경상북도 포항시 북구 삼호로 67 꽃나라','주소를 복사했어요.');});
@@ -1200,19 +1199,13 @@ function bind(){
   $('btnFold').addEventListener('click',function(){var p=$('preview'),f=p.classList.toggle('folded');this.textContent=f?'펴기':'접기';});
 }
 
-/* 첫 화면 예시 */
-var heroList=['love','birthday','grad','parents','anniv','cheer','opening','friend'],hi=0;
-function hero(){if(!$('heroBox'))return;var t=TH[heroList[hi%heroList.length]];hi++;
-  var D={items:t.items.map(function(x){return {id:x[0],color:x[1],n:x[2]};}),shape:t.shape,paper:t.paper,ribbon:t.ribbon,seed:hi*5+2};
-  $('heroBox').innerHTML=bouquetSVG(D,'h'+hi,{noCard:true});$('heroCap').textContent=t.name+' 꽃다발';}
-
 if(!loadState())applyTheme('love',true);
 $('inTo').value=S.to;$('inFrom').value=S.from;$('inMsg').value=S.msg;$('inLetter').value=S.letter;$('inFont').value=S.font;
 $('msgCount').textContent=S.msg.length;$('letterCount').textContent=S.letter.length;
 document.querySelectorAll('[data-look]').forEach(function(x){x.setAttribute('aria-pressed',String(x.dataset.look===LOOK));});
-bind();refreshAll();renderDex();renderCredits();hero();
-if(!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches))setInterval(hero,5200);
-/* 가게 꽃다발 고르기 */
+bind();refreshAll();renderDex();renderCredits();
+
+/* 가게 꽃다발 고르기 (목록은 관리자 페이지에서 바꿀 수 있어요. 서버를 못 읽으면 아래 기본 목록을 씁니다) */
 var SHOP=[
  ['빨간 장미 하트 꽃다발','bouquet',['red']],['빨간 장미와 유칼립투스 바구니','basket',['red']],['빨간 장미 바구니','basket',['red']],
  ['분홍 거베라와 노란 소국 바구니','basket',['pink','mix']],['흰 거베라와 보라 리시안셔스 바구니','basket',['mix','purple']],['분홍 거베라와 장미 바구니','basket',['pink']],
@@ -1227,30 +1220,34 @@ var SHOP_SZ=[[363,560],[560,504],[560,377],[560,404],[560,486],[560,426],[560,38
 var TONES=[['all','전체'],['red','빨강'],['pink','분홍'],['yellow','노랑·주황'],['purple','보라'],['pastel','연한 파스텔'],['mix','알록달록']];
 var KINDS=[['all','전체'],['basket','꽃바구니'],['bouquet','꽃다발']];
 (function(){var grid=$('shopGrid'),lb=$('lb'),img=$('lbImg'),cap=$('lbCap'),SHOW=12,P={tone:'all',kind:'all',more:false,picks:[],f:{}},vis=[],cur=0,pillHide=false;
-  try{var sv=JSON.parse(localStorage.getItem('kkotnara-shop')||'{}');if(sv.picks)P.picks=sv.picks.filter(function(i){return SHOP[i];});if(sv.f)P.f=sv.f;}catch(e){}
-  var save=function(){try{localStorage.setItem('kkotnara-shop',JSON.stringify({picks:P.picks,f:P.f}));}catch(e){}};
-  var no=function(i){return (i<9?'0':'')+(i+1);};
-  var src=function(i,big){return 'shop/shop'+no(i)+(big?'':'_s')+'.jpg';};
-  var label=function(i){return no(i)+'번 '+SHOP[i][0];};
+  var ITEMS=SHOP.map(function(x,i){var n=(i<9?'0':'')+(i+1);return {no:i+1,name:x[0],kind:x[1],tones:x[2],w:SHOP_SZ[i][0],h:SHOP_SZ[i][1],s:'shop/shop'+n+'_s.jpg',b:'shop/shop'+n+'.jpg'};});
+  try{var sv=JSON.parse(localStorage.getItem('kkotnara-shop2')||'null');
+    if(!sv){var old=JSON.parse(localStorage.getItem('kkotnara-shop')||'{}');sv={picks:(old.picks||[]).map(function(i){return i+1;}),f:old.f||{}};}
+    if(sv.picks)P.picks=sv.picks.filter(function(n){return typeof n==='number';});if(sv.f)P.f=sv.f;}catch(e){}
+  var save=function(){try{localStorage.setItem('kkotnara-shop2',JSON.stringify({picks:P.picks,f:P.f}));}catch(e){}};
+  var byNo=function(n){for(var i=0;i<ITEMS.length;i++)if(ITEMS[i].no===n)return ITEMS[i];return null;};
+  var no=function(n){return (n<10?'0':'')+n;};
+  var label=function(n){var it=byNo(n);return no(n)+'번 '+(it?it.name:'');};
   var chips=function(list,cur,k){return list.map(function(c){return '<button type="button" class="chip" data-'+k+'="'+c[0]+'" aria-pressed="'+(cur===c[0])+'">'+c[1]+'</button>';}).join('');};
   function render(){
     $('shopTone').innerHTML=chips(TONES,P.tone,'tone');$('shopKind').innerHTML=chips(KINDS,P.kind,'kind');
-    var all=[];SHOP.forEach(function(x,i){if((P.tone==='all'||x[2].indexOf(P.tone)>=0)&&(P.kind==='all'||x[1]===P.kind))all.push(i);});
+    var all=ITEMS.filter(function(x){return (P.tone==='all'||x.tones.indexOf(P.tone)>=0)&&(P.kind==='all'||x.kind===P.kind);});
     var filtered=P.tone!=='all'||P.kind!=='all';vis=(filtered||P.more)?all:all.slice(0,SHOW);
-    grid.innerHTML=vis.map(function(i,k){var on=P.picks.indexOf(i)>=0,sz=SHOP_SZ[i];
-      return '<li class="'+(on?'on':'')+'"><div class="card-box"><a class="ph" href="'+src(i,1)+'" data-k="'+k+'"><img src="'+src(i)+'" width="'+sz[0]+'" height="'+sz[1]+'" loading="lazy" decoding="async" alt="'+esc(SHOP[i][0])+'"><span class="no">'+no(i)+'번</span></a>'+
-        '<div class="sc"><span class="nm">'+esc(SHOP[i][0])+'</span><button type="button" class="pick" data-pick="'+i+'" aria-pressed="'+on+'">'+(on?'골랐어요 ✓':'이 느낌으로')+'</button></div></div></li>';}).join('');
+    grid.innerHTML=vis.map(function(x,k){var on=P.picks.indexOf(x.no)>=0;
+      return '<li class="'+(on?'on':'')+'"><div class="card-box"><a class="ph" href="'+esc(x.b)+'" data-k="'+k+'"><img src="'+esc(x.s)+'" width="'+(+x.w||560)+'" height="'+(+x.h||420)+'" loading="lazy" decoding="async" alt="'+esc(x.name)+'"><span class="no">'+no(x.no)+'번</span></a>'+
+        '<div class="sc"><span class="nm">'+esc(x.name)+'</span><button type="button" class="pick" data-pick="'+x.no+'" aria-pressed="'+on+'">'+(on?'골랐어요 ✓':'이 느낌으로')+'</button></div></div></li>';}).join('');
     $('shopEmpty').hidden=all.length>0;
     var rest=all.length-vis.length;$('shopMore').parentNode.hidden=rest<=0;$('shopMore').textContent='사진 '+rest+'장 더 보기';
     renderPicks();}
   function renderPicks(){
-    $('pickList').innerHTML=P.picks.map(function(i){return '<li><img src="'+src(i)+'" alt=""><span>'+esc(label(i))+'</span><button type="button" data-unpick="'+i+'" aria-label="'+no(i)+'번 빼기">×</button></li>';}).join('');
+    P.picks=P.picks.filter(function(n){return byNo(n);});
+    $('pickList').innerHTML=P.picks.map(function(n){return '<li><img src="'+esc(byNo(n).s)+'" alt=""><span>'+esc(label(n))+'</span><button type="button" data-unpick="'+n+'" aria-label="'+no(n)+'번 빼기">×</button></li>';}).join('');
     $('pickEmpty').hidden=P.picks.length>0;
     var pill=$('pickPill');pill.textContent='고른 꽃 '+P.picks.length+'개 · 주문 메모';pill.hidden=!P.picks.length||pillHide;}
-  function syncLb(){var i=vis[cur],on=P.picks.indexOf(i)>=0;$('lbPick').setAttribute('aria-pressed',on);$('lbPick').textContent=on?'골랐어요 ✓':'이 느낌으로';}
-  function toggle(i){var k=P.picks.indexOf(i);if(k>=0)P.picks.splice(k,1);else{P.picks.push(i);toast(no(i)+'번을 골랐어요. 아래 "내가 고른 꽃"에 담겼어요.');}save();render();if(lb.open)syncLb();}
-  function show(k){cur=(k+vis.length)%vis.length;var i=vis[cur];img.src=src(i,1);img.alt=SHOP[i][0];cap.textContent=label(i);syncLb();}
-  function open(k){if(!lb.showModal)return false;show(k);if(!lb.open)lb.showModal();return true;}
+  function syncLb(){var n=vis[cur].no,on=P.picks.indexOf(n)>=0;$('lbPick').setAttribute('aria-pressed',on);$('lbPick').textContent=on?'골랐어요 ✓':'이 느낌으로';}
+  function toggle(n){var k=P.picks.indexOf(n);if(k>=0)P.picks.splice(k,1);else{P.picks.push(n);toast(no(n)+'번을 골랐어요. 아래 "내가 고른 꽃"에 담겼어요.');}save();render();if(lb.open)syncLb();}
+  function show(k){cur=(k+vis.length)%vis.length;var x=vis[cur];img.src=x.b;img.alt=x.name;cap.textContent=label(x.no);syncLb();}
+  function open(k){if(!lb.showModal||k<0)return false;show(k);if(!lb.open)lb.showModal();return true;}
   if('IntersectionObserver' in window)new IntersectionObserver(function(es){pillHide=es[0].isIntersecting;renderPicks();}).observe($('order'));
   $('shopTone').addEventListener('click',function(e){var b=e.target.closest('[data-tone]');if(b){P.tone=b.dataset.tone;render();}});
   $('shopKind').addEventListener('click',function(e){var b=e.target.closest('[data-kind]');if(b){P.kind=b.dataset.kind;render();}});
@@ -1258,7 +1255,7 @@ var KINDS=[['all','전체'],['basket','꽃바구니'],['bouquet','꽃다발']];
   grid.addEventListener('click',function(e){var p=e.target.closest('[data-pick]');if(p){toggle(+p.dataset.pick);return;}
     var a=e.target.closest('a[data-k]');if(a&&open(+a.dataset.k))e.preventDefault();});
   $('pickList').addEventListener('click',function(e){var b=e.target.closest('[data-unpick]');if(b)toggle(+b.dataset.unpick);});
-  $('lbPick').addEventListener('click',function(){toggle(vis[cur]);});
+  $('lbPick').addEventListener('click',function(){toggle(vis[cur].no);});
   $('lbX').addEventListener('click',function(){lb.close();});
   $('lbP').addEventListener('click',function(){show(cur-1);});
   $('lbN').addEventListener('click',function(){show(cur+1);});
@@ -1270,14 +1267,26 @@ var KINDS=[['all','전체'],['basket','꽃바구니'],['bouquet','꽃다발']];
   function memo(){var L=['[꽃나라 주문 메모]'];
     if(P.picks.length){L.push('고른 꽃: '+P.picks.map(label).join(', '));L.push('→ 이 사진 느낌(색감·모양)으로 부탁드려요.');}else L.push('고른 꽃: (아직 없음)');
     if(P.f.date)L.push('받는 날: '+P.f.date);if(P.f.budget)L.push('예산: '+P.f.budget);if(P.f.use)L.push('어떤 날: '+P.f.use);if(P.f.req)L.push('바라는 점: '+P.f.req);
-    if(P.picks.length)L.push('사진 보기: '+P.picks.map(function(i){return 'https://flowerland.vercel.app/#p'+no(i);}).join(' '));
+    if(P.picks.length)L.push('사진 보기: '+P.picks.map(function(n){return 'https://flowerland.vercel.app/#p'+no(n);}).join(' '));
     return L.join('\n');}
   $('odCopy').addEventListener('click',function(){if(!P.picks.length){toast('먼저 마음에 드는 사진을 골라 주세요.');return;}copyText(memo(),'주문 메모를 복사했어요. 문자나 카카오톡에 붙여 넣으세요.');});
   $('odClear').addEventListener('click',function(){P.picks=[];P.f={};['odDate','odBudget','odUse','odReq'].forEach(function(id){$(id).value='';});save();render();});
+  function openHash(){var m=/^#p(\d{2,4})$/.exec(location.hash);if(!m||!byNo(+m[1]))return;P.tone='all';P.kind='all';P.more=true;render();
+    var k=-1;vis.forEach(function(x,j){if(x.no===+m[1])k=j;});$('shop').scrollIntoView();open(k);}
   render();
-  /* 주소 끝이 #p07 이면 그 사진을 바로 크게 */
-  var m=/^#p(\d\d)$/.exec(location.hash);if(m&&SHOP[+m[1]-1]){P.more=true;render();$('shop').scrollIntoView();open(vis.indexOf(+m[1]-1));}
-  window.__shop={P:P,memo:memo,render:render};
+  /* 사장님이 올린 최신 목록 받아오기 */
+  if(window.fetch&&location.protocol!=='file:')fetch('/api/shop').then(function(r){return r.ok?r.json():null;}).then(function(d){
+    if(d&&d.items&&d.items.length){ITEMS=d.items.map(function(x){return {no:+x.no,name:String(x.name||''),kind:x.kind,tones:x.tones||[],w:x.w,h:x.h,s:String(x.s||''),b:String(x.b||'')};});render();}
+    openHash();}).catch(openHash);else openHash();
+  window.addEventListener('hashchange',openHash);
+  /* 첫 화면 오른쪽: 가게 사진이 차례로 바뀌어요 */
+  var hbox=$('heroBox'),hcap=$('heroCap'),hi=0,hlist=[],hlast=null;
+  function heroNext(){if(!hbox||!ITEMS.length)return;if(!hlist.length||hlist[0]!==ITEMS[0])hlist=ITEMS.slice(0,12);var x=hlist[hi%hlist.length];hi++;
+    var im=new Image();im.alt=x.name;im.decoding='async';im.onload=function(){hbox.appendChild(im);requestAnimationFrame(function(){requestAnimationFrame(function(){im.className='on';});});
+      if(hlast){var old=hlast;setTimeout(function(){old.remove();},1400);}hlast=im;hbox.href='#p'+no(x.no);hcap.textContent=no(x.no)+'번 · '+x.name;};im.src=x.b;}
+  heroNext();
+  if(!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches))setInterval(heroNext,4500);
+  window.__shop={P:P,memo:memo,render:render,items:function(){return ITEMS;}};
 })();
 window.__kk={loadPhotoData:loadPhotoData,setLook:function(v){LOOK=v;},compose:compose,FLOWERS:FLOWERS,THEMES:THEMES,S:S,bouquetSVG:bouquetSVG};
 })();

@@ -1,6 +1,4 @@
 .vercel
 .env*
-
-.vercel
-.env*
 시안비교_그림vs사진.png
+node_modules
