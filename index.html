@@ -140,6 +140,7 @@ header.top{border-bottom:1px solid var(--line);background:rgba(255,253,249,.85);
 
 /* 미리보기 */
 .preview{position:sticky;top:12px;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:14px}
+.look{display:flex;gap:6px;margin-bottom:8px}
 .pv-stage{background:var(--stage);border-radius:10px;aspect-ratio:600/700;overflow:hidden}
 .pv-stage svg{width:100%;height:100%;display:block}
 .pv-cap{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:10px;flex-wrap:wrap}
@@ -347,6 +348,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       </div>
 
       <aside class="preview" id="preview" aria-label="꽃다발 미리보기">
+        <div class="look" role="group" aria-label="보기 방식"><button type="button" class="chip" data-look="draw" aria-pressed="true">그림으로 보기</button><button type="button" class="chip" data-look="photo" aria-pressed="false">사진으로 보기</button></div>
         <div class="pv-stage" id="stage"></div>
         <div class="pv-cap">
           <div class="t"><b id="pvName"></b><small id="pvMeta"></small></div>
@@ -380,7 +382,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
           <button type="button" class="btn" id="dlSvg">꽃다발 그림만 (SVG)</button>
           <button type="button" class="btn" id="copyMemo">주문 메모 복사</button>
         </div>
-        <p class="dl-note">그림은 분위기를 보여 주는 시안이에요. 실제 꽃은 계절과 들어오는 상태에 따라 색과 모양이 조금씩 달라요.</p>
+        <p class="dl-note">그림과 사진 모두 분위기를 보여 주는 시안이에요. 사진 보기는 실제 꽃 사진을 오려 붙여 만든 거라 색과 크기가 실제와 조금 다를 수 있어요. 실제 꽃은 계절과 들어오는 상태에 따라 색과 모양이 조금씩 달라요.</p>
       </div>
     </div>
   </div>
@@ -594,7 +596,7 @@ var THEMES=[
  {id:'free',name:'마음대로',desc:'테마 없이 자유롭게',key:['ranunculus','pink'],items:null,shape:null,paper:null,ribbon:null,
   msgs:['고마워요','당신을 생각하며','좋은 하루 보내요'],tip:'담고 싶은 꽃을 자유롭게 골라 보세요. 주인공 꽃 1~2가지, 포인트 꽃 1가지, 채움 꽃과 잎 소재를 조금 넣으면 균형이 잘 맞아요.'}
 ];
-var PHOTO={"rose":["photos/rose.jpg","Petro Stelte","CC BY-SA 4.0","https://commons.wikimedia.org/wiki/File:Red-Rose-Sitia-Crete.jpg"],"peony":["photos/peony.jpg","Ulf Eliasson","CC BY-SA 3.0","https://commons.wikimedia.org/wiki/File:Lactiflora1b.UME.jpg"],"hydrangea":["photos/hydrangea.jpg","Acabashi","CC BY-SA 4.0","https://commons.wikimedia.org/wiki/File:Hydrangea_%27Endless_Summer_Blue%27_Capel_Manor_College_Gardens_Enfield_London_England.jpg"],"sunflower":["photos/sunflower.jpg","Fir0002","GFDL 1.2","https://commons.wikimedia.org/wiki/File:Sunflower_sky_backdrop.jpg"],"tulip":["photos/tulip.jpg","Martin Ehrensberger","CC0","https://commons.wikimedia.org/wiki/File:Tulipa_cultivar_(red,_close-up)_2018.jpg"],"lily":["photos/lily.jpg","4028mdk09","CC BY-SA 3.0","https://commons.wikimedia.org/wiki/File:Wei%C3%9Fe_Lilienbl%C3%BCte.JPG"],"gerbera":["photos/gerbera.jpg","Dmitry Makeev","CC BY-SA 4.0","https://commons.wikimedia.org/wiki/File:Unidentified_Gerbera.jpg"],"ranunculus":["photos/ranunculus.jpg","Yoko Nekonomania","CC BY 2.0","https://commons.wikimedia.org/wiki/File:Flower,_Persian_buttercup_%22M-Sakura%22_-_Flickr_-_nekonomania.jpg"],"carnation":["photos/carnation.jpg","草花写真館","CC BY-SA 3.0","https://commons.wikimedia.org/wiki/File:W_carnation4051.jpg"],"calla":["photos/calla.jpg","Eric Hunt","CC BY-SA 2.5","https://commons.wikimedia.org/wiki/File:Zantedeschia_aethiopica_-1.jpg"],"orchid":["photos/orchid.jpg","Alvesgaspar","CC BY-SA 4.0","https://commons.wikimedia.org/wiki/File:Phalaenopsis_July_2020-2.jpg"],"dahlia":["photos/dahlia.jpg","Muhammad Mahdi Karim","GFDL 1.2","https://commons.wikimedia.org/wiki/File:Dahlia_x_hybrida.jpg"],"anemone":["photos/anemone.jpg","Zachi Evenor","CC BY 2.0","https://commons.wikimedia.org/wiki/File:Anemone-coronaria-2016-Zachi-Evenor.jpg"],"freesia":["photos/freesia.jpg","The original uploader was Jeantosti at English Wikipedia.","CC BY-SA 3.0","https://commons.wikimedia.org/wiki/File:Freesia.jpg"],"cosmos":["photos/cosmos.jpg","Joydeep","CC BY-SA 3.0","https://commons.wikimedia.org/wiki/File:Cosmos_bipinnatus_pink,_Burdwan,_West_Bengal,_India_10_01_2013.jpg"],"daisy":["photos/daisy.jpg","Dryas","CC BY-SA 3.0","https://commons.wikimedia.org/wiki/File:Argyranthemum_frutescens_subsp._canariae.JPG"],"sweetpea":["photos/sweetpea.jpg","Aftabbanoori","CC BY-SA 3.0","https://commons.wikimedia.org/wiki/File:Sweet_Pea-7.jpg"],"lavender":["photos/lavender.jpg","User:Fir0002","GFDL 1.2","https://commons.wikimedia.org/wiki/File:Single_lavender_flower02.jpg"],"stock":["photos/stock.jpg","KENPEI","CC BY-SA 3.0","https://commons.wikimedia.org/wiki/File:Matthiola_incana6.jpg"],"statice":["photos/statice.jpg","Nevit Dilmen","CC BY-SA 3.0","https://commons.wikimedia.org/wiki/File:Tema_Nezahat_Gokyigit_Park_1060783_20080513133708.JPG"],"forget":["photos/forget.jpg","Sedum Tauno Erik","CC BY-SA 2.5","https://commons.wikimedia.org/wiki/File:Myosotis_arvensis_ois.JPG"],"cotton":["photos/cotton.jpg","Wikimedia Commons","Public domain","https://commons.wikimedia.org/wiki/File:CottonPlant.JPG"],"euca":["photos/euca.jpg","Donald Hobern from Canberra, Australia","CC BY 2.0","https://commons.wikimedia.org/wiki/File:Eucalyptus_polyanthemos_leaves_1.jpg"],"ruscus":["photos/ruscus.jpg","Krzysztof Ziarnek, Kenraiz","CC BY-SA 4.0","https://commons.wikimedia.org/wiki/File:Danae_racemosa_kz1.jpg"],"lisianthus":["photos/lisianthus.jpg","Wikimedia Commons","CC BY-SA 2.0","https://commons.wikimedia.org/wiki/File:Eustoma_grandiflorum_purple_02.jpg"],"mum":["photos/mum.jpg","Aruna at Malayalam Wikipedia","CC BY-SA 3.0","https://commons.wikimedia.org/wiki/File:Chrysanthemum.JPG"],"delphinium":["photos/delphinium.jpg","Björn S.","CC BY-SA 3.0","https://commons.wikimedia.org/wiki/File:Delphinium_elatum_-_panoramio.jpg"],"gyp":["photos/gyp.jpg","Avenue","CC BY-SA 3.0","https://commons.wikimedia.org/wiki/File:Close-up_of_baby%27s_breath_(Gypsophila_paniculata)_flowers.jpg"],"hypericum":["photos/hypericum.jpg","Nesnad","CC BY 4.0","https://commons.wikimedia.org/wiki/File:Hypericum_berries_-_red_-_March_3_2021.jpeg"]};
+var PHOTO={"rose":["photos/rose.jpg","Petro Stelte","CC BY-SA 4.0","https://commons.wikimedia.org/wiki/File:Red-Rose-Sitia-Crete.jpg"],"peony":["photos/peony.jpg","Ulf Eliasson","CC BY-SA 3.0","https://commons.wikimedia.org/wiki/File:Lactiflora1b.UME.jpg"],"hydrangea":["photos/hydrangea.jpg","Acabashi","CC BY-SA 4.0","https://commons.wikimedia.org/wiki/File:Hydrangea_%27Endless_Summer_Blue%27_Capel_Manor_College_Gardens_Enfield_London_England.jpg"],"sunflower":["photos/sunflower.jpg","Fir0002","GFDL 1.2","https://commons.wikimedia.org/wiki/File:Sunflower_sky_backdrop.jpg"],"tulip":["photos/tulip.jpg","Martin Ehrensberger","CC0","https://commons.wikimedia.org/wiki/File:Tulipa_cultivar_(red,_close-up)_2018.jpg"],"lily":["photos/lily.jpg","4028mdk09","CC BY-SA 3.0","https://commons.wikimedia.org/wiki/File:Wei%C3%9Fe_Lilienbl%C3%BCte.JPG"],"gerbera":["photos/gerbera.jpg","Dmitry Makeev","CC BY-SA 4.0","https://commons.wikimedia.org/wiki/File:Unidentified_Gerbera.jpg"],"ranunculus":["photos/ranunculus.jpg","Yoko Nekonomania","CC BY 2.0","https://commons.wikimedia.org/wiki/File:Flower,_Persian_buttercup_%22M-Sakura%22_-_Flickr_-_nekonomania.jpg"],"carnation":["photos/carnation.jpg","草花写真館","CC BY-SA 3.0","https://commons.wikimedia.org/wiki/File:W_carnation4051.jpg"],"calla":["photos/calla.jpg","Eric Hunt","CC BY-SA 2.5","https://commons.wikimedia.org/wiki/File:Zantedeschia_aethiopica_-1.jpg"],"orchid":["photos/orchid.jpg","Alvesgaspar","CC BY-SA 4.0","https://commons.wikimedia.org/wiki/File:Phalaenopsis_July_2020-2.jpg"],"dahlia":["photos/dahlia.jpg","Muhammad Mahdi Karim","GFDL 1.2","https://commons.wikimedia.org/wiki/File:Dahlia_x_hybrida.jpg"],"anemone":["photos/anemone.jpg","Zachi Evenor","CC BY 2.0","https://commons.wikimedia.org/wiki/File:Anemone-coronaria-2016-Zachi-Evenor.jpg"],"freesia":["photos/freesia.jpg","The original uploader was Jeantosti at English Wikipedia.","CC BY-SA 3.0","https://commons.wikimedia.org/wiki/File:Freesia.jpg"],"cosmos":["photos/cosmos.jpg","Joydeep","CC BY-SA 3.0","https://commons.wikimedia.org/wiki/File:Cosmos_bipinnatus_pink,_Burdwan,_West_Bengal,_India_10_01_2013.jpg"],"daisy":["photos/daisy.jpg","Dryas","CC BY-SA 3.0","https://commons.wikimedia.org/wiki/File:Argyranthemum_frutescens_subsp._canariae.JPG"],"sweetpea":["photos/sweetpea.jpg","Aftabbanoori","CC BY-SA 3.0","https://commons.wikimedia.org/wiki/File:Sweet_Pea-7.jpg"],"lavender":["photos/lavender.jpg","User:Fir0002","GFDL 1.2","https://commons.wikimedia.org/wiki/File:Single_lavender_flower02.jpg"],"stock":["photos/stock.jpg","KENPEI","CC BY-SA 3.0","https://commons.wikimedia.org/wiki/File:Matthiola_incana6.jpg"],"statice":["photos/statice.jpg","Nevit Dilmen","CC BY-SA 3.0","https://commons.wikimedia.org/wiki/File:Tema_Nezahat_Gokyigit_Park_1060783_20080513133708.JPG"],"forget":["photos/forget.jpg","Sedum Tauno Erik","CC BY-SA 2.5","https://commons.wikimedia.org/wiki/File:Myosotis_arvensis_ois.JPG"],"cotton":["photos/cotton.jpg","Wikimedia Commons","Public domain","https://commons.wikimedia.org/wiki/File:CottonPlant.JPG"],"euca":["photos/euca.jpg","Donald Hobern from Canberra, Australia","CC BY 2.0","https://commons.wikimedia.org/wiki/File:Eucalyptus_polyanthemos_leaves_1.jpg"],"ruscus":["photos/ruscus.jpg","Krzysztof Ziarnek, Kenraiz","CC BY-SA 4.0","https://commons.wikimedia.org/wiki/File:Danae_racemosa_kz1.jpg"],"lisianthus":["photos/lisianthus.jpg","Downtowngal","CC BY-SA 4.0","https://commons.wikimedia.org/wiki/File:White_Lisianthus_flower.jpg"],"mum":["photos/mum.jpg","Aruna at Malayalam Wikipedia","CC BY-SA 3.0","https://commons.wikimedia.org/wiki/File:Chrysanthemum.JPG"],"delphinium":["photos/delphinium.jpg","Björn S.","CC BY-SA 3.0","https://commons.wikimedia.org/wiki/File:Delphinium_elatum_-_panoramio.jpg"],"gyp":["photos/gyp.jpg","Avenue","CC BY-SA 3.0","https://commons.wikimedia.org/wiki/File:Close-up_of_baby%27s_breath_(Gypsophila_paniculata)_flowers.jpg"],"hypericum":["photos/hypericum.jpg","Nesnad","CC BY 4.0","https://commons.wikimedia.org/wiki/File:Hypericum_berries_-_red_-_March_3_2021.jpeg"]};
 var TH={};THEMES.forEach(function(t){TH[t.id]=t;});
 
 /* ================= 꽃 그리기 (모두 원점 기준, 위쪽 = -y) ================= */
@@ -790,10 +792,51 @@ function flowerIcon(f,ck){
   iconCache[key]=s;return s;
 }
 
+/* ================= 사진 모드 ================= */
+/* [원래 색, 중심x, 중심y, 가로반지름, 세로반지름, 사진높이, 옵션] (사진 가로 400px 기준) */
+var PH={
+ rose:['red',205,130,118,118,267],peony:['pink',208,290,150,150,533],hydrangea:['purple',210,195,150,150,500],sunflower:['yellow',180,190,128,128,443],
+ tulip:['red',190,186,112,112,580],lily:['white',205,180,150,150,342],gerbera:['pink',95,118,100,100,252],ranunculus:['pink',205,284,88,88,600],
+ lisianthus:['white',178,235,150,150,397],carnation:['red',180,148,85,85,300],calla:['white',250,335,85,85,602],orchid:['white',163,232,92,92,477],
+ dahlia:['coral',207,116,106,106,267],anemone:['red',178,159,100,100,468],mum:['yellow',230,160,70,70,300],cosmos:['pink',190,145,132,132,298],
+ daisy:['white',150,150,95,95,300],freesia:['yellow',195,125,92,92,300],sweetpea:['pink',190,230,150,150,432],lavender:['purple',135,150,55,140,300],
+ delphinium:['purple',210,255,150,240,600],stock:['white',80,162,70,90,538],statice:['purple',205,128,150,75,533],forget:['blue',180,120,100,100,288],
+ hypericum:['red',130,190,75,75,409],cotton:['white',255,128,70,70,286],euca:['silver',196,152,66,66,300],ruscus:['green',200,250,180,180,582],gyp:['white',165,160,140,130,295,'screen']
+};
+var WHITE_GERBERA=[262,135,125,125];
+var LOOK='draw';try{if(localStorage.getItem('kkotnara-look')==='photo')LOOK='photo';}catch(e){}
+function phref(id){return (window.__phData&&window.__phData[id])||('photos/'+id+'.jpg');}
+function hsl(c){var x=hx(c).map(function(v){return v/255;}),mx=Math.max.apply(null,x),mn=Math.min.apply(null,x),l=(mx+mn)/2,h=0,s2=0,d=mx-mn;
+  if(d>0){s2=l>.5?d/(2-mx-mn):d/(mx+mn);h=mx===x[0]?(x[1]-x[2])/d+(x[1]<x[2]?6:0):mx===x[1]?(x[2]-x[0])/d+2:(x[0]-x[1])/d+4;h*=60;}return [h,s2,l];}
+function recolorFilter(src,dst){
+  var a=Math.min(3.4,.95/Math.max(.1,lum(src))),t=hx(dst).map(function(v){return v/255;}),w=lum(dst)>.85;
+  var row=function(k){var g=w?1.05:1;return n(t[k]*a*.3*g*100)/100+' '+n(t[k]*a*.59*g*100)/100+' '+n(t[k]*a*.11*g*100)/100+' 0 '+(w?'.08':'0');};
+  return '<feColorMatrix type="matrix" values="'+row(0)+' '+row(1)+' '+row(2)+' 0 0 0 1 0"/>';}
+function recolorFilterOld(src,dst){var a=hsl(src),b=hsl(dst),dh=b[0]-a[0],sr=a[1]>.05?Math.min(2,b[1]/a[1]):1,k=Math.max(.55,Math.min(2.4,b[2]/Math.max(.08,a[2]))),ic=0;
+  if(b[1]<.25&&b[2]>.85){sr=.06;k=Math.max(k,1.6);ic=.22;}
+  var f=function(c){return '<feFunc'+c+' type="linear" slope="'+n(k*100)/100+'" intercept="'+n(ic*100)/100+'"/>';};
+  return '<feColorMatrix type="hueRotate" values="'+n(dh)+'"/><feColorMatrix type="saturate" values="'+n(sr*100)/100+'"/><feComponentTransfer>'+f('R')+f('G')+f('B')+'</feComponentTransfer>';}
+function tintMatrix(src,dst){var a=Math.min(3.2,.62/Math.max(.12,lum(src))),t=hx(dst).map(function(v){return v/255;});
+  var row=function(k){return n(t[k]*a*.3*100)/100+' '+n(t[k]*a*.59*100)/100+' '+n(t[k]*a*.11*100)/100+' 0 0';};
+  return row(0)+' '+row(1)+' '+row(2)+' 0 0 0 1 0';}
+var phDefs=null;
+function phMask(uid,id,k){var key=uid+'m'+id;if(!phDefs[key])phDefs[key]='<radialGradient id="'+key+'g"><stop offset="0" stop-color="#fff"/><stop offset=".8" stop-color="#fff"/><stop offset="1" stop-color="#000"/></radialGradient><mask id="'+key+'" maskUnits="userSpaceOnUse" x="'+n(-k)+'" y="-1" width="'+n(2*k)+'" height="2"><ellipse rx="'+n(k)+'" ry="1" fill="url(#'+key+'g)"/></mask>';return key;}
+function phTint(uid,f,ck){var p=PH[f.id];if(!p||ck===p[0])return '';if(f.id==='gerbera'&&ck==='white')return '';var key=uid+'t'+f.id+ck;
+  if(!phDefs[key])phDefs[key]='<filter id="'+key+'" color-interpolation-filters="sRGB">'+recolorFilter(colOf(f,p[0])[2],colOf(f,ck)[2])+'</filter>';return key;}
+/* 단위 좌표(세로 반지름=1)에 사진 한 조각 */
+function photoPiece(uid,f,ck){var p=PH[f.id],cx=p[1],cy=p[2],rx=p[3],ry=p[4];
+  if(f.id==='gerbera'&&ck==='white'){cx=WHITE_GERBERA[0];cy=WHITE_GERBERA[1];rx=WHITE_GERBERA[2];ry=WHITE_GERBERA[3];}
+  var k=rx/ry,m=phMask(uid,f.id+(f.id==='gerbera'&&ck==='white'?'w':''),k),t=phTint(uid,f,ck);
+  return '<g mask="url(#'+m+')"'+(p[6]==='screen'?' style="mix-blend-mode:screen"':'')+'><svg x="'+n(-k)+'" y="-1" width="'+n(2*k)+'" height="2" viewBox="'+n(cx-rx)+' '+n(cy-ry)+' '+n(2*rx)+' '+n(2*ry)+'" preserveAspectRatio="none"><image href="'+phref(f.id)+'" width="400" height="'+p[5]+'"'+(t?' filter="url(#'+t+')"':'')+'/></svg></g>';}
+function photoHead(uid,f,ck,r){return '<g transform="scale('+n(r*1.12*100)/100+')">'+photoPiece(uid,f,ck)+'</g>';}
+function photoSpray(uid,f,ck,r){var p=PH[f.id],len=r*(ROLE[f.draw]==='spike'?1.6:1.25);
+  return '<g transform="translate(0 '+n(-len)+') scale('+n(len*100)/100+')">'+photoPiece(uid,f,ck)+'</g>';}
+function ckOf(f,hex){for(var i=0;i<f.colors.length;i++)if(f.colors[i][2]===hex)return f.colors[i][0];return f.colors[0][0];}
+
 /* ================= 꽃다발 엮기 ================= */
 var CX=300,NECK=612;
 function compose(D,uid,opt){
-  opt=opt||{};
+  opt=opt||{};var photo=(opt.look||D.look||LOOK)==='photo';phDefs={};
   var g=mulberry32((D.seed||1)*7919+13),heads=[],peri=[],fills=[];
   D.items.forEach(function(it){var f=FL[it.id];if(!f)return;var c=colOf(f,it.color)[2];
     for(var k=0;k<it.n;k++){var o={f:f,c:c,r:f.size*R(g,.9,1.08),sd:(g()*1e9)|0},role=ROLE[f.draw];
@@ -802,7 +845,7 @@ function compose(D,uid,opt){
   heads.forEach(function(h){h.k=h.r*R(g,.7,1.3);});heads.sort(function(a,b){return b.k-a.k;});
   var area=0;heads.forEach(function(h){area+=Math.PI*h.r*h.r;});
   var dens=shape==='natural'?.6:.8,R0=Math.max(Math.sqrt(area/Math.PI/dens),fills.length||peri.length?55:40);
-  var ex=shape==='oneside'?R0*.9:shape==='natural'?R0*1.12:R0*1.04,ey=shape==='oneside'?R0*1.14:R0*.9,gapF=shape==='natural'?.95:.78;
+  var ex=shape==='oneside'?R0*.9:shape==='natural'?R0*1.12:R0*1.04,ey=shape==='oneside'?R0*1.14:R0*.9,gapF=(shape==='natural'?.95:.78)*(((opt.look||D.look||LOOK)==='photo')?.92:1);
   var placed=[];
   heads.forEach(function(h,i){var best=null,bs=1e18,tries=i===0?1:80;
     for(var t=0;t<tries;t++){var x,y;
@@ -837,7 +880,7 @@ function compose(D,uid,opt){
   var stems='';for(var k=0;k<9;k++){var sx=CX-26+k*6.5+R(g,-2,2);stems+='<path d="M'+n(CX-10+k*2.5)+','+n(NECK-40)+' L'+n(sx)+','+n(690+R(g,-6,4))+'" stroke="'+(k%2?'#5f7e45':'#6f8f50')+'" stroke-width="'+n(R(g,4,6))+'" stroke-linecap="butt"/>';}
   out+=stems;
   /* 둘레 소재 */
-  var drawAt=function(o,x,y,rot){var gg=mulberry32(o.sd);return '<g transform="translate('+n(x)+' '+n(y)+') rotate('+n(rot)+') scale('+n(s*100)/100+')">'+drawFlower(o.f,o.c,o.r,gg)+'</g>';};
+  var drawAt=function(o,x,y,rot){var gg=mulberry32(o.sd),art=photo&&PH[o.f.id]?photoSpray(uid,o.f,ckOf(o.f,o.c),o.r):drawFlower(o.f,o.c,o.r,gg);return '<g transform="translate('+n(x)+' '+n(y)+') rotate('+n(rot)+') scale('+n(s*100)/100+')">'+art+'</g>';};
   var groups={green:[],spray:[],spike:[]};peri.forEach(function(o){groups[o.role].push(o);});
   var range={green:[-205,25,.86],spray:[-172,-8,.72],spike:[-150,-30,.55]};
   ['green','spray','spike'].forEach(function(key){var arr=groups[key],m=arr.length,rg=range[key];
@@ -845,10 +888,12 @@ function compose(D,uid,opt){
       if(shape==='oneside'&&key!=='green')ph=(-90+(ph/RAD+90)*.7)*RAD;
       out+=drawAt(o,W2(Math.cos(ph)*ex*d),H2(Math.sin(ph)*ey*d),ph/RAD+90+R(g,-8,8));}});
   /* 잎 바탕: 꽃 사이로 종이 대신 잎이 보이도록 */
-  if(heads.length){var nb=Math.max(14,Math.round(heads.length*3.2));for(var lb=0;lb<nb;lb++){var la=g()*TAU,ld=Math.sqrt(g())*.92,lx=Math.cos(la)*ex*ld,ly=Math.sin(la)*ey*ld,lc=shade(pick([['a','','#4f7440'],['b','','#5e8550'],['c','','#3f6435'],['d','','#6d9160']],['a','b','c','d'][(g()*4)|0])[2],R(g,-.05,.06));
+  if(photo&&heads.length){var nb2=Math.max(6,Math.round(heads.length*1.1));for(var lb2=0;lb2<nb2;lb2++){var la2=g()*TAU,ld2=Math.sqrt(g())*.95,src2=FL.ruscus;
+    out+='<g transform="translate('+n(W2(Math.cos(la2)*ex*ld2))+' '+n(H2(Math.sin(la2)*ey*ld2))+') rotate('+n(R(g,0,360))+') scale('+n(s*R(g,44,58)*100)/100+')">'+photoPiece(uid,src2,src2.colors[0][0])+'</g>';}}
+  else if(heads.length){var nb=Math.max(14,Math.round(heads.length*3.2));for(var lb=0;lb<nb;lb++){var la=g()*TAU,ld=Math.sqrt(g())*.92,lx=Math.cos(la)*ex*ld,ly=Math.sin(la)*ey*ld,lc=shade(pick([['a','','#4f7440'],['b','','#5e8550'],['c','','#3f6435'],['d','','#6d9160']],['a','b','c','d'][(g()*4)|0])[2],R(g,-.05,.06));
     out+='<g transform="translate('+n(W2(lx))+' '+n(H2(ly))+') rotate('+n(la/RAD+90+R(g,-50,50))+') scale('+n(s*100)/100+')">'+leafP(R(g,30,44),R(g,9,12),lc)+'</g>';}}
   /* 자동 잎 */
-  heads.forEach(function(h){if(g()<.5)return;var a=Math.atan2(h.y,h.x)+R(g,-.5,.5),col=shade('#527a42',R(g,-.08,.1));
+  heads.forEach(function(h){if(photo||g()<.5)return;var a=Math.atan2(h.y,h.x)+R(g,-.5,.5),col=shade('#527a42',R(g,-.08,.1));
     out+='<g transform="translate('+n(W2(h.x+Math.cos(a)*h.r*.55))+' '+n(H2(h.y+Math.sin(a)*h.r*.55))+') rotate('+n(a/RAD+90)+') scale('+n(s*100)/100+')">'+leafP(h.r*1.05,h.r*.3,col)+'</g>';});
   /* 채움 꽃 */
   fills.forEach(function(o,i){var ph,d,rot;
@@ -857,7 +902,7 @@ function compose(D,uid,opt){
   /* 꽃송이 */
   heads.slice().sort(function(a,b){return a.y-b.y;}).forEach(function(h){var X=W2(h.x),Y=H2(h.y),ang=Math.atan2(X-CX,NECK-Y)/RAD,
     dir=(h.f.draw==='tulip'||h.f.draw==='calla'||h.f.draw==='lily'||h.f.draw==='orchid')?.7:.2;
-    out+='<g filter="url(#'+uid+'sh)" transform="translate('+n(X)+' '+n(Y)+') rotate('+n(ang*dir)+') scale('+n(s*100)/100+' '+n(s*94)/100+')">'+drawFlower(h.f,h.c,h.r,mulberry32(h.sd))+'</g>';});
+    out+='<g filter="url(#'+uid+'sh)" transform="translate('+n(X)+' '+n(Y)+') rotate('+n(ang*dir)+') scale('+n(s*100)/100+' '+n(s*94)/100+')">'+(photo&&PH[h.f.id]?photoHead(uid,h.f,ckOf(h.f,h.c),h.r):drawFlower(h.f,h.c,h.r,mulberry32(h.sd)))+'</g>';});
   /* 앞 포장지 */
   var fT=B-(B-T)*.2,nw=30;
   var fop=vel?' fill-opacity=".62"':'';
@@ -881,6 +926,7 @@ function compose(D,uid,opt){
       '<g transform="translate('+n(cxp)+' '+n(cyp)+') rotate(8)"><rect x="-44" y="-4" width="96" height="62" rx="2" fill="#fffdf7" stroke="#cdbb9c"/><path d="M-44,8 L52,8" stroke="#eadfcb"/>'+
       '<text x="4" y="30" text-anchor="middle" font-family="Nanum Pen Script, cursive" font-size="17" fill="#5a4636">'+esc(D.to?'To. '+D.to.slice(0,9):'For you')+'</text>'+
       '<path d="M4,50 c-3,-4 -9,-3 -6,2 l6,5 l6,-5 c3,-5 -3,-6 -6,-2z" fill="#d06d80"/></g>';}
+  if(photo){var dd='';for(var key in phDefs)dd+=phDefs[key];out+='<defs>'+dd+'</defs>';}
   /* 크기 계산 (대략: 1단위≈1mm) */
   var dia=Math.round((2*sideExt)/10/5)*5;
   return {svg:out,count:heads.length+fills.length+peri.length,dia:Math.max(15,dia)};
@@ -944,7 +990,7 @@ function renderDex(){
       '<button type="button" class="btn small" data-add="'+f.id+'">꽃다발에 담기</button></article>';}).join('');
 }
 function renderCredits(){$('creditList').innerHTML=FLOWERS.filter(function(f){return PHOTO[f.id];}).map(function(f){var p=PHOTO[f.id];return '<li>'+esc(f.name)+': <a href="'+esc(p[3])+'" target="_blank" rel="noopener">'+esc(p[1])+'</a> · '+esc(p[2])+'</li>';}).join('');}
-function design(){return {items:S.items,shape:S.shape,paper:S.paper,ribbon:S.ribbon,seed:S.seed,to:S.to,msg:S.msg};}
+function design(){return {look:LOOK,items:S.items,shape:S.shape,paper:S.paper,ribbon:S.ribbon,seed:S.seed,to:S.to,msg:S.msg};}
 function warnings(){
   var w=[],has=function(id,col){return S.items.some(function(it){return it.id===id&&(!col||it.color===col);});},t=S.theme;
   if(!S.items.length)w.push('꽃을 하나 이상 담아 주세요.');
@@ -995,6 +1041,9 @@ function copyText(txt,done){
   if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(txt).then(function(){toast(done);},fb);else fb();}
 function svgImage(svg){return new Promise(function(res,rej){var img=new Image();var url=URL.createObjectURL(new Blob([svg],{type:'image/svg+xml'}));img.onload=function(){res(img);setTimeout(function(){URL.revokeObjectURL(url);},500);};img.onerror=rej;img.src=url;});}
 function wrapLines(ctx,text,maxW){var out=[];String(text).split('\n').forEach(function(par){var line='';for(var i=0;i<par.length;i++){var tst=line+par[i];if(ctx.measureText(tst).width>maxW&&line){out.push(line);line=par[i];}else line=tst;}out.push(line);});return out;}
+function loadPhotoData(){if(LOOK!=='photo'||window.__phData)return Promise.resolve();var d={};
+  return Promise.all(Object.keys(PH).map(function(id){return fetch('photos/'+id+'.jpg').then(function(r){return r.blob();}).then(function(b){return new Promise(function(res){var fr=new FileReader();fr.onload=function(){d[id]=fr.result;res();};fr.readAsDataURL(b);});});}))
+    .then(function(){window.__phData=d;}).catch(function(){toast('사진을 불러오지 못했어요. 인터넷 주소(https)로 열어 주세요.');});}
 function downloadPNG(){
   var D=design(),svg=bouquetSVG(D,'dl',{noCard:false});
   var fontsReady=document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve();
@@ -1057,7 +1106,9 @@ function bind(){
   txt('inTo','to');txt('inFrom','from');txt('inMsg','msg','msgCount');txt('inLetter','letter','letterCount');
   $('inFont').addEventListener('change',function(){S.font=this.value;update();});
   $('sugg').addEventListener('click',function(e){var b=e.target.closest('[data-m]');if(!b)return;S.msg=b.dataset.m;$('inMsg').value=S.msg;$('msgCount').textContent=S.msg.length;update();});
-  $('dlPng').addEventListener('click',downloadPNG);
+  $('dlPng').addEventListener('click',function(){loadPhotoData().then(downloadPNG);});
+  document.querySelector('.look').addEventListener('click',function(e){var b=e.target.closest('[data-look]');if(!b)return;LOOK=b.dataset.look;try{localStorage.setItem('kkotnara-look',LOOK);}catch(e){}
+    this.querySelectorAll('[data-look]').forEach(function(x){x.setAttribute('aria-pressed',String(x===b));});update();});
   $('dlSvg').addEventListener('click',function(){saveBlob(fileBase()+'.svg',new Blob([bouquetSVG(design(),'sv')],{type:'image/svg+xml'}));});
   $('copyMemo').addEventListener('click',function(){copyText(memoText(),'주문 메모를 복사했어요. 문자나 메신저에 붙여 넣으세요.');});
   $('copyAddr').addEventListener('click',function(){copyText('경상북도 포항시 북구 삼호로 67 꽃나라','주소를 복사했어요.');});
@@ -1074,9 +1125,10 @@ function hero(){if(!$('heroBox'))return;var t=TH[heroList[hi%heroList.length]];h
 if(!loadState())applyTheme('love',true);
 $('inTo').value=S.to;$('inFrom').value=S.from;$('inMsg').value=S.msg;$('inLetter').value=S.letter;$('inFont').value=S.font;
 $('msgCount').textContent=S.msg.length;$('letterCount').textContent=S.letter.length;
+document.querySelectorAll('[data-look]').forEach(function(x){x.setAttribute('aria-pressed',String(x.dataset.look===LOOK));});
 bind();refreshAll();renderDex();renderCredits();hero();
 if(!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches))setInterval(hero,5200);
-window.__kk={compose:compose,FLOWERS:FLOWERS,THEMES:THEMES,S:S,bouquetSVG:bouquetSVG};
+window.__kk={loadPhotoData:loadPhotoData,setLook:function(v){LOOK=v;},compose:compose,FLOWERS:FLOWERS,THEMES:THEMES,S:S,bouquetSVG:bouquetSVG};
 })();
 </script>
 </body>
