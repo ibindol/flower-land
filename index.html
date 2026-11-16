@@ -213,6 +213,35 @@ header.top{border-bottom:1px solid var(--line);background:rgba(255,253,249,.85);
 /* 오시는 길 */
 .shop{padding:26px 0 10px}
 .shop .hand{margin:0 0 2px;font-size:22px;color:var(--rose)}
+.theme.real{text-decoration:none;color:var(--ink);border-style:dashed;border-color:var(--rose)}
+.theme.real img{width:36px;height:36px;border-radius:50%;object-fit:cover;margin-bottom:2px}
+.shop-filter{display:flex;flex-wrap:wrap;gap:0 18px}
+.shop-grid .ph{display:block;position:relative}
+.shop-grid .no{position:absolute;left:8px;top:8px;background:rgba(255,253,249,.92);color:var(--ink);font-size:13px;font-weight:700;border-radius:999px;padding:2px 9px}
+.shop-grid .sc{display:flex;align-items:center;gap:8px;padding:8px 10px 10px;background:var(--paper)}
+.shop-grid .nm{flex:1;font-size:13.5px;line-height:1.35;color:#55473b}
+.shop-grid li.on a{border-color:var(--rose)}
+.shop-grid .card-box{border:1.5px solid var(--line);border-radius:12px;overflow:hidden;background:var(--paper)}
+.shop-grid li.on .card-box{border-color:var(--rose);box-shadow:0 0 0 2px var(--rose-soft)}
+.shop-grid .card-box a{border:0;border-radius:0}
+.pick{flex:none;border:1.5px solid var(--line2);background:#fff;border-radius:999px;padding:5px 11px;font-size:13px;cursor:pointer;color:var(--ink)}
+.pick[aria-pressed="true"],.lb-pick[aria-pressed="true"]{background:var(--rose);border-color:var(--rose);color:#fff}
+.shop-empty,.pick-empty{color:var(--muted);text-align:center}
+.order{margin:22px 0 0;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:18px 20px}
+.order h3{margin:0;font-size:21px}
+.order-head p{color:var(--muted);margin:4px 0 12px;font-size:14.5px}
+.pick-list{list-style:none;margin:0 0 12px;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.pick-list li{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:12px;padding:5px 6px 5px 5px;background:#fff;font-size:14px}
+.pick-list img{width:44px;height:44px;object-fit:cover;border-radius:8px}
+.pick-list button{border:0;background:none;font-size:20px;line-height:1;color:var(--muted);cursor:pointer;padding:2px 6px}
+.order-form{display:grid;grid-template-columns:repeat(3,1fr);gap:10px 12px;margin:6px 0 14px}
+.order-form .wide{grid-column:1/-1}
+.order-btns{display:flex;flex-wrap:wrap;gap:8px}
+.pick-pill{position:fixed;right:16px;bottom:16px;z-index:40;background:var(--rose);color:#fff;text-decoration:none;border-radius:999px;padding:10px 18px;font-size:15px;box-shadow:0 6px 18px rgba(90,40,50,.28)}
+.lb-pick{position:static!important;width:auto!important;height:auto!important;border-radius:999px!important;font-size:14px!important;padding:6px 14px!important;margin-left:8px;background:rgba(255,253,249,.18)!important;vertical-align:middle}
+.lb-pick[aria-pressed="true"]{background:var(--rose)!important}
+@media (max-width:760px){.order-form{grid-template-columns:1fr}.order{padding:16px 14px}}
+@media (max-width:560px){.shop-grid .sc{flex-direction:column;align-items:stretch;gap:6px;padding:7px 8px 8px}.pick{width:100%}.shop-grid .nm{font-size:13px}}
 .shop-grid{list-style:none;margin:0;padding:0;columns:4 220px;column-gap:12px}
 .shop-grid li{break-inside:avoid;margin:0 0 12px}
 .shop-grid a{display:block;border-radius:12px;overflow:hidden;background:var(--paper);border:1px solid var(--line);box-shadow:0 1px 0 rgba(80,60,40,.05)}
@@ -294,7 +323,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 <header class="top">
   <div class="wrap">
     <a class="logo" href="#"><svg width="30" height="30" viewBox="-20 -20 40 40" aria-hidden="true"><g fill="#d9798b" stroke="#a8455a" stroke-width="1.2"><ellipse cx="0" cy="-9" rx="6.5" ry="8.5"/><ellipse cx="0" cy="-9" rx="6.5" ry="8.5" transform="rotate(72)"/><ellipse cx="0" cy="-9" rx="6.5" ry="8.5" transform="rotate(144)"/><ellipse cx="0" cy="-9" rx="6.5" ry="8.5" transform="rotate(216)"/><ellipse cx="0" cy="-9" rx="6.5" ry="8.5" transform="rotate(288)"/></g><circle r="4.5" fill="#f1c45a" stroke="#b98a2a" stroke-width="1"/></svg><b>꽃나라</b><small>Flower Land</small></a>
-    <nav aria-label="바로가기"><a href="#maker">꽃다발 그리기</a><a href="#dex">꽃말 사전</a><a class="hide-s" href="#care">오래 보는 법</a><a href="#shop">가게 꽃</a><a href="#visit">오시는 길</a></nav>
+    <nav aria-label="바로가기"><a href="#shop">가게 꽃다발</a><a href="#maker">그려 보기</a><a class="hide-s" href="#dex">꽃말 사전</a><a class="hide-s" href="#care">오래 보는 법</a><a href="#visit">오시는 길</a></nav>
   </div>
 </header>
 
@@ -307,7 +336,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       <p class="lead">누구에게, 어떤 마음을 전하고 싶은지 고르고 마음에 드는 꽃과 포장을 담아 보세요. 꽃말도 함께 알려 드리고, 카드와 편지까지 넣어 시안으로 저장할 수 있어요.</p>
       <ol class="hero-steps"><li><i>1</i>테마 고르기</li><li><i>2</i>꽃 담기</li><li><i>3</i>포장 고르기</li><li><i>4</i>카드·편지 쓰기</li></ol>
       <a class="btn primary" href="#maker">꽃다발 그려 보기</a>
-      <a class="btn" href="#dex" style="margin-left:6px">꽃말 먼저 보기</a>
+      <a class="btn" href="#shop" style="margin-left:6px">가게 꽃다발에서 고르기</a>
     </div>
     <figure class="hero-pic" style="margin:0">
       <span class="tape" aria-hidden="true"></span>
@@ -316,6 +345,39 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
     </figure>
   </div>
 </section>
+
+<section class="shop" id="shop" aria-labelledby="shopTitle">
+  <div class="wrap">
+    <div class="sec-head"><p class="hand">하나하나 고르기 어렵다면</p><h2 id="shopTitle">가게 꽃다발 고르기</h2><p>꽃나라에서 실제로 만든 꽃이에요. 마음에 드는 사진을 골라 번호만 알려 주시면 그 느낌(색감과 모양)으로 만들어 드려요. 그날 들어온 꽃에 따라 꽃 종류는 조금 달라질 수 있어요.</p></div>
+    <div class="shop-filter">
+      <div class="chips" id="shopTone" role="group" aria-label="색감으로 보기"></div>
+      <div class="chips" id="shopKind" role="group" aria-label="모양으로 보기"></div>
+    </div>
+    <ul class="shop-grid" id="shopGrid"></ul>
+    <p class="shop-empty" id="shopEmpty" hidden>이 색감의 사진은 아직 없어요. 다른 색을 눌러 보세요.</p>
+    <p class="shop-more"><button type="button" class="btn" id="shopMore"></button></p>
+    <div class="order" id="order">
+      <div class="order-head"><h3>내가 고른 꽃</h3><p>고른 사진 번호와 원하는 점을 메모로 만들어 드려요. 복사해서 문자나 카카오톡으로 보내시거나, 전화로 번호만 말씀해 주세요.</p></div>
+      <ul class="pick-list" id="pickList"></ul>
+      <p class="pick-empty" id="pickEmpty">아직 고른 꽃이 없어요. 사진 아래 <b>이 느낌으로</b>를 눌러 보세요.</p>
+      <div class="order-form">
+        <div class="field"><label for="odDate">받는 날</label><input id="odDate" maxlength="30" placeholder="예) 11월 20일 오후 3시"></div>
+        <div class="field"><label for="odBudget">예산</label><input id="odBudget" maxlength="20" placeholder="예) 5만 원 정도"></div>
+        <div class="field"><label for="odUse">어떤 날인가요</label><input id="odUse" maxlength="30" placeholder="예) 어머니 생신, 개업 축하"></div>
+        <div class="field wide"><label for="odReq">바라는 점</label><textarea id="odReq" maxlength="300" rows="3" placeholder="예) 사진보다 조금 작게, 분홍을 더 많이 넣어 주세요"></textarea></div>
+      </div>
+      <div class="order-btns"><button type="button" class="btn primary" id="odCopy">주문 메모 복사</button><a class="btn" href="tel:050713960776">전화로 주문하기</a><button type="button" class="btn" id="odClear">다시 고르기</button></div>
+    </div>
+    <p class="shop-copy">이 사진들은 꽃나라 사장님이 직접 만든 꽃을 찍은 것으로, 저작권은 꽃나라에 있어요. 허락 없이 가져가 쓰지 말아 주세요.</p>
+  </div>
+  <dialog class="lb" id="lb" aria-label="사진 크게 보기">
+    <figure><img id="lbImg" alt=""><figcaption><span id="lbCap"></span> <button type="button" class="lb-pick" id="lbPick" aria-pressed="false">이 느낌으로</button></figcaption></figure>
+    <button type="button" class="lb-x" id="lbX" aria-label="닫기">×</button>
+    <button type="button" class="lb-nav lb-p" id="lbP" aria-label="이전 사진">‹</button>
+    <button type="button" class="lb-nav lb-n" id="lbN" aria-label="다음 사진">›</button>
+  </dialog>
+</section>
+<a class="pick-pill" id="pickPill" href="#order" hidden></a>
 
 <section class="maker" id="maker" aria-labelledby="makerTitle">
   <div class="wrap">
@@ -429,49 +491,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       <li><b>시원한 곳에 둬요</b>직사광선, 에어컨·히터 바람, 과일 옆은 피해 주세요. 과일에서 나오는 가스가 꽃을 빨리 시들게 해요.</li>
     </ol>
   </div>
-</section>
-
-<section class="shop" id="shop" aria-labelledby="shopTitle">
-  <div class="wrap">
-    <div class="sec-head"><p class="hand">가게에서 직접 엮었어요</p><h2 id="shopTitle">꽃나라에서 만든 꽃</h2><p>그동안 손님들께 보내 드린 꽃바구니와 꽃다발이에요. 사진을 누르면 크게 볼 수 있어요. 마음에 드는 사진을 보여 주시면 비슷한 느낌으로 만들어 드려요.</p></div>
-    <ul class="shop-grid" id="shopGrid">
-      <li><a href="shop/shop01.jpg" data-i="0"><img src="shop/shop01_s.jpg" width="363" height="560" loading="lazy" decoding="async" alt="붉은 장미 하트 꽃다발"></a></li>
-      <li><a href="shop/shop02.jpg" data-i="1"><img src="shop/shop02_s.jpg" width="560" height="504" loading="lazy" decoding="async" alt="붉은 장미와 유칼립투스 꽃바구니"></a></li>
-      <li><a href="shop/shop03.jpg" data-i="2"><img src="shop/shop03_s.jpg" width="560" height="377" loading="lazy" decoding="async" alt="붉은 장미 꽃바구니"></a></li>
-      <li><a href="shop/shop04.jpg" data-i="3"><img src="shop/shop04_s.jpg" width="560" height="404" loading="lazy" decoding="async" alt="분홍 거베라와 노란 소국 꽃바구니"></a></li>
-      <li><a href="shop/shop05.jpg" data-i="4"><img src="shop/shop05_s.jpg" width="560" height="486" loading="lazy" decoding="async" alt="흰 거베라와 보라 리시안셔스 꽃바구니"></a></li>
-      <li><a href="shop/shop06.jpg" data-i="5"><img src="shop/shop06_s.jpg" width="560" height="426" loading="lazy" decoding="async" alt="분홍 거베라와 장미 꽃바구니"></a></li>
-      <li><a href="shop/shop07.jpg" data-i="6"><img src="shop/shop07_s.jpg" width="560" height="382" loading="lazy" decoding="async" alt="주황 거베라와 백합 꽃바구니"></a></li>
-      <li><a href="shop/shop13.jpg" data-i="7"><img src="shop/shop13_s.jpg" width="560" height="336" loading="lazy" decoding="async" alt="보라 리시안셔스 꽃바구니"></a></li>
-      <li><a href="shop/shop09.jpg" data-i="8"><img src="shop/shop09_s.jpg" width="560" height="384" loading="lazy" decoding="async" alt="분홍 장미와 노란 공 모양 꽃 꽃바구니"></a></li>
-      <li><a href="shop/shop10.jpg" data-i="9"><img src="shop/shop10_s.jpg" width="560" height="467" loading="lazy" decoding="async" alt="분홍 장미와 흰 데이지 꽃바구니"></a></li>
-      <li><a href="shop/shop11.jpg" data-i="10"><img src="shop/shop11_s.jpg" width="516" height="560" loading="lazy" decoding="async" alt="연분홍 장미와 리시안셔스 꽃바구니"></a></li>
-      <li><a href="shop/shop12.jpg" data-i="11"><img src="shop/shop12_s.jpg" width="560" height="330" loading="lazy" decoding="async" alt="주황 거베라와 살구빛 장미 꽃바구니"></a></li>
-      <li class="more" hidden><a href="shop/shop08.jpg" data-i="12"><img src="shop/shop08_s.jpg" width="560" height="476" loading="lazy" decoding="async" alt="주황·노랑 꽃바구니"></a></li>
-      <li class="more" hidden><a href="shop/shop14.jpg" data-i="13"><img src="shop/shop14_s.jpg" width="560" height="452" loading="lazy" decoding="async" alt="살구빛 장미와 하늘색 꽃 꽃바구니"></a></li>
-      <li class="more" hidden><a href="shop/shop15.jpg" data-i="14"><img src="shop/shop15_s.jpg" width="560" height="388" loading="lazy" decoding="async" alt="분홍 거베라와 노란 소국 꽃바구니"></a></li>
-      <li class="more" hidden><a href="shop/shop16.jpg" data-i="15"><img src="shop/shop16_s.jpg" width="560" height="466" loading="lazy" decoding="async" alt="쇼핑백에 담은 꽃다발 두 개"></a></li>
-      <li class="more" hidden><a href="shop/shop17.jpg" data-i="16"><img src="shop/shop17_s.jpg" width="560" height="409" loading="lazy" decoding="async" alt="분홍 거베라 꽃바구니"></a></li>
-      <li class="more" hidden><a href="shop/shop18.jpg" data-i="17"><img src="shop/shop18_s.jpg" width="560" height="388" loading="lazy" decoding="async" alt="분홍·보라 소국 꽃바구니"></a></li>
-      <li class="more" hidden><a href="shop/shop19.jpg" data-i="18"><img src="shop/shop19_s.jpg" width="560" height="388" loading="lazy" decoding="async" alt="흰 백합과 살구빛 장미 꽃바구니"></a></li>
-      <li class="more" hidden><a href="shop/shop20.jpg" data-i="19"><img src="shop/shop20_s.jpg" width="560" height="551" loading="lazy" decoding="async" alt="노란 거베라와 보라 꽃 꽃바구니"></a></li>
-      <li class="more" hidden><a href="shop/shop21.jpg" data-i="20"><img src="shop/shop21_s.jpg" width="560" height="303" loading="lazy" decoding="async" alt="작은 꽃바구니 두 개"></a></li>
-      <li class="more" hidden><a href="shop/shop22.jpg" data-i="21"><img src="shop/shop22_s.jpg" width="545" height="560" loading="lazy" decoding="async" alt="연보라 포장지 꽃다발"></a></li>
-      <li class="more" hidden><a href="shop/shop23.jpg" data-i="22"><img src="shop/shop23_s.jpg" width="560" height="450" loading="lazy" decoding="async" alt="연두 리시안셔스와 분홍 꽃 꽃바구니"></a></li>
-      <li class="more" hidden><a href="shop/shop24.jpg" data-i="23"><img src="shop/shop24_s.jpg" width="560" height="390" loading="lazy" decoding="async" alt="분홍·보라 작은 꽃바구니"></a></li>
-      <li class="more" hidden><a href="shop/shop25.jpg" data-i="24"><img src="shop/shop25_s.jpg" width="560" height="528" loading="lazy" decoding="async" alt="생일 축하 픽을 꽂은 꽃바구니"></a></li>
-      <li class="more" hidden><a href="shop/shop26.jpg" data-i="25"><img src="shop/shop26_s.jpg" width="558" height="560" loading="lazy" decoding="async" alt="손잡이가 높은 파스텔 꽃바구니"></a></li>
-      <li class="more" hidden><a href="shop/shop27.jpg" data-i="26"><img src="shop/shop27_s.jpg" width="560" height="394" loading="lazy" decoding="async" alt="분홍 거베라와 붉은 장미 꽃바구니"></a></li>
-    </ul>
-    <p class="shop-more"><button type="button" class="btn" id="shopMore">사진 15장 더 보기</button></p>
-    <p class="shop-copy">이 사진들은 꽃나라 사장님이 직접 만든 꽃을 찍은 것으로, 저작권은 꽃나라에 있어요. 허락 없이 가져가 쓰지 말아 주세요.</p>
-  </div>
-  <dialog class="lb" id="lb" aria-label="사진 크게 보기">
-    <figure><img id="lbImg" alt=""><figcaption><span id="lbCap"></span> <small id="lbNum"></small></figcaption></figure>
-    <button type="button" class="lb-x" id="lbX" aria-label="닫기">×</button>
-    <button type="button" class="lb-nav lb-p" id="lbP" aria-label="이전 사진">‹</button>
-    <button type="button" class="lb-nav lb-n" id="lbN" aria-label="다음 사진">›</button>
-  </dialog>
 </section>
 
 <section class="visit" id="visit" aria-labelledby="visitTitle">
@@ -1012,7 +1031,7 @@ function totalCount(){var t=0;S.items.forEach(function(it){t+=it.n;});return t;}
 function sizeName(c){return c<=5?'미니':c<=12?'스몰':c<=24?'미디움':'라지';}
 function renderThemes(){
   var last='';
-  $('themes').innerHTML=THEMES.map(function(t){var f=FL[t.key[0]],grp=t.group==='season'?'season':t.id==='free'?'free':'heart',hd='';if(grp!==last){hd='<p class="th-group">'+(grp==='season'?'계절 꽃다발':grp==='free'?'그 밖에':'마음 전하기')+'</p>';last=grp;}return hd+'<button type="button" class="theme" data-id="'+t.id+'" aria-pressed="'+(S.theme===t.id)+'">'+flowerIcon(f,t.key[1])+'<b>'+esc(t.name)+'</b><small>'+esc(t.desc)+'</small></button>';}).join('');
+  $('themes').innerHTML=THEMES.map(function(t){var f=FL[t.key[0]],grp=t.group==='season'?'season':t.id==='free'?'free':'heart',hd='';if(grp!==last){hd='<p class="th-group">'+(grp==='season'?'계절 꽃다발':grp==='free'?'그 밖에':'마음 전하기')+'</p>';last=grp;}return hd+'<button type="button" class="theme" data-id="'+t.id+'" aria-pressed="'+(S.theme===t.id)+'">'+flowerIcon(f,t.key[1])+'<b>'+esc(t.name)+'</b><small>'+esc(t.desc)+'</small></button>';}).join('')+'<a class="theme real" href="#shop"><img src="shop/shop01_s.jpg" alt="" width="36" height="36"><b>꽃나라에서 만든 꽃다발로</b><small>실제 사진 보고 고르기</small></a>';
   var t=TH[S.theme];$('themeTip').textContent=t.tip;$('themeTip').hidden=false;
   $('sugg').innerHTML=t.msgs.map(function(m){return '<button type="button" data-m="'+esc(m)+'">'+esc(m)+'</button>';}).join('');
 }
@@ -1193,11 +1212,53 @@ $('msgCount').textContent=S.msg.length;$('letterCount').textContent=S.letter.len
 document.querySelectorAll('[data-look]').forEach(function(x){x.setAttribute('aria-pressed',String(x.dataset.look===LOOK));});
 bind();refreshAll();renderDex();renderCredits();hero();
 if(!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches))setInterval(hero,5200);
-/* 가게 꽃 사진 모음 */
-(function(){var grid=$('shopGrid'),lb=$('lb'),img=$('lbImg'),cap=$('lbCap'),num=$('lbNum'),links=[].slice.call(grid.querySelectorAll('a')),cur=0;
-  $('shopMore').addEventListener('click',function(){grid.querySelectorAll('li.more').forEach(function(li){li.hidden=false;});this.parentNode.remove();});
-  function show(i){cur=(i+links.length)%links.length;var a=links[cur];img.src=a.getAttribute('href');img.alt=a.querySelector('img').alt;cap.textContent=img.alt;num.textContent=(cur+1)+' / '+links.length;}
-  grid.addEventListener('click',function(e){var a=e.target.closest('a[data-i]');if(!a||!lb.showModal)return;e.preventDefault();show(+a.dataset.i);lb.showModal();});
+/* 가게 꽃다발 고르기 */
+var SHOP=[
+ ['빨간 장미 하트 꽃다발','bouquet',['red']],['빨간 장미와 유칼립투스 바구니','basket',['red']],['빨간 장미 바구니','basket',['red']],
+ ['분홍 거베라와 노란 소국 바구니','basket',['pink','mix']],['흰 거베라와 보라 리시안셔스 바구니','basket',['mix','purple']],['분홍 거베라와 장미 바구니','basket',['pink']],
+ ['주황 거베라와 백합 바구니','basket',['yellow']],['보라 리시안셔스 바구니','basket',['purple','mix']],['분홍 장미와 노란 공 꽃 바구니','basket',['pink','mix']],
+ ['분홍 장미와 흰 데이지 바구니','basket',['pink']],['연분홍 장미와 리시안셔스 바구니','basket',['pastel','pink']],['주황 거베라와 살구 장미 바구니','basket',['yellow']],
+ ['주황·노랑 꽃 바구니','basket',['yellow']],['살구 장미와 하늘색 꽃 바구니','basket',['pastel']],['분홍 거베라와 노란 소국 바구니 2','basket',['pink','mix']],
+ ['쇼핑백에 담은 파스텔 꽃다발','bouquet',['pastel','pink']],['분홍 거베라 바구니','basket',['pink']],['분홍·보라 소국 바구니','basket',['purple','pastel']],
+ ['흰 백합과 살구 장미 바구니','basket',['pastel']],['노란 거베라와 보라 꽃 바구니','basket',['mix','yellow','purple']],['작은 꽃바구니 한 쌍','basket',['purple','pink']],
+ ['연보라 포장 꽃다발','bouquet',['pastel']],['연두와 분홍 파스텔 바구니','basket',['pastel']],['분홍·보라 작은 바구니','basket',['purple','pink']],
+ ['생일 축하 픽을 꽂은 바구니','basket',['mix','yellow']],['손잡이 높은 파스텔 바구니','basket',['pastel']],['분홍 거베라와 빨간 장미 바구니','basket',['pink','red']]];
+var SHOP_SZ=[[363,560],[560,504],[560,377],[560,404],[560,486],[560,426],[560,382],[560,336],[560,384],[560,467],[516,560],[560,330],[560,476],[560,452],[560,388],[560,466],[560,409],[560,388],[560,388],[560,551],[560,303],[545,560],[560,450],[560,390],[560,528],[558,560],[560,394]];
+var TONES=[['all','전체'],['red','빨강'],['pink','분홍'],['yellow','노랑·주황'],['purple','보라'],['pastel','연한 파스텔'],['mix','알록달록']];
+var KINDS=[['all','전체'],['basket','꽃바구니'],['bouquet','꽃다발']];
+(function(){var grid=$('shopGrid'),lb=$('lb'),img=$('lbImg'),cap=$('lbCap'),SHOW=12,P={tone:'all',kind:'all',more:false,picks:[],f:{}},vis=[],cur=0,pillHide=false;
+  try{var sv=JSON.parse(localStorage.getItem('kkotnara-shop')||'{}');if(sv.picks)P.picks=sv.picks.filter(function(i){return SHOP[i];});if(sv.f)P.f=sv.f;}catch(e){}
+  var save=function(){try{localStorage.setItem('kkotnara-shop',JSON.stringify({picks:P.picks,f:P.f}));}catch(e){}};
+  var no=function(i){return (i<9?'0':'')+(i+1);};
+  var src=function(i,big){return 'shop/shop'+no(i)+(big?'':'_s')+'.jpg';};
+  var label=function(i){return no(i)+'번 '+SHOP[i][0];};
+  var chips=function(list,cur,k){return list.map(function(c){return '<button type="button" class="chip" data-'+k+'="'+c[0]+'" aria-pressed="'+(cur===c[0])+'">'+c[1]+'</button>';}).join('');};
+  function render(){
+    $('shopTone').innerHTML=chips(TONES,P.tone,'tone');$('shopKind').innerHTML=chips(KINDS,P.kind,'kind');
+    var all=[];SHOP.forEach(function(x,i){if((P.tone==='all'||x[2].indexOf(P.tone)>=0)&&(P.kind==='all'||x[1]===P.kind))all.push(i);});
+    var filtered=P.tone!=='all'||P.kind!=='all';vis=(filtered||P.more)?all:all.slice(0,SHOW);
+    grid.innerHTML=vis.map(function(i,k){var on=P.picks.indexOf(i)>=0,sz=SHOP_SZ[i];
+      return '<li class="'+(on?'on':'')+'"><div class="card-box"><a class="ph" href="'+src(i,1)+'" data-k="'+k+'"><img src="'+src(i)+'" width="'+sz[0]+'" height="'+sz[1]+'" loading="lazy" decoding="async" alt="'+esc(SHOP[i][0])+'"><span class="no">'+no(i)+'번</span></a>'+
+        '<div class="sc"><span class="nm">'+esc(SHOP[i][0])+'</span><button type="button" class="pick" data-pick="'+i+'" aria-pressed="'+on+'">'+(on?'골랐어요 ✓':'이 느낌으로')+'</button></div></div></li>';}).join('');
+    $('shopEmpty').hidden=all.length>0;
+    var rest=all.length-vis.length;$('shopMore').parentNode.hidden=rest<=0;$('shopMore').textContent='사진 '+rest+'장 더 보기';
+    renderPicks();}
+  function renderPicks(){
+    $('pickList').innerHTML=P.picks.map(function(i){return '<li><img src="'+src(i)+'" alt=""><span>'+esc(label(i))+'</span><button type="button" data-unpick="'+i+'" aria-label="'+no(i)+'번 빼기">×</button></li>';}).join('');
+    $('pickEmpty').hidden=P.picks.length>0;
+    var pill=$('pickPill');pill.textContent='고른 꽃 '+P.picks.length+'개 · 주문 메모';pill.hidden=!P.picks.length||pillHide;}
+  function syncLb(){var i=vis[cur],on=P.picks.indexOf(i)>=0;$('lbPick').setAttribute('aria-pressed',on);$('lbPick').textContent=on?'골랐어요 ✓':'이 느낌으로';}
+  function toggle(i){var k=P.picks.indexOf(i);if(k>=0)P.picks.splice(k,1);else{P.picks.push(i);toast(no(i)+'번을 골랐어요. 아래 "내가 고른 꽃"에 담겼어요.');}save();render();if(lb.open)syncLb();}
+  function show(k){cur=(k+vis.length)%vis.length;var i=vis[cur];img.src=src(i,1);img.alt=SHOP[i][0];cap.textContent=label(i);syncLb();}
+  function open(k){if(!lb.showModal)return false;show(k);if(!lb.open)lb.showModal();return true;}
+  if('IntersectionObserver' in window)new IntersectionObserver(function(es){pillHide=es[0].isIntersecting;renderPicks();}).observe($('order'));
+  $('shopTone').addEventListener('click',function(e){var b=e.target.closest('[data-tone]');if(b){P.tone=b.dataset.tone;render();}});
+  $('shopKind').addEventListener('click',function(e){var b=e.target.closest('[data-kind]');if(b){P.kind=b.dataset.kind;render();}});
+  $('shopMore').addEventListener('click',function(){P.more=true;render();});
+  grid.addEventListener('click',function(e){var p=e.target.closest('[data-pick]');if(p){toggle(+p.dataset.pick);return;}
+    var a=e.target.closest('a[data-k]');if(a&&open(+a.dataset.k))e.preventDefault();});
+  $('pickList').addEventListener('click',function(e){var b=e.target.closest('[data-unpick]');if(b)toggle(+b.dataset.unpick);});
+  $('lbPick').addEventListener('click',function(){toggle(vis[cur]);});
   $('lbX').addEventListener('click',function(){lb.close();});
   $('lbP').addEventListener('click',function(){show(cur-1);});
   $('lbN').addEventListener('click',function(){show(cur+1);});
@@ -1205,6 +1266,18 @@ if(!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').ma
   lb.addEventListener('keydown',function(e){if(e.key==='ArrowLeft')show(cur-1);else if(e.key==='ArrowRight')show(cur+1);});
   var sx=null;lb.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;},{passive:true});
   lb.addEventListener('touchend',function(e){if(sx===null)return;var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>50)show(cur+(dx<0?1:-1));sx=null;});
+  [['odDate','date'],['odBudget','budget'],['odUse','use'],['odReq','req']].forEach(function(x){var el=$(x[0]);el.value=P.f[x[1]]||'';el.addEventListener('input',function(){P.f[x[1]]=el.value;save();});});
+  function memo(){var L=['[꽃나라 주문 메모]'];
+    if(P.picks.length){L.push('고른 꽃: '+P.picks.map(label).join(', '));L.push('→ 이 사진 느낌(색감·모양)으로 부탁드려요.');}else L.push('고른 꽃: (아직 없음)');
+    if(P.f.date)L.push('받는 날: '+P.f.date);if(P.f.budget)L.push('예산: '+P.f.budget);if(P.f.use)L.push('어떤 날: '+P.f.use);if(P.f.req)L.push('바라는 점: '+P.f.req);
+    if(P.picks.length)L.push('사진 보기: '+P.picks.map(function(i){return 'https://kkotnara.vercel.app/#p'+no(i);}).join(' '));
+    return L.join('\n');}
+  $('odCopy').addEventListener('click',function(){if(!P.picks.length){toast('먼저 마음에 드는 사진을 골라 주세요.');return;}copyText(memo(),'주문 메모를 복사했어요. 문자나 카카오톡에 붙여 넣으세요.');});
+  $('odClear').addEventListener('click',function(){P.picks=[];P.f={};['odDate','odBudget','odUse','odReq'].forEach(function(id){$(id).value='';});save();render();});
+  render();
+  /* 주소 끝이 #p07 이면 그 사진을 바로 크게 */
+  var m=/^#p(\d\d)$/.exec(location.hash);if(m&&SHOP[+m[1]-1]){P.more=true;render();$('shop').scrollIntoView();open(vis.indexOf(+m[1]-1));}
+  window.__shop={P:P,memo:memo,render:render};
 })();
 window.__kk={loadPhotoData:loadPhotoData,setLook:function(v){LOOK=v;},compose:compose,FLOWERS:FLOWERS,THEMES:THEMES,S:S,bouquetSVG:bouquetSVG};
 })();
