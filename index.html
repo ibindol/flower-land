@@ -220,6 +220,7 @@ header.top{border-bottom:1px solid var(--line);background:rgba(255,253,249,.85);
 .shop-grid a:hover img{transform:scale(1.025)}
 .shop-grid a:focus-visible{outline:3px solid var(--rose);outline-offset:2px}
 .shop-more{text-align:center;margin:4px 0 0}
+.shop-copy{text-align:center;font-size:13px;color:var(--muted);margin:12px 0 0}
 .lb{border:0;padding:0;background:transparent;max-width:100vw;max-height:100vh;width:100vw;height:100vh;margin:0}
 .lb::backdrop{background:rgba(30,22,16,.86)}
 .lb figure{margin:0;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:44px 56px 16px;box-sizing:border-box}
@@ -463,6 +464,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       <li class="more" hidden><a href="shop/shop27.jpg" data-i="26"><img src="shop/shop27_s.jpg" width="560" height="394" loading="lazy" decoding="async" alt="분홍 거베라와 붉은 장미 꽃바구니"></a></li>
     </ul>
     <p class="shop-more"><button type="button" class="btn" id="shopMore">사진 15장 더 보기</button></p>
+    <p class="shop-copy">이 사진들은 꽃나라 사장님이 직접 만든 꽃을 찍은 것으로, 저작권은 꽃나라에 있어요. 허락 없이 가져가 쓰지 말아 주세요.</p>
   </div>
   <dialog class="lb" id="lb" aria-label="사진 크게 보기">
     <figure><img id="lbImg" alt=""><figcaption><span id="lbCap"></span> <small id="lbNum"></small></figcaption></figure>
@@ -495,11 +497,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 </section>
 </main>
 
-<section class="credits" aria-label="사진 출처"><div class="wrap"><details><summary>꽃 사진 출처 (위키미디어 공용, 자유 이용 허락 사진)</summary><ul id="creditList"></ul></details></div></section>
+<section class="credits" aria-label="사진 출처"><div class="wrap"><details><summary>꽃 사진 출처 (위키미디어 공용, 자유 이용 허락 사진)</summary><p style="margin:10px 0 0">꽃말 사전과 사진 보기에 쓴 꽃 사진의 출처예요. "꽃나라에서 만든 꽃"의 사진은 꽃나라가 직접 찍은 사진이에요.</p><ul id="creditList"></ul></details></div></section>
 <footer>
   <div class="wrap">
     <span>꽃나라 Flower Land · 경상북도 포항시 북구 삼호로 67 · 0507-1396-0776</span>
-    <span>꽃말은 자료마다 조금씩 다를 수 있어요.</span>
+    <span>꽃말은 자료마다 조금씩 다를 수 있어요. 가게 꽃 사진 © 꽃나라</span>
   </div>
 </footer>
 <div class="toast" id="toast" role="status" hidden></div>
