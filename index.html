@@ -52,8 +52,10 @@ header.top{border-bottom:1px solid var(--line);background:rgba(255,253,249,.85);
 .hero-pic{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:14px 14px 10px;box-shadow:0 1px 0 var(--line2),0 14px 30px -18px rgba(80,50,30,.35);transform:rotate(1.2deg)}
 .hero-pic .tape{position:absolute;top:-12px;left:50%;width:96px;height:24px;margin-left:-48px;background:rgba(228,212,186,.75);transform:rotate(-3deg)}
 .hero-pic .stagebox{background:var(--stage);border-radius:3px;aspect-ratio:1/1;overflow:hidden;position:relative;display:block}
-.hero-pic .stagebox img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease}
-.hero-pic .stagebox img.on{opacity:1}
+.hero-pic .stagebox .sl{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease;overflow:hidden}
+.hero-pic .stagebox .sl.on{opacity:1}
+.hero-pic .stagebox .sl .bg{position:absolute;inset:-8%;width:116%;height:116%;object-fit:cover;filter:blur(22px) saturate(1.1);opacity:.55}
+.hero-pic .stagebox .sl .fg{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
 .hero-pic .stagebox svg{width:100%;height:100%;display:block}
 .hero-pic figcaption{font-family:var(--f-hand);font-size:22px;color:var(--muted);text-align:center;padding-top:6px}
 
@@ -1282,8 +1284,8 @@ var KINDS=[['all','전체'],['basket','꽃바구니'],['bouquet','꽃다발']];
   /* 첫 화면 오른쪽: 가게 사진이 차례로 바뀌어요 */
   var hbox=$('heroBox'),hcap=$('heroCap'),hi=0,hlist=[],hlast=null;
   function heroNext(){if(!hbox||!ITEMS.length)return;if(!hlist.length||hlist[0]!==ITEMS[0])hlist=ITEMS.slice(0,12);var x=hlist[hi%hlist.length];hi++;
-    var im=new Image();im.alt=x.name;im.decoding='async';im.onload=function(){hbox.appendChild(im);requestAnimationFrame(function(){requestAnimationFrame(function(){im.className='on';});});
-      if(hlast){var old=hlast;setTimeout(function(){old.remove();},1400);}hlast=im;hbox.href='#p'+no(x.no);hcap.textContent=no(x.no)+'번 · '+x.name;};im.src=x.b;}
+    var im=new Image();im.alt=x.name;im.className='fg';im.decoding='async';im.onload=function(){var sl=document.createElement('div');sl.className='sl';var bg=new Image();bg.className='bg';bg.alt='';bg.src=im.src;sl.appendChild(bg);sl.appendChild(im);hbox.appendChild(sl);requestAnimationFrame(function(){requestAnimationFrame(function(){sl.className='sl on';});});
+      if(hlast){var old=hlast;setTimeout(function(){old.remove();},1400);}hlast=sl;hbox.href='#p'+no(x.no);hcap.textContent=no(x.no)+'번 · '+x.name;};im.src=x.b;}
   heroNext();
   if(!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches))setInterval(heroNext,4500);
   window.__shop={P:P,memo:memo,render:render,items:function(){return ITEMS;}};
