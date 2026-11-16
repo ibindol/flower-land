@@ -1270,7 +1270,7 @@ var KINDS=[['all','전체'],['basket','꽃바구니'],['bouquet','꽃다발']];
   function memo(){var L=['[꽃나라 주문 메모]'];
     if(P.picks.length){L.push('고른 꽃: '+P.picks.map(label).join(', '));L.push('→ 이 사진 느낌(색감·모양)으로 부탁드려요.');}else L.push('고른 꽃: (아직 없음)');
     if(P.f.date)L.push('받는 날: '+P.f.date);if(P.f.budget)L.push('예산: '+P.f.budget);if(P.f.use)L.push('어떤 날: '+P.f.use);if(P.f.req)L.push('바라는 점: '+P.f.req);
-    if(P.picks.length)L.push('사진 보기: '+P.picks.map(function(i){return 'https://kkotnara.vercel.app/#p'+no(i);}).join(' '));
+    if(P.picks.length)L.push('사진 보기: '+P.picks.map(function(i){return 'https://flowerland.vercel.app/#p'+no(i);}).join(' '));
     return L.join('\n');}
   $('odCopy').addEventListener('click',function(){if(!P.picks.length){toast('먼저 마음에 드는 사진을 골라 주세요.');return;}copyText(memo(),'주문 메모를 복사했어요. 문자나 카카오톡에 붙여 넣으세요.');});
   $('odClear').addEventListener('click',function(){P.picks=[];P.f={};['odDate','odBudget','odUse','odReq'].forEach(function(id){$(id).value='';});save();render();});
