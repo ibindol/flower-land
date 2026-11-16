@@ -211,6 +211,27 @@ header.top{border-bottom:1px solid var(--line);background:rgba(255,253,249,.85);
 .care li b{display:block;color:var(--ink);font-size:16px;margin:2px 0 3px}
 
 /* 오시는 길 */
+.shop{padding:26px 0 10px}
+.shop .hand{margin:0 0 2px;font-size:22px;color:var(--rose)}
+.shop-grid{list-style:none;margin:0;padding:0;columns:4 220px;column-gap:12px}
+.shop-grid li{break-inside:avoid;margin:0 0 12px}
+.shop-grid a{display:block;border-radius:12px;overflow:hidden;background:var(--paper);border:1px solid var(--line);box-shadow:0 1px 0 rgba(80,60,40,.05)}
+.shop-grid img{display:block;width:100%;height:auto;transition:transform .35s ease}
+.shop-grid a:hover img{transform:scale(1.025)}
+.shop-grid a:focus-visible{outline:3px solid var(--rose);outline-offset:2px}
+.shop-more{text-align:center;margin:4px 0 0}
+.lb{border:0;padding:0;background:transparent;max-width:100vw;max-height:100vh;width:100vw;height:100vh;margin:0}
+.lb::backdrop{background:rgba(30,22,16,.86)}
+.lb figure{margin:0;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:44px 56px 16px;box-sizing:border-box}
+.lb img{max-width:100%;max-height:calc(100% - 40px);object-fit:contain;border-radius:8px;background:#fff}
+.lb figcaption{color:#f6eee6;margin-top:10px;font-size:15px;text-align:center}
+.lb figcaption small{color:#cbbfb2;margin-left:6px}
+.lb button{position:absolute;background:rgba(255,253,249,.14);color:#fff;border:0;border-radius:50%;width:44px;height:44px;font-size:28px;line-height:1;cursor:pointer}
+.lb button:hover{background:rgba(255,253,249,.28)}
+.lb-x{top:10px;right:12px}
+.lb-nav{top:50%;transform:translateY(-50%)}
+.lb-p{left:8px}.lb-n{right:8px}
+@media (max-width:560px){.shop-grid{columns:2;column-gap:8px}.shop-grid li{margin-bottom:8px}.lb figure{padding:52px 8px 70px}.lb-nav{top:auto;bottom:14px;transform:none}.lb-p{left:calc(50% - 56px)}.lb-n{right:calc(50% - 56px)}}
 .visit{padding:30px 0 40px}
 .visit-box{background:var(--paper);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr)}
 .visit-info{padding:26px}
@@ -272,7 +293,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 <header class="top">
   <div class="wrap">
     <a class="logo" href="#"><svg width="30" height="30" viewBox="-20 -20 40 40" aria-hidden="true"><g fill="#d9798b" stroke="#a8455a" stroke-width="1.2"><ellipse cx="0" cy="-9" rx="6.5" ry="8.5"/><ellipse cx="0" cy="-9" rx="6.5" ry="8.5" transform="rotate(72)"/><ellipse cx="0" cy="-9" rx="6.5" ry="8.5" transform="rotate(144)"/><ellipse cx="0" cy="-9" rx="6.5" ry="8.5" transform="rotate(216)"/><ellipse cx="0" cy="-9" rx="6.5" ry="8.5" transform="rotate(288)"/></g><circle r="4.5" fill="#f1c45a" stroke="#b98a2a" stroke-width="1"/></svg><b>꽃나라</b><small>Flower Land</small></a>
-    <nav aria-label="바로가기"><a href="#maker">꽃다발 그리기</a><a href="#dex">꽃말 사전</a><a class="hide-s" href="#care">오래 보는 법</a><a href="#visit">오시는 길</a></nav>
+    <nav aria-label="바로가기"><a href="#maker">꽃다발 그리기</a><a href="#dex">꽃말 사전</a><a class="hide-s" href="#care">오래 보는 법</a><a href="#shop">가게 꽃</a><a href="#visit">오시는 길</a></nav>
   </div>
 </header>
 
@@ -409,6 +430,48 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   </div>
 </section>
 
+<section class="shop" id="shop" aria-labelledby="shopTitle">
+  <div class="wrap">
+    <div class="sec-head"><p class="hand">가게에서 직접 엮었어요</p><h2 id="shopTitle">꽃나라에서 만든 꽃</h2><p>그동안 손님들께 보내 드린 꽃바구니와 꽃다발이에요. 사진을 누르면 크게 볼 수 있어요. 마음에 드는 사진을 보여 주시면 비슷한 느낌으로 만들어 드려요.</p></div>
+    <ul class="shop-grid" id="shopGrid">
+      <li><a href="shop/shop01.jpg" data-i="0"><img src="shop/shop01_s.jpg" width="363" height="560" loading="lazy" decoding="async" alt="붉은 장미 하트 꽃다발"></a></li>
+      <li><a href="shop/shop02.jpg" data-i="1"><img src="shop/shop02_s.jpg" width="560" height="504" loading="lazy" decoding="async" alt="붉은 장미와 유칼립투스 꽃바구니"></a></li>
+      <li><a href="shop/shop03.jpg" data-i="2"><img src="shop/shop03_s.jpg" width="560" height="377" loading="lazy" decoding="async" alt="붉은 장미 꽃바구니"></a></li>
+      <li><a href="shop/shop04.jpg" data-i="3"><img src="shop/shop04_s.jpg" width="560" height="404" loading="lazy" decoding="async" alt="분홍 거베라와 노란 소국 꽃바구니"></a></li>
+      <li><a href="shop/shop05.jpg" data-i="4"><img src="shop/shop05_s.jpg" width="560" height="486" loading="lazy" decoding="async" alt="흰 거베라와 보라 리시안셔스 꽃바구니"></a></li>
+      <li><a href="shop/shop06.jpg" data-i="5"><img src="shop/shop06_s.jpg" width="560" height="426" loading="lazy" decoding="async" alt="분홍 거베라와 장미 꽃바구니"></a></li>
+      <li><a href="shop/shop07.jpg" data-i="6"><img src="shop/shop07_s.jpg" width="560" height="382" loading="lazy" decoding="async" alt="주황 거베라와 백합 꽃바구니"></a></li>
+      <li><a href="shop/shop13.jpg" data-i="7"><img src="shop/shop13_s.jpg" width="560" height="336" loading="lazy" decoding="async" alt="보라 리시안셔스 꽃바구니"></a></li>
+      <li><a href="shop/shop09.jpg" data-i="8"><img src="shop/shop09_s.jpg" width="560" height="384" loading="lazy" decoding="async" alt="분홍 장미와 노란 공 모양 꽃 꽃바구니"></a></li>
+      <li><a href="shop/shop10.jpg" data-i="9"><img src="shop/shop10_s.jpg" width="560" height="467" loading="lazy" decoding="async" alt="분홍 장미와 흰 데이지 꽃바구니"></a></li>
+      <li><a href="shop/shop11.jpg" data-i="10"><img src="shop/shop11_s.jpg" width="516" height="560" loading="lazy" decoding="async" alt="연분홍 장미와 리시안셔스 꽃바구니"></a></li>
+      <li><a href="shop/shop12.jpg" data-i="11"><img src="shop/shop12_s.jpg" width="560" height="330" loading="lazy" decoding="async" alt="주황 거베라와 살구빛 장미 꽃바구니"></a></li>
+      <li class="more" hidden><a href="shop/shop08.jpg" data-i="12"><img src="shop/shop08_s.jpg" width="560" height="476" loading="lazy" decoding="async" alt="주황·노랑 꽃바구니"></a></li>
+      <li class="more" hidden><a href="shop/shop14.jpg" data-i="13"><img src="shop/shop14_s.jpg" width="560" height="452" loading="lazy" decoding="async" alt="살구빛 장미와 하늘색 꽃 꽃바구니"></a></li>
+      <li class="more" hidden><a href="shop/shop15.jpg" data-i="14"><img src="shop/shop15_s.jpg" width="560" height="388" loading="lazy" decoding="async" alt="분홍 거베라와 노란 소국 꽃바구니"></a></li>
+      <li class="more" hidden><a href="shop/shop16.jpg" data-i="15"><img src="shop/shop16_s.jpg" width="560" height="466" loading="lazy" decoding="async" alt="쇼핑백에 담은 꽃다발 두 개"></a></li>
+      <li class="more" hidden><a href="shop/shop17.jpg" data-i="16"><img src="shop/shop17_s.jpg" width="560" height="409" loading="lazy" decoding="async" alt="분홍 거베라 꽃바구니"></a></li>
+      <li class="more" hidden><a href="shop/shop18.jpg" data-i="17"><img src="shop/shop18_s.jpg" width="560" height="388" loading="lazy" decoding="async" alt="분홍·보라 소국 꽃바구니"></a></li>
+      <li class="more" hidden><a href="shop/shop19.jpg" data-i="18"><img src="shop/shop19_s.jpg" width="560" height="388" loading="lazy" decoding="async" alt="흰 백합과 살구빛 장미 꽃바구니"></a></li>
+      <li class="more" hidden><a href="shop/shop20.jpg" data-i="19"><img src="shop/shop20_s.jpg" width="560" height="551" loading="lazy" decoding="async" alt="노란 거베라와 보라 꽃 꽃바구니"></a></li>
+      <li class="more" hidden><a href="shop/shop21.jpg" data-i="20"><img src="shop/shop21_s.jpg" width="560" height="303" loading="lazy" decoding="async" alt="작은 꽃바구니 두 개"></a></li>
+      <li class="more" hidden><a href="shop/shop22.jpg" data-i="21"><img src="shop/shop22_s.jpg" width="545" height="560" loading="lazy" decoding="async" alt="연보라 포장지 꽃다발"></a></li>
+      <li class="more" hidden><a href="shop/shop23.jpg" data-i="22"><img src="shop/shop23_s.jpg" width="560" height="450" loading="lazy" decoding="async" alt="연두 리시안셔스와 분홍 꽃 꽃바구니"></a></li>
+      <li class="more" hidden><a href="shop/shop24.jpg" data-i="23"><img src="shop/shop24_s.jpg" width="560" height="390" loading="lazy" decoding="async" alt="분홍·보라 작은 꽃바구니"></a></li>
+      <li class="more" hidden><a href="shop/shop25.jpg" data-i="24"><img src="shop/shop25_s.jpg" width="560" height="528" loading="lazy" decoding="async" alt="생일 축하 픽을 꽂은 꽃바구니"></a></li>
+      <li class="more" hidden><a href="shop/shop26.jpg" data-i="25"><img src="shop/shop26_s.jpg" width="558" height="560" loading="lazy" decoding="async" alt="손잡이가 높은 파스텔 꽃바구니"></a></li>
+      <li class="more" hidden><a href="shop/shop27.jpg" data-i="26"><img src="shop/shop27_s.jpg" width="560" height="394" loading="lazy" decoding="async" alt="분홍 거베라와 붉은 장미 꽃바구니"></a></li>
+    </ul>
+    <p class="shop-more"><button type="button" class="btn" id="shopMore">사진 15장 더 보기</button></p>
+  </div>
+  <dialog class="lb" id="lb" aria-label="사진 크게 보기">
+    <figure><img id="lbImg" alt=""><figcaption><span id="lbCap"></span> <small id="lbNum"></small></figcaption></figure>
+    <button type="button" class="lb-x" id="lbX" aria-label="닫기">×</button>
+    <button type="button" class="lb-nav lb-p" id="lbP" aria-label="이전 사진">‹</button>
+    <button type="button" class="lb-nav lb-n" id="lbN" aria-label="다음 사진">›</button>
+  </dialog>
+</section>
+
 <section class="visit" id="visit" aria-labelledby="visitTitle">
   <div class="wrap">
     <div class="visit-box">
@@ -424,7 +487,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
           <a class="btn" href="tel:050713960776">전화 걸기</a>
           <button type="button" class="btn" id="copyAddr">주소 복사</button>
         </div>
-        <p style="font-size:14px;color:var(--muted);margin:14px 0 0">네이버 지도에서 실제 꽃다발 사진과 영업시간을 볼 수 있어요. 여기서 만든 시안을 보여 주시면 이야기가 수월해요.</p>
+        <p style="font-size:14px;color:var(--muted);margin:14px 0 0">네이버 지도에서 영업시간과 더 많은 사진을 볼 수 있어요. 여기서 만든 시안을 보여 주시면 이야기가 수월해요.</p>
       </div>
       <div class="map"><iframe title="꽃나라 위치 지도" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=%EA%B2%BD%EC%83%81%EB%B6%81%EB%8F%84%20%ED%8F%AC%ED%95%AD%EC%8B%9C%20%EB%B6%81%EA%B5%AC%20%EC%82%BC%ED%98%B8%EB%A1%9C%2067&z=16&hl=ko&output=embed"></iframe></div>
     </div>
@@ -1128,6 +1191,19 @@ $('msgCount').textContent=S.msg.length;$('letterCount').textContent=S.letter.len
 document.querySelectorAll('[data-look]').forEach(function(x){x.setAttribute('aria-pressed',String(x.dataset.look===LOOK));});
 bind();refreshAll();renderDex();renderCredits();hero();
 if(!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches))setInterval(hero,5200);
+/* 가게 꽃 사진 모음 */
+(function(){var grid=$('shopGrid'),lb=$('lb'),img=$('lbImg'),cap=$('lbCap'),num=$('lbNum'),links=[].slice.call(grid.querySelectorAll('a')),cur=0;
+  $('shopMore').addEventListener('click',function(){grid.querySelectorAll('li.more').forEach(function(li){li.hidden=false;});this.parentNode.remove();});
+  function show(i){cur=(i+links.length)%links.length;var a=links[cur];img.src=a.getAttribute('href');img.alt=a.querySelector('img').alt;cap.textContent=img.alt;num.textContent=(cur+1)+' / '+links.length;}
+  grid.addEventListener('click',function(e){var a=e.target.closest('a[data-i]');if(!a||!lb.showModal)return;e.preventDefault();show(+a.dataset.i);lb.showModal();});
+  $('lbX').addEventListener('click',function(){lb.close();});
+  $('lbP').addEventListener('click',function(){show(cur-1);});
+  $('lbN').addEventListener('click',function(){show(cur+1);});
+  lb.addEventListener('click',function(e){if(e.target===lb||e.target.tagName==='FIGURE')lb.close();});
+  lb.addEventListener('keydown',function(e){if(e.key==='ArrowLeft')show(cur-1);else if(e.key==='ArrowRight')show(cur+1);});
+  var sx=null;lb.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;},{passive:true});
+  lb.addEventListener('touchend',function(e){if(sx===null)return;var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>50)show(cur+(dx<0?1:-1));sx=null;});
+})();
 window.__kk={loadPhotoData:loadPhotoData,setLook:function(v){LOOK=v;},compose:compose,FLOWERS:FLOWERS,THEMES:THEMES,S:S,bouquetSVG:bouquetSVG};
 })();
 </script>
