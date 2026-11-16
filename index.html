@@ -1,0 +1,1082 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>꽃나라 Flower Land · 꽃다발 그려보기</title>
+<meta name="description" content="꽃을 몰라도 괜찮아요. 테마와 꽃, 포장을 고르면 꽃다발이 그려지고, 카드와 편지까지 담아 시안으로 저장할 수 있어요. 포항 꽃나라.">
+<meta property="og:title" content="꽃나라 Flower Land · 꽃다발 그려보기">
+<meta property="og:description" content="테마와 꽃, 포장을 고르면 꽃다발이 그려져요. 꽃말 안내와 카드·편지까지.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&family=Nanum+Pen+Script&display=swap">
+<style>
+:root{
+  --bg:#f7f1ea; --paper:#fffdf9; --ink:#33291f; --muted:#7a6c60; --line:#e6d9cb; --line2:#d8c7b5;
+  --rose:#b5485f; --rose-d:#93354a; --rose-soft:#f6e1e2; --leaf:#5b7a4c; --leaf-soft:#e7eedf; --stage:#f3ebe1;
+  --f-title:'Gowun Batang','Nanum Myeongjo',serif; --f-body:'Gowun Dodum','Malgun Gothic','Apple SD Gothic Neo',sans-serif; --f-hand:'Nanum Pen Script',cursive;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.65;-webkit-text-size-adjust:100%;
+  background-image:radial-gradient(rgba(120,90,60,.035) 1px,transparent 1px);background-size:5px 5px}
+img,svg{max-width:100%}
+[hidden]{display:none!important}
+a{color:var(--rose-d)}
+button{font:inherit;color:inherit}
+h1,h2,h3{font-family:var(--f-title);font-weight:700;line-height:1.3;margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.hand{font-family:var(--f-hand);font-weight:400}
+
+/* 머리 */
+header.top{border-bottom:1px solid var(--line);background:rgba(255,253,249,.85);position:relative;z-index:6}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;height:62px}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--ink)}
+.logo b{font-family:var(--f-title);font-size:22px;letter-spacing:-.5px;white-space:nowrap}
+.logo small{font-family:var(--f-hand);font-size:20px;color:var(--rose);margin-left:2px}
+.top nav{display:flex;gap:4px;flex-wrap:wrap}
+.top nav a{text-decoration:none;color:var(--muted);padding:6px 10px;border-radius:8px;font-size:15px}
+.top nav a:hover{color:var(--ink);background:var(--rose-soft)}
+
+/* 첫 화면 */
+.hero{padding:44px 0 26px}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:center}
+.hero-note{font-family:var(--f-hand);font-size:26px;color:var(--rose);margin:0 0 4px;transform:rotate(-2deg);display:inline-block}
+.hero h1{font-size:clamp(32px,4.6vw,50px);letter-spacing:-1px}
+.hero h1 span{background:linear-gradient(transparent 62%,#f3cfd3 62%,#f3cfd3 90%,transparent 90%)}
+.hero p.lead{font-size:18px;color:#5a4c40;max-width:30em;margin:16px 0 22px}
+.hero-steps{list-style:none;padding:0;margin:0 0 24px;display:flex;flex-wrap:wrap;gap:8px 18px;color:var(--muted);font-size:15px}
+.hero-steps li{display:flex;align-items:center;gap:7px}
+.hero-steps i{font-style:normal;font-family:var(--f-title);font-weight:700;color:var(--rose);border:1.5px solid var(--rose);border-radius:50%;width:24px;height:24px;display:inline-grid;place-items:center;font-size:13px}
+.hero-pic{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:14px 14px 10px;box-shadow:0 1px 0 var(--line2),0 14px 30px -18px rgba(80,50,30,.35);transform:rotate(1.2deg)}
+.hero-pic .tape{position:absolute;top:-12px;left:50%;width:96px;height:24px;margin-left:-48px;background:rgba(228,212,186,.75);transform:rotate(-3deg)}
+.hero-pic .stagebox{background:var(--stage);border-radius:3px;aspect-ratio:600/700;overflow:hidden}
+.hero-pic .stagebox svg{width:100%;height:100%;display:block}
+.hero-pic figcaption{font-family:var(--f-hand);font-size:22px;color:var(--muted);text-align:center;padding-top:6px}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;border:1.5px solid var(--line2);background:var(--paper);border-radius:999px;padding:9px 18px;font-size:15.5px;cursor:pointer;text-decoration:none;color:var(--ink);transition:background .15s,border-color .15s}
+.btn:hover{border-color:var(--rose)}
+.btn.primary{background:var(--rose);border-color:var(--rose);color:#fff}
+.btn.primary:hover{background:var(--rose-d);border-color:var(--rose-d)}
+.btn.small{padding:6px 13px;font-size:14px}
+.btn:focus-visible,.chip:focus-visible,.card:focus-visible,.swatch:focus-visible,.theme:focus-visible,.shape:focus-visible{outline:2.5px solid var(--rose);outline-offset:2px}
+
+/* 만들기 */
+.maker{padding:26px 0 30px}
+.sec-head{margin:0 0 16px}
+.sec-head h2{font-size:clamp(25px,3vw,32px)}
+.sec-head p{color:var(--muted);margin:6px 0 0}
+.maker-grid{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:24px;align-items:start}
+.step{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 22px 24px;margin-bottom:16px}
+.step-h{display:flex;align-items:baseline;gap:10px;margin-bottom:4px}
+.step-h .no{font-family:var(--f-title);font-weight:700;font-size:15px;color:#fff;background:var(--rose);border-radius:50%;width:26px;height:26px;display:inline-grid;place-items:center;flex:none;transform:translateY(-2px)}
+.step-h h3{font-size:21px}
+.step .hint{color:var(--muted);font-size:14.5px;margin:2px 0 14px}
+
+.themes{display:grid;grid-template-columns:repeat(auto-fill,minmax(132px,1fr));gap:8px}
+.theme{border:1.5px solid var(--line);background:#fff;border-radius:12px;padding:10px 10px 9px;text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:1px;min-height:92px}
+.theme svg{width:36px;height:36px;margin-bottom:2px}
+.theme b{font-size:15.5px}
+.theme small{color:var(--muted);font-size:12.5px;line-height:1.35}
+.theme[aria-pressed="true"]{border-color:var(--rose);background:var(--rose-soft)}
+.theme-tip{margin:12px 0 0;padding:10px 13px;border-left:3px solid var(--rose);background:#fbf3ef;font-size:14.5px;color:#5a4636;border-radius:0 8px 8px 0}
+
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:5px 13px;font-size:14px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.flowers{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.card{position:relative;border:1.5px solid var(--line);background:#fff;border-radius:12px;padding:10px 10px 10px;cursor:pointer;text-align:left;display:grid;grid-template-columns:46px 1fr;gap:2px 8px;align-items:center}
+.card:hover{border-color:var(--line2)}
+.card svg,.card img{width:46px;height:46px;grid-row:span 2}
+.card img{object-fit:cover;border-radius:50%;background:var(--stage)}
+.card b{font-size:15px;line-height:1.25}
+.card small{font-size:12.5px;color:var(--muted);line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card .got{position:absolute;top:-7px;right:-5px;background:var(--rose);color:#fff;font-size:12px;border-radius:999px;padding:0 7px;line-height:20px}
+.card.on{border-color:var(--rose)}
+
+.picked{margin-top:18px;border-top:1px dashed var(--line2);padding-top:14px}
+.picked h4{margin:0 0 8px;font-size:16px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.picked h4 span{font-weight:400;color:var(--muted);font-size:14px}
+.prow{display:grid;grid-template-columns:40px minmax(0,1fr) auto;gap:4px 10px;align-items:center;padding:9px 0;border-bottom:1px solid #f0e6db}
+.prow svg{width:40px;height:40px;grid-row:span 2}
+.prow .nm{font-size:15px}
+.prow .nm em{font-style:normal;color:var(--muted);font-size:13px;margin-left:4px}
+.prow .sws{display:flex;gap:5px;flex-wrap:wrap;grid-column:2}
+.swatch{width:24px;height:24px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1.5px var(--line2);cursor:pointer;padding:0}
+.swatch[aria-pressed="true"]{box-shadow:0 0 0 2px var(--ink)}
+.stepper{display:flex;align-items:center;gap:2px;grid-row:span 2;grid-column:3}
+.stepper button{width:30px;height:30px;border-radius:50%;border:1.5px solid var(--line2);background:#fff;cursor:pointer;font-size:17px;line-height:1;padding:0}
+.stepper output{min-width:34px;text-align:center;font-size:15px}
+.stepper .del{border:none;color:var(--muted);font-size:13px;width:auto;padding:0 4px;margin-left:2px;text-decoration:underline}
+.empty{color:var(--muted);font-size:14.5px;padding:8px 0}
+
+.opts{display:grid;gap:16px}
+.opt-label{font-size:15px;margin:0 0 7px;display:block}
+.shapes{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.shape{border:1.5px solid var(--line);background:#fff;border-radius:12px;padding:8px;cursor:pointer;text-align:center}
+.shape svg{width:60px;height:52px;display:block;margin:0 auto}
+.shape b{display:block;font-size:14.5px}
+.shape small{display:block;color:var(--muted);font-size:12px;line-height:1.3}
+.shape[aria-pressed="true"]{border-color:var(--rose);background:var(--rose-soft)}
+.papers{display:flex;flex-wrap:wrap;gap:8px}
+.pp{display:flex;flex-direction:column;align-items:center;gap:3px;background:none;border:none;cursor:pointer;padding:2px;font-size:12px;color:var(--muted);width:54px}
+.pp i{display:block;width:40px;height:40px;border-radius:8px;box-shadow:0 0 0 1.5px var(--line2);position:relative}
+.pp.rb i{border-radius:50%;width:32px;height:32px;margin:4px 0}
+.pp[aria-pressed="true"] i{box-shadow:0 0 0 2.5px var(--ink)}
+.pp[aria-pressed="true"]{color:var(--ink)}
+
+.field{display:flex;flex-direction:column;gap:5px}
+.field label{font-size:15px}
+.field input,.field textarea,.field select{font:inherit;font-size:16px;border:1.5px solid var(--line2);border-radius:10px;padding:9px 12px;background:#fff;color:var(--ink);width:100%}
+.field textarea{resize:vertical;min-height:84px;line-height:1.6}
+.field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--rose)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.counter{font-size:12.5px;color:var(--muted);text-align:right}
+.sugg{display:flex;flex-wrap:wrap;gap:6px}
+.sugg button{border:1px dashed var(--line2);background:#fffaf4;border-radius:8px;padding:4px 10px;font-size:13.5px;cursor:pointer}
+.sugg button:hover{border-color:var(--rose)}
+.sub-h{font-size:17px;margin:4px 0 0;font-family:var(--f-title)}
+
+/* 미리보기 */
+.preview{position:sticky;top:12px;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:14px}
+.pv-stage{background:var(--stage);border-radius:10px;aspect-ratio:600/700;overflow:hidden}
+.pv-stage svg{width:100%;height:100%;display:block}
+.pv-cap{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:10px;flex-wrap:wrap}
+.pv-cap .t{font-size:14.5px}
+.pv-cap .t b{font-size:16px}
+.pv-cap .t small{display:block;color:var(--muted);font-size:13px}
+.pv-btns{display:flex;gap:6px}
+
+/* 완성 */
+.result{padding:24px 0 34px}
+.res{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:24px;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:26px}
+.res-pic{background:var(--stage);border-radius:12px;aspect-ratio:600/700;overflow:hidden}
+.res-pic svg{width:100%;height:100%;display:block}
+.res h3{font-size:22px;margin-bottom:6px}
+.res .lbl{font-family:var(--f-hand);font-size:24px;color:var(--rose);margin:16px 0 4px;line-height:1}
+.meanings{list-style:none;padding:0;margin:0;display:grid;gap:6px}
+.meanings li{display:grid;grid-template-columns:32px 1fr;gap:8px;align-items:center;font-size:14.5px}
+.meanings svg{width:32px;height:32px}
+.meanings b{font-weight:700}
+.warn{margin:12px 0 0;padding:10px 13px;background:#fdf1e4;border:1px solid #efd3b2;border-radius:10px;font-size:14px;color:#6d4a26}
+.warn p{margin:3px 0}
+.comp{width:100%;border-collapse:collapse;font-size:14px;margin-top:4px}
+.comp th,.comp td{text-align:left;padding:6px 4px;border-bottom:1px solid #f0e6db}
+.comp th{color:var(--muted);font-weight:400;font-size:13px}
+.gift{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:14px;margin-top:6px}
+.mcard{background:#fff;border:1px solid var(--line2);padding:14px 14px 12px;box-shadow:2px 3px 0 rgba(120,90,60,.12);transform:rotate(-1.5deg);font-size:21px;line-height:1.35;min-height:130px;word-break:keep-all;overflow-wrap:anywhere}
+.mcard .to,.mcard .from{font-size:.85em;color:#6a5a4c}
+.mcard .from{text-align:right}
+.mcard p{margin:6px 0;white-space:pre-wrap}
+.letter{background:#fffdf6;border:1px solid #eadfc8;padding:14px 16px;font-size:20px;line-height:30px;white-space:pre-wrap;word-break:keep-all;overflow-wrap:anywhere;
+  background-image:repeating-linear-gradient(transparent 0 29px,#eee2cc 29px 30px);background-position:0 13px;min-height:130px;max-height:330px;overflow:auto}
+.letter.emptyl{color:#b3a493}
+.fz-hand{font-family:var(--f-hand)}
+.fz-serif{font-family:var(--f-title);font-size:.8em}
+.fz-sans{font-family:var(--f-body);font-size:.78em}
+.dl{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.dl-note{font-size:13.5px;color:var(--muted);margin:8px 0 0}
+
+/* 꽃 사전 */
+.dex{padding:28px 0}
+.dex-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.dx{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+.dx-top{display:flex;gap:10px;align-items:center}
+.dx-top svg{width:44px;height:44px;flex:none}
+.dx-photo{margin:-14px -16px 6px;aspect-ratio:4/3;overflow:hidden;border-radius:14px 14px 0 0;background:var(--stage)}
+.dx-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.th-group{grid-column:1/-1;font-family:var(--f-hand);font-size:22px;color:var(--muted);margin:6px 0 -2px;line-height:1.1}
+.credits{padding:0 0 30px}
+.credits details{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 16px;font-size:13px;color:var(--muted)}
+.credits summary{cursor:pointer;font-size:14.5px;color:var(--ink)}
+.credits ul{margin:10px 0 0;padding-left:18px;columns:2;column-gap:28px}
+.credits li{break-inside:avoid;margin-bottom:3px}
+@media (max-width:560px){.credits ul{columns:1}}
+.dx-top b{font-family:var(--f-title);font-size:19px;display:block}
+.dx-top small{color:var(--muted);font-size:13px}
+.dx .mean{font-family:var(--f-hand);font-size:23px;color:var(--rose-d);line-height:1.2}
+.dx p{margin:0;font-size:14.5px;color:#55473b}
+.dx ul{list-style:none;padding:0;margin:0;font-size:13.5px;color:#55473b;display:grid;gap:2px}
+.dx ul i{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:6px;vertical-align:-1px;box-shadow:0 0 0 1px rgba(0,0,0,.12)}
+.dx .meta{font-size:13px;color:var(--muted);display:flex;gap:12px;flex-wrap:wrap}
+.dx .btn{align-self:flex-start;margin-top:4px}
+
+/* 관리 */
+.care{padding:26px 0}
+.care ol{list-style:none;counter-reset:c;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.care li{counter-increment:c;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:14px 16px;font-size:14.5px;color:#55473b}
+.care li::before{content:counter(c);font-family:var(--f-hand);font-size:30px;color:var(--leaf);display:block;line-height:1}
+.care li b{display:block;color:var(--ink);font-size:16px;margin:2px 0 3px}
+
+/* 오시는 길 */
+.visit{padding:30px 0 40px}
+.visit-box{background:var(--paper);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr)}
+.visit-info{padding:26px}
+.visit-info h2{font-size:28px}
+.visit-info .hand{font-size:24px;color:var(--rose);margin:0}
+.visit-info dl{margin:16px 0;display:grid;grid-template-columns:auto 1fr;gap:8px 14px;font-size:16px}
+.visit-info dt{color:var(--muted)}
+.visit-info dd{margin:0}
+.visit-info dd a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line2)}
+.visit-btns{display:flex;flex-wrap:wrap;gap:8px}
+.map{min-height:320px;background:var(--stage)}
+.map iframe{width:100%;height:100%;min-height:320px;border:0;display:block}
+
+footer{border-top:1px solid var(--line);padding:22px 0 30px;color:var(--muted);font-size:13.5px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 18px;border-radius:10px;font-size:14.5px;z-index:50;max-width:calc(100% - 32px);box-shadow:0 8px 20px rgba(0,0,0,.2)}
+
+@media (max-width: 960px){
+  .hero .wrap{grid-template-columns:1fr}
+  .hero-pic{max-width:420px;margin:0 auto;transform:rotate(1deg)}
+  .maker-grid{grid-template-columns:1fr}
+  .preview{order:-1;top:0;z-index:5;padding:8px 10px;border-radius:0 0 14px 14px;margin:0 -20px;border-left:0;border-right:0;border-top:0;box-shadow:0 8px 16px -10px rgba(60,40,20,.35)}
+  .pv-stage{aspect-ratio:auto;height:30vh;max-height:260px}
+  .pv-cap{margin-top:6px}
+  .pv-cap .t small{display:inline;margin-left:6px}
+  .preview.folded .pv-stage{display:none}
+  .res{grid-template-columns:1fr;padding:16px}
+  .visit-box{grid-template-columns:1fr}
+}
+@media (max-width: 560px){
+  .wrap{padding:0 16px}
+  .preview{margin:0 -16px}
+  .top nav a{padding:4px 6px;font-size:13.5px}
+  .top nav a.hide-s{display:none}
+  .logo small{display:none}
+  .top nav{flex-wrap:nowrap}
+  .hero{padding-top:28px}
+  .hero p.lead{font-size:16.5px}
+  .step{padding:16px 14px 18px}
+  .themes{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .flowers{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+  .card{grid-template-columns:38px 1fr;padding:8px}
+  .card svg,.card img{width:38px;height:38px}
+  .card b{font-size:14px}
+  .card small{font-size:12px}
+  .shapes{gap:6px}
+  .shape small{display:none}
+  .row2{grid-template-columns:1fr}
+  .gift{grid-template-columns:1fr}
+  .prow{grid-template-columns:34px minmax(0,1fr) auto}
+  .prow svg{width:34px;height:34px}
+}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#"><svg width="30" height="30" viewBox="-20 -20 40 40" aria-hidden="true"><g fill="#d9798b" stroke="#a8455a" stroke-width="1.2"><ellipse cx="0" cy="-9" rx="6.5" ry="8.5"/><ellipse cx="0" cy="-9" rx="6.5" ry="8.5" transform="rotate(72)"/><ellipse cx="0" cy="-9" rx="6.5" ry="8.5" transform="rotate(144)"/><ellipse cx="0" cy="-9" rx="6.5" ry="8.5" transform="rotate(216)"/><ellipse cx="0" cy="-9" rx="6.5" ry="8.5" transform="rotate(288)"/></g><circle r="4.5" fill="#f1c45a" stroke="#b98a2a" stroke-width="1"/></svg><b>꽃나라</b><small>Flower Land</small></a>
+    <nav aria-label="바로가기"><a href="#maker">꽃다발 그리기</a><a href="#dex">꽃말 사전</a><a class="hide-s" href="#care">오래 보는 법</a><a href="#visit">오시는 길</a></nav>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="hero-note">꽃 이름을 몰라도 괜찮아요</p>
+      <h1>고르기만 하면<br><span>꽃다발이 그려져요</span></h1>
+      <p class="lead">누구에게, 어떤 마음을 전하고 싶은지 고르고 마음에 드는 꽃과 포장을 담아 보세요. 꽃말도 함께 알려 드리고, 카드와 편지까지 넣어 시안으로 저장할 수 있어요.</p>
+      <ol class="hero-steps"><li><i>1</i>테마 고르기</li><li><i>2</i>꽃 담기</li><li><i>3</i>포장 고르기</li><li><i>4</i>카드·편지 쓰기</li></ol>
+      <a class="btn primary" href="#maker">꽃다발 그려 보기</a>
+      <a class="btn" href="#dex" style="margin-left:6px">꽃말 먼저 보기</a>
+    </div>
+    <figure class="hero-pic" style="margin:0">
+      <span class="tape" aria-hidden="true"></span>
+      <div class="stagebox" id="heroBox"></div>
+      <figcaption id="heroCap">오늘의 꽃다발</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="maker" id="maker" aria-labelledby="makerTitle">
+  <div class="wrap">
+    <div class="sec-head"><h2 id="makerTitle">나만의 꽃다발 그리기</h2><p>위에서부터 차례로 골라 보세요. 고를 때마다 그림이 바로 바뀌어요.</p></div>
+    <div class="maker-grid">
+      <div>
+        <section class="step" aria-labelledby="s1">
+          <div class="step-h"><span class="no">1</span><h3 id="s1">어떤 날인가요?</h3></div>
+          <p class="hint">테마를 고르면 어울리는 꽃과 포장을 먼저 담아 드려요. 그다음 마음대로 바꾸시면 돼요.</p>
+          <div class="themes" id="themes"></div>
+          <p class="theme-tip" id="themeTip" hidden></p>
+        </section>
+
+        <section class="step" aria-labelledby="s2">
+          <div class="step-h"><span class="no">2</span><h3 id="s2">꽃 담기</h3></div>
+          <p class="hint">꽃을 누르면 꽃다발에 담겨요. 한 번 더 누르면 한 송이씩 늘어나요.</p>
+          <div class="chips" id="cats" role="group" aria-label="꽃 종류 나누기"></div>
+          <div class="flowers" id="flowerGrid"></div>
+          <div class="picked">
+            <h4>담은 꽃 <span id="pickedSum"></span></h4>
+            <div id="pickedList"></div>
+          </div>
+        </section>
+
+        <section class="step" aria-labelledby="s3">
+          <div class="step-h"><span class="no">3</span><h3 id="s3">모양과 포장</h3></div>
+          <p class="hint">같은 꽃이라도 묶는 모양과 포장지에 따라 느낌이 많이 달라져요.</p>
+          <div class="opts">
+            <div><span class="opt-label">꽃다발 모양</span><div class="shapes" id="shapes"></div></div>
+            <div><span class="opt-label">포장지 <span class="hand" id="paperName" style="font-size:20px;color:var(--rose)"></span></span><div class="papers" id="papers"></div></div>
+            <div><span class="opt-label">리본 <span class="hand" id="ribbonName" style="font-size:20px;color:var(--rose)"></span></span><div class="papers" id="ribbons"></div></div>
+            <div><button type="button" class="btn small" id="btnShuffle">꽃 위치 다시 섞기</button></div>
+          </div>
+        </section>
+
+        <section class="step" aria-labelledby="s4">
+          <div class="step-h"><span class="no">4</span><h3 id="s4">카드와 편지</h3></div>
+          <p class="hint">카드는 꽃다발에 꽂는 짧은 한마디, 편지는 따로 담아 전하는 긴 글이에요. 비워 두셔도 돼요.</p>
+          <div class="opts">
+            <h4 class="sub-h">카드</h4>
+            <div class="row2">
+              <div class="field"><label for="inTo">받는 사람</label><input id="inTo" maxlength="14" placeholder="예) 사랑하는 엄마"></div>
+              <div class="field"><label for="inFrom">보내는 사람</label><input id="inFrom" maxlength="14" placeholder="예) 막내 딸"></div>
+            </div>
+            <div class="field"><label for="inMsg">카드 문구</label><textarea id="inMsg" maxlength="60" rows="2" placeholder="짧게 한두 줄이면 충분해요"></textarea><div class="counter"><span id="msgCount">0</span>/60</div></div>
+            <div class="sugg" id="sugg" aria-label="문구 추천"></div>
+            <div class="field"><label for="inFont">글씨</label><select id="inFont"><option value="hand">손글씨</option><option value="serif">단정한 명조</option><option value="sans">깔끔한 고딕</option></select></div>
+            <h4 class="sub-h">편지</h4>
+            <div class="field"><label for="inLetter">편지 내용</label><textarea id="inLetter" maxlength="600" rows="6" placeholder="하고 싶었던 이야기를 편하게 적어 보세요."></textarea><div class="counter"><span id="letterCount">0</span>/600</div></div>
+          </div>
+        </section>
+      </div>
+
+      <aside class="preview" id="preview" aria-label="꽃다발 미리보기">
+        <div class="pv-stage" id="stage"></div>
+        <div class="pv-cap">
+          <div class="t"><b id="pvName"></b><small id="pvMeta"></small></div>
+          <div class="pv-btns"><button type="button" class="btn small" id="btnFold" hidden>접기</button><a class="btn small primary" href="#result">완성 보기</a></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="result" id="result" aria-labelledby="resTitle">
+  <div class="wrap">
+    <div class="sec-head"><h2 id="resTitle">완성된 꽃다발</h2><p>마음에 들면 시안을 저장해 두세요. 꽃집에 보여 주면 원하는 느낌을 설명하기 쉬워요.</p></div>
+    <div class="res">
+      <div class="res-pic" id="resPic"></div>
+      <div>
+        <h3 id="resName"></h3>
+        <div style="color:var(--muted);font-size:14.5px" id="resMeta"></div>
+        <p class="lbl">이 꽃다발이 전하는 말</p>
+        <ul class="meanings" id="meanings"></ul>
+        <div class="warn" id="warn" hidden></div>
+        <p class="lbl">구성</p>
+        <table class="comp"><thead><tr><th>꽃</th><th>색</th><th>수량</th></tr></thead><tbody id="compBody"></tbody></table>
+        <p class="lbl">카드와 편지</p>
+        <div class="gift">
+          <div class="mcard" id="mcard"></div>
+          <div class="letter" id="letterView"></div>
+        </div>
+        <div class="dl">
+          <button type="button" class="btn primary" id="dlPng">시안 이미지 저장 (PNG)</button>
+          <button type="button" class="btn" id="dlSvg">꽃다발 그림만 (SVG)</button>
+          <button type="button" class="btn" id="copyMemo">주문 메모 복사</button>
+        </div>
+        <p class="dl-note">그림은 분위기를 보여 주는 시안이에요. 실제 꽃은 계절과 들어오는 상태에 따라 색과 모양이 조금씩 달라요.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dex" id="dex" aria-labelledby="dexTitle">
+  <div class="wrap">
+    <div class="sec-head"><h2 id="dexTitle">꽃말 사전</h2><p>꽃다발에 많이 쓰는 꽃들이에요. 꽃말은 나라와 자료마다 조금씩 달라서, 우리나라에서 흔히 쓰는 뜻으로 적었어요.</p></div>
+    <div class="chips" id="dexCats" role="group" aria-label="꽃말 사전 나누기"></div>
+    <div class="dex-grid" id="dexGrid"></div>
+  </div>
+</section>
+
+<section class="care" id="care" aria-labelledby="careTitle">
+  <div class="wrap">
+    <div class="sec-head"><h2 id="careTitle">꽃다발, 오래 보는 법</h2><p>받은 날 조금만 신경 써 주면 며칠은 더 예쁘게 볼 수 있어요.</p></div>
+    <ol>
+      <li><b>포장은 빨리 풀어요</b>포장지와 물주머니를 풀고 바로 화병에 꽂아 주세요. 오래 두면 줄기가 숨을 못 쉬어요.</li>
+      <li><b>줄기는 사선으로</b>잘 드는 가위로 줄기 끝을 1~2cm 비스듬히 잘라 주세요. 물에 닿는 면이 넓어져요.</li>
+      <li><b>물에 잠기는 잎은 떼요</b>물속에 잠긴 잎은 금방 상해서 물을 흐리게 만들어요.</li>
+      <li><b>물은 매일 갈아요</b>깨끗한 물로 갈아 주고, 줄기 끝도 그때마다 조금씩 잘라 주면 좋아요.</li>
+      <li><b>시원한 곳에 둬요</b>직사광선, 에어컨·히터 바람, 과일 옆은 피해 주세요. 과일에서 나오는 가스가 꽃을 빨리 시들게 해요.</li>
+    </ol>
+  </div>
+</section>
+
+<section class="visit" id="visit" aria-labelledby="visitTitle">
+  <div class="wrap">
+    <div class="visit-box">
+      <div class="visit-info">
+        <p class="hand">직접 보고 고르고 싶다면</p>
+        <h2 id="visitTitle">꽃나라 오시는 길</h2>
+        <dl>
+          <dt>주소</dt><dd>경상북도 포항시 북구 삼호로 67</dd>
+          <dt>전화</dt><dd><a href="tel:050713960776">0507-1396-0776</a></dd>
+        </dl>
+        <div class="visit-btns">
+          <a class="btn primary" href="https://map.naver.com/p/entry/place/15141259" target="_blank" rel="noopener">네이버 지도에서 보기</a>
+          <a class="btn" href="tel:050713960776">전화 걸기</a>
+          <button type="button" class="btn" id="copyAddr">주소 복사</button>
+        </div>
+        <p style="font-size:14px;color:var(--muted);margin:14px 0 0">네이버 지도에서 실제 꽃다발 사진과 영업시간을 볼 수 있어요. 여기서 만든 시안을 보여 주시면 이야기가 수월해요.</p>
+      </div>
+      <div class="map"><iframe title="꽃나라 위치 지도" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=%EA%B2%BD%EC%83%81%EB%B6%81%EB%8F%84%20%ED%8F%AC%ED%95%AD%EC%8B%9C%20%EB%B6%81%EA%B5%AC%20%EC%82%BC%ED%98%B8%EB%A1%9C%2067&z=16&hl=ko&output=embed"></iframe></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<section class="credits" aria-label="사진 출처"><div class="wrap"><details><summary>꽃 사진 출처 (위키미디어 공용, 자유 이용 허락 사진)</summary><ul id="creditList"></ul></details></div></section>
+<footer>
+  <div class="wrap">
+    <span>꽃나라 Flower Land · 경상북도 포항시 북구 삼호로 67 · 0507-1396-0776</span>
+    <span>꽃말은 자료마다 조금씩 다를 수 있어요.</span>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+(function(){
+'use strict';
+var $=function(id){return document.getElementById(id);};
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+function R(g,a,b){return a+(b-a)*g();}
+function n(v){return Math.round(v*10)/10;}
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+function hx(c){c=c.replace('#','');if(c.length===3)c=c.split('').map(function(x){return x+x;}).join('');return [parseInt(c.slice(0,2),16),parseInt(c.slice(2,4),16),parseInt(c.slice(4,6),16)];}
+function toHex(a){return '#'+a.map(function(v){v=Math.max(0,Math.min(255,Math.round(v)));return (v<16?'0':'')+v.toString(16);}).join('');}
+function mix(a,b,t){var x=hx(a),y=hx(b);return toHex([x[0]+(y[0]-x[0])*t,x[1]+(y[1]-x[1])*t,x[2]+(y[2]-x[2])*t]);}
+function shade(c,t){return t>=0?mix(c,'#ffffff',t):mix(c,'#2a1a14',-t);}
+function lum(c){var x=hx(c);return (x[0]*.299+x[1]*.587+x[2]*.114)/255;}
+var TAU=Math.PI*2,RAD=Math.PI/180;
+
+/* ================= 꽃 자료 ================= */
+var CATS=[['all','전체'],['main','주인공 꽃'],['sub','포인트 꽃'],['fill','채움 꽃'],['green','잎 소재']];
+var FLOWERS=[
+ {id:'rose',name:'장미',en:'Rose',cat:'main',draw:'rose',size:34,season:'사계절',life:'7~10일',mean:'사랑, 아름다움',
+  feat:'꽃다발의 단골 주인공이에요. 색마다 꽃말이 달라서 전하고 싶은 마음에 맞춰 고르기 좋아요.',
+  colors:[['red','빨강','#bf2840','열렬한 사랑'],['pink','분홍','#ef9aae','행복한 사랑, 맹세'],['white','흰색','#f6f0e6','순결, 존경'],['peach','주황','#f2a274','첫사랑의 고백, 수줍음'],['yellow','노랑','#f2cc4e','우정, 질투'],['purple','보라','#a487c4','영원한 사랑']]},
+ {id:'peony',name:'작약',en:'Peony',cat:'main',draw:'peony',size:44,season:'5~6월',life:'5~7일',mean:'수줍음, 행복한 결혼',
+  feat:'크고 풍성한 꽃잎이 겹겹이 피어요. 봉오리로 받아 활짝 피는 걸 지켜보는 재미가 있어요.',
+  colors:[['pink','분홍','#f0aec0'],['coral','코랄','#f1917c'],['white','흰색','#f8f0e6'],['magenta','진분홍','#cf4f78']]},
+ {id:'hydrangea',name:'수국',en:'Hydrangea',cat:'main',draw:'hydrangea',size:50,season:'6~7월 (수입은 사계절)',life:'5~7일',mean:'진심',
+  feat:'한 송이만 넣어도 꽃다발이 확 풍성해져요. 물을 아주 많이 먹는 꽃이라 물 관리가 중요해요.',
+  colors:[['blue','파랑','#89a9d9'],['pink','분홍','#eeaac6'],['white','흰색','#eef0e8'],['purple','보라','#ad97d3'],['green','연두','#cfe0a8']]},
+ {id:'sunflower',name:'해바라기',en:'Sunflower',cat:'main',draw:'radial',p:{n:21,layers:2,shrink:.1,w:.14,tip:'point',cr:.42,cc:'#4d2f17',dots:1},size:42,season:'7~9월',life:'5~7일',mean:'동경, 일편단심',
+  feat:'보기만 해도 기운이 나는 꽃이에요. 합격이나 개업을 축하할 때 많이 찾아요.',
+  colors:[['yellow','노랑','#f3bf34'],['lemon','레몬','#f4dc7a'],['orange','주황','#e8962f']]},
+ {id:'tulip',name:'튤립',en:'Tulip',cat:'main',draw:'tulip',size:30,season:'3~5월',life:'5~7일',mean:'사랑의 고백',
+  feat:'꽃병에 꽂은 뒤에도 줄기가 자라고, 빛이 드는 쪽으로 고개를 돌려요.',
+  colors:[['red','빨강','#cc3349','사랑의 고백'],['pink','분홍','#ef9fb6','사랑의 시작, 애정'],['white','흰색','#f5efe4','새로운 시작, 용서'],['yellow','노랑','#f1cf52','헛된 사랑'],['purple','보라','#8c62b0','영원한 사랑']]},
+ {id:'lily',name:'백합',en:'Lily',cat:'main',draw:'lily',size:44,season:'사계절',life:'7~10일',mean:'순결, 변함없는 사랑',
+  feat:'향이 진하고 꽃이 커요. 꽃가루가 옷에 묻으면 잘 안 지워지니 수술은 떼어 주세요.',
+  colors:[['white','흰색','#f8f4ec'],['pink','분홍','#f1a8bf'],['yellow','노랑','#f4d47a']]},
+ {id:'gerbera',name:'거베라',en:'Gerbera',cat:'main',draw:'radial',p:{n:26,layers:2,shrink:.2,w:.08,tip:'round',cr:.2,cc:'#3d2e17'},size:32,season:'사계절',life:'5~7일',mean:'신비, 희망',
+  feat:'동글동글하고 색이 선명해요. 줄기가 무르기 쉬워서 물은 얕게 담아 주는 게 좋아요.',
+  colors:[['red','빨강','#d8363f'],['orange','주황','#ef7b2f'],['yellow','노랑','#f3c43c'],['pink','분홍','#f293b2'],['white','흰색','#f8f4ea']]},
+ {id:'ranunculus',name:'라넌큘러스',en:'Ranunculus',cat:'main',draw:'ranunc',size:28,season:'1~4월',life:'7~10일',mean:'매력, 매혹',
+  feat:'종이처럼 얇은 꽃잎이 동그랗게 수십 겹 말려 있어요. 봄 꽃다발에 빠지지 않아요.',
+  colors:[['pink','분홍','#f2a7ba'],['coral','코랄','#f38f71'],['white','흰색','#f9f3e8'],['yellow','노랑','#f3d05e'],['red','빨강','#c4343f']]},
+ {id:'lisianthus',name:'리시안셔스',en:'Lisianthus',cat:'main',draw:'lisi',size:28,season:'사계절',life:'7~14일',mean:'변치 않는 사랑',
+  feat:'장미를 닮았지만 더 하늘하늘해요. 한 줄기에 여러 송이가 달려 있어 넉넉하게 쓰기 좋아요.',
+  colors:[['white','흰색','#f8f5ee'],['purple','보라','#9a74c0'],['pink','분홍','#efabc3'],['green','연두','#d3e2aa']]},
+ {id:'carnation',name:'카네이션',en:'Carnation',cat:'main',draw:'carnation',size:28,season:'사계절 (5월에 가장 많아요)',life:'10~14일',mean:'사랑, 존경, 감사',
+  feat:'튼튼하고 오래가요. 어버이날과 스승의 날에 가장 많이 쓰는 꽃이에요.',
+  colors:[['red','빨강','#c42c41','어버이에 대한 사랑, 존경'],['pink','분홍','#f09cb3','감사, 아름다운 사랑'],['white','흰색','#f6f1e8','순수한 사랑 (추모에도 써요)']]},
+ {id:'calla',name:'카라',en:'Calla lily',cat:'main',draw:'calla',size:30,season:'사계절',life:'7~10일',mean:'순수, 천년의 사랑',
+  feat:'매끈한 깔때기 모양이라 깔끔하고 세련돼 보여요. 결혼식 부케에도 많이 써요.',
+  colors:[['white','흰색','#f7f3ea'],['yellow','노랑','#f0cc4c'],['pink','분홍','#eea2b9'],['wine','와인','#6a2c55']]},
+ {id:'orchid',name:'호접란',en:'Moth orchid',cat:'main',draw:'orchid',size:32,season:'사계절',life:'10~14일',mean:'행복이 날아온다',
+  feat:'나비가 날아가는 모양의 꽃이에요. 개업이나 승진을 축하할 때 자주 써요.',
+  colors:[['white','흰색','#faf7f2'],['pink','분홍','#ec93b9'],['purple','자주','#a95c9c']]},
+ {id:'dahlia',name:'다알리아',en:'Dahlia',cat:'main',draw:'radial',p:{n:14,layers:4,shrink:.2,w:.19,tip:'point',cr:.1},size:38,season:'7~10월',life:'4~6일',mean:'감사, 화려함',
+  feat:'뾰족한 꽃잎이 겹겹이 규칙적으로 나 있어 화려해요. 크기도 커서 주인공 꽃으로 좋아요.',
+  colors:[['red','빨강','#c2303d'],['pink','분홍','#ef9fbe'],['coral','코랄','#ef8a6b'],['yellow','노랑','#f2c64d'],['wine','버건디','#7a2236']]},
+ {id:'anemone',name:'아네모네',en:'Anemone',cat:'sub',draw:'radial',p:{n:6,layers:1,shrink:0,w:.4,tip:'round',cr:.27,cc:'#211c2c',dots:2},size:26,season:'1~4월',life:'5~7일',mean:'기대, 기다림',
+  feat:'까만 꽃술이 눈에 띄는 봄꽃이에요. 밤이 되면 꽃잎을 살짝 오므려요.',
+  colors:[['red','빨강','#c42639'],['white','흰색','#f7f4ee'],['purple','보라','#6f4ea2'],['blue','파랑','#5470bb'],['pink','분홍','#ea94b2']]},
+ {id:'mum',name:'소국',en:'Spray mum',cat:'sub',draw:'radial',p:{n:24,layers:3,shrink:.24,w:.07,tip:'round',cr:.12},size:22,season:'9~11월 (사계절 나와요)',life:'10~14일',mean:'고결, 진실',
+  feat:'오래가고 값도 착해요. 작은 송이가 여럿 달려 꽃다발에 귀여운 느낌을 더해요.',
+  colors:[['yellow','노랑','#f1c235','밝은 마음, 고결'],['pink','분홍','#eea6c4'],['green','연두','#c6db82'],['white','흰색','#f6f3e9','애도 (축하 꽃다발에는 피해요)']]},
+ {id:'freesia',name:'프리지아',en:'Freesia',cat:'sub',draw:'freesia',size:24,season:'1~4월',life:'5~7일',mean:'새로운 시작, 천진난만',
+  feat:'달콤한 향이 나요. "새로운 시작"이라는 꽃말 덕분에 졸업·입학 꽃다발에 꼭 들어가요.',
+  colors:[['yellow','노랑','#f3cd3e'],['white','흰색','#f7f3e8'],['purple','보라','#9b7bc6']]},
+ {id:'cosmos',name:'코스모스',en:'Cosmos',cat:'sub',draw:'radial',p:{n:8,layers:1,shrink:0,w:.27,tip:'notch',cr:.17,cc:'#efbd30'},size:24,season:'8~10월',life:'3~5일',mean:'순정, 조화',
+  feat:'가을 들꽃 느낌이 나요. 줄기가 가늘고 하늘하늘해서 내추럴한 꽃다발에 잘 어울려요.',
+  colors:[['pink','분홍','#f0a3c0'],['white','흰색','#f9f6f0'],['magenta','진분홍','#d4448a']]},
+ {id:'daisy',name:'데이지·마가렛',en:'Daisy',cat:'sub',draw:'radial',p:{n:20,layers:1,shrink:0,w:.09,tip:'round',cr:.24,cc:'#f0bd2c'},size:22,season:'3~6월',life:'5~7일',mean:'순수, 희망, 평화',
+  feat:'하얀 꽃잎에 노란 꽃술. 어느 꽃다발에 넣어도 산뜻해지는 꽃이에요.',
+  colors:[['white','흰색','#fbf9f3'],['pink','분홍','#f4b8ca']]},
+ {id:'sweetpea',name:'스위트피',en:'Sweet pea',cat:'sub',draw:'sweetpea',size:22,season:'1~4월',life:'4~6일',mean:'새로운 출발, 우아한 추억',
+  feat:'나비 날개 같은 하늘하늘한 꽃잎에 달콤한 향이 나요. 봄 졸업 꽃다발에 잘 어울려요.',
+  colors:[['pink','분홍','#f2a8c4'],['purple','보라','#a68bd3'],['white','흰색','#faf6f0'],['coral','코랄','#f39c88']]},
+ {id:'lavender',name:'라벤더',en:'Lavender',cat:'sub',draw:'spike',p:{kind:'lav'},size:20,season:'6~7월',life:'7~10일',mean:'기대, 대답해 주세요',
+  feat:'은은한 향이 나고, 그대로 말리면 드라이플라워로 오래 둘 수 있어요.',
+  colors:[['purple','보라','#8a72c2'],['light','연보라','#b2a2da']]},
+ {id:'delphinium',name:'델피니움',en:'Delphinium',cat:'sub',draw:'spike',p:{kind:'delph'},size:22,season:'사계절',life:'5~7일',mean:'당신을 행복하게 해 줄게요',
+  feat:'하늘색 꽃이 길게 달려서 꽃다발에 시원한 높이를 줘요.',
+  colors:[['blue','파랑','#5d7fd3'],['sky','하늘','#9dc2ec'],['purple','보라','#8a6cc4'],['white','흰색','#f6f5f1']]},
+ {id:'stock',name:'스토크',en:'Stock',cat:'sub',draw:'spike',p:{kind:'stock'},size:22,season:'12~4월',life:'5~7일',mean:'영원한 아름다움',
+  feat:'꽃잎이 소복소복 달린 줄기 꽃이에요. 향이 좋아서 방 안이 금방 꽃집 냄새로 채워져요.',
+  colors:[['white','흰색','#f7f2e8'],['pink','분홍','#f1b4c8'],['purple','보라','#a78ccd'],['cream','크림','#f2e3b5']]},
+ {id:'gyp',name:'안개꽃',en:"Baby's breath",cat:'fill',draw:'gyp',size:24,season:'사계절',life:'7~10일',mean:'맑은 마음, 깨끗한 마음',
+  feat:'작은 꽃이 구름처럼 피어서 꽃 사이 빈 곳을 채워 줘요. 말려도 모양이 그대로예요.',
+  colors:[['white','흰색','#ffffff'],['pink','분홍 (염색)','#f5c3d2'],['sky','하늘 (염색)','#c7dcf3']]},
+ {id:'statice',name:'스타티스',en:'Statice',cat:'fill',draw:'statice',size:22,season:'사계절',life:'10~14일',mean:'변치 않는 마음',
+  feat:'종이처럼 바스락거리는 꽃이에요. 그대로 두면 색이 남은 채로 드라이플라워가 돼요.',
+  colors:[['purple','보라','#8d70c9'],['pink','분홍','#ec9cc0'],['white','흰색','#f5f3ed'],['yellow','노랑','#f1d35d']]},
+ {id:'forget',name:'물망초',en:'Forget-me-not',cat:'fill',draw:'forget',size:18,season:'3~5월',life:'3~5일',mean:'나를 잊지 마세요',
+  feat:'작고 파란 꽃이 옹기종기 피어요. 오래 기억해 달라는 마음을 담기 좋아요.',
+  colors:[['blue','파랑','#73a2e4'],['pink','분홍','#f1abc5']]},
+ {id:'hypericum',name:'히페리쿰',en:'Hypericum',cat:'fill',draw:'hyper',size:20,season:'사계절',life:'10~14일',mean:'슬픔은 계속되지 않는다',
+  feat:'동글동글한 열매 소재예요. 꽃 사이에 넣으면 귀엽고 생기 있어 보여요.',
+  colors:[['red','빨강','#b42f3e'],['green','연두','#9cbd57'],['peach','살구','#ef9f78'],['pink','분홍','#e78aa9']]},
+ {id:'cotton',name:'목화',en:'Cotton',cat:'fill',draw:'cotton',size:22,season:'10~2월',life:'오래가요 (말린 소재)',mean:'어머니의 사랑, 우아함',
+  feat:'포근한 솜 열매가 달린 가지예요. 겨울 꽃다발이나 부모님께 드리는 꽃다발에 따뜻함을 더해요.',
+  colors:[['white','흰색','#fbf9f4']]},
+ {id:'euca',name:'유칼립투스',en:'Eucalyptus',cat:'green',draw:'euca',size:24,season:'사계절',life:'2주 이상',mean:'추억',
+  feat:'동전처럼 둥근 잎에 상쾌한 향이 나요. 어떤 꽃과도 잘 어울리고 말려도 예뻐요.',
+  colors:[['silver','은녹색','#8ea79a']]},
+ {id:'ruscus',name:'루스커스',en:'Ruscus',cat:'green',draw:'ruscus',size:24,season:'사계절',life:'2주 이상',mean:'',
+  feat:'윤기 나는 뾰족한 잎이에요. 꽃말보다는 꽃다발 모양을 잡아 주는 역할을 하고, 아주 오래가요.',
+  colors:[['green','초록','#3f7a41']]}
+];
+var FL={};FLOWERS.forEach(function(f){FL[f.id]=f;});
+function colOf(f,k){for(var i=0;i<f.colors.length;i++)if(f.colors[i][0]===k)return f.colors[i];return f.colors[0];}
+function meanOf(f,k){var c=colOf(f,k);return c[3]||f.mean;}
+var UNIT={main:'송이',sub:'대',fill:'대',green:'대'};
+var ROLE={rose:'head',peony:'head',hydrangea:'head',radial:'head',tulip:'head',lily:'head',ranunc:'head',lisi:'head',carnation:'head',calla:'head',orchid:'head',
+  spike:'spike',freesia:'spray',sweetpea:'spray',cotton:'spray',gyp:'fill',statice:'fill',forget:'fill',hyper:'fill',euca:'green',ruscus:'green'};
+/* 소국은 송이처럼 생겼지만 작아서 머리로 둡니다 */
+
+var PAPERS=[['white','화이트','#f6f3ee'],['ivory','아이보리','#efe4cf'],['kraft','크라프트','#c59d74'],['pink','핑크','#f1c3cd'],['lavender','라벤더','#cbbfe0'],['mint','민트','#c0dfd0'],['yellow','레몬','#f3e2a0'],['navy','네이비','#33405f'],['black','블랙','#2c2a2b'],['vellum','반투명','#eef1f2']];
+var RIBBONS=[['white','화이트','#ffffff'],['ivory','아이보리','#eadcbf'],['red','레드','#b22a3f'],['pink','핑크','#e88fa6'],['gold','골드','#c49d4c'],['navy','네이비','#2f3a5c'],['black','블랙','#242223'],['mint','민트','#8dc7af'],['lavender','라벤더','#a796d1'],['twine','노끈','#b58b5c']];
+var SHAPES=[['round','라운드','동그랗게 모은 기본'],['oneside','원사이드','앞에서 보기 좋게'],['natural','내추럴','들꽃처럼 자연스럽게']];
+function pick(list,k){for(var i=0;i<list.length;i++)if(list[i][0]===k)return list[i];return list[0];}
+
+var THEMES=[
+ {id:'love',name:'연인·사랑',desc:'설레는 마음을 전할 때',key:['rose','red'],items:[['rose','red',9],['gyp','white',3],['euca','silver',2]],shape:'round',paper:'white',ribbon:'red',
+  msgs:['늘 고마워, 사랑해','오늘도 네 생각뿐이야','우리 오래오래 같이 걷자'],tip:'장미는 송이 수에도 뜻을 담아요. 흔히 1송이는 "첫눈에 반했어요", 3송이는 "사랑해요", 21송이는 "사랑을 맹세해요"라고 해요.'},
+ {id:'propose',name:'프러포즈',desc:'평생을 약속하는 날',key:['rose','white'],items:[['rose','red',21],['lisianthus','white',4],['gyp','white',3],['euca','silver',3]],shape:'round',paper:'ivory',ribbon:'gold',
+  msgs:['나와 결혼해 줄래?','평생 네 편이 되어 줄게','매일 아침을 너와 맞고 싶어'],tip:'빨간 장미 21송이는 "사랑을 맹세해요"라는 뜻으로 프러포즈 때 많이 골라요.'},
+ {id:'birthday',name:'생일',desc:'태어난 날을 축하하며',key:['gerbera','orange'],items:[['gerbera','orange',3],['ranunculus','coral',3],['rose','peach',3],['daisy','white',3],['euca','silver',2]],shape:'natural',paper:'pink',ribbon:'gold',
+  msgs:['생일 축하해!','태어나 줘서 고마워','올해도 좋은 일만 가득하길'],tip:'받는 사람이 좋아하는 색을 주인공 꽃으로 넣으면 실패가 없어요. 탄생월의 꽃을 하나 섞어도 좋아요.'},
+ {id:'congrats',name:'합격·승진',desc:'애쓴 시간을 축하하며',key:['sunflower','yellow'],items:[['sunflower','yellow',3],['rose','peach',4],['freesia','yellow',3],['ruscus','green',2]],shape:'round',paper:'kraft',ribbon:'navy',
+  msgs:['합격 진심으로 축하해!','그동안 정말 고생 많았어','앞으로 가는 길도 응원할게'],tip:'해바라기는 밝고 힘찬 느낌이라 축하 꽃다발에 인기가 많아요.'},
+ {id:'grad',name:'졸업·입학',desc:'새 출발을 응원하며',key:['freesia','yellow'],items:[['freesia','yellow',5],['sunflower','yellow',2],['daisy','white',3],['gyp','white',2],['euca','silver',2]],shape:'oneside',paper:'yellow',ribbon:'white',
+  msgs:['졸업 축하해!','새로운 시작을 응원해','멋진 첫걸음이 되길'],tip:'프리지아는 꽃말이 "새로운 시작"이라 졸업·입학 꽃으로 오래 사랑받아 왔어요.'},
+ {id:'parents',name:'감사·어버이날',desc:'고마운 마음을 담아',key:['carnation','red'],items:[['carnation','red',7],['carnation','pink',3],['gyp','white',3],['euca','silver',2]],shape:'round',paper:'kraft',ribbon:'red',
+  msgs:['낳아 주시고 길러 주셔서 감사해요','엄마, 아빠 사랑해요','늘 건강하세요'],tip:'빨간 카네이션은 "어버이에 대한 사랑과 존경"이에요. 흰 카네이션은 추모의 뜻으로도 쓰니 피하는 게 좋아요.'},
+ {id:'teacher',name:'스승의 날',desc:'가르침에 감사하며',key:['carnation','pink'],items:[['carnation','pink',5],['lisianthus','white',3],['statice','purple',2],['euca','silver',2]],shape:'oneside',paper:'ivory',ribbon:'pink',
+  msgs:['가르쳐 주셔서 감사합니다','선생님 덕분에 많이 배웠어요','언제나 존경합니다'],tip:'분홍 카네이션은 "감사"의 뜻이에요. 학생이 담임 선생님께 개인적으로 드리는 꽃 선물은 청탁금지법으로 제한될 수 있으니 미리 확인하세요.'},
+ {id:'anniv',name:'결혼기념일',desc:'함께한 날들을 기념하며',key:['peony','pink'],items:[['peony','pink',3],['rose','pink',5],['lisianthus','white',3],['euca','silver',3]],shape:'round',paper:'lavender',ribbon:'white',
+  msgs:['함께한 모든 날이 선물이었어','앞으로도 지금처럼','당신이라서 고마워'],tip:'작약의 꽃말 중 하나가 "행복한 결혼"이에요. 제철(5~6월)이 아니면 비슷한 느낌의 장미나 라넌큘러스로 바꿔 보세요.'},
+ {id:'opening',name:'개업·이전',desc:'새 출발의 번창을 빌며',key:['orchid','white'],items:[['sunflower','yellow',3],['orchid','white',2],['dahlia','red',2],['ruscus','green',3]],shape:'round',paper:'navy',ribbon:'gold',
+  msgs:['개업을 축하드립니다','번창하세요!','늘 손님으로 북적이길 바랍니다'],tip:'호접란의 꽃말은 "행복이 날아온다"예요. 가게에 오래 두고 볼 거라면 화분도 좋아요.'},
+ {id:'cheer',name:'응원·위로',desc:'힘이 되고 싶을 때',key:['hydrangea','blue'],items:[['hydrangea','blue',1],['gerbera','yellow',3],['freesia','yellow',2],['euca','silver',2]],shape:'natural',paper:'mint',ribbon:'white',
+  msgs:['언제나 네 편이야','괜찮아, 잘하고 있어','천천히 해도 돼'],tip:'밝은 노랑과 하늘색은 보는 사람 마음을 가볍게 해 줘요. 거베라의 꽃말은 "희망"이에요.'},
+ {id:'hospital',name:'병문안',desc:'빨리 낫길 바라며',key:['gerbera','pink'],items:[['gerbera','pink',3],['daisy','white',4],['lisianthus','green',2],['euca','silver',2]],shape:'round',paper:'white',ribbon:'mint',
+  msgs:['빨리 나으세요','건강한 모습으로 다시 만나요','곁에서 응원할게요'],tip:'향이 강한 꽃(백합 등)과 흙이 든 화분은 피해 주세요. 병원에 따라 생화를 들일 수 없는 곳도 있어요.'},
+ {id:'friend',name:'우정',desc:'오랜 친구에게',key:['rose','yellow'],items:[['rose','yellow',5],['daisy','white',3],['freesia','white',2],['euca','silver',2]],shape:'natural',paper:'kraft',ribbon:'twine',
+  msgs:['늘 곁에 있어 줘서 고마워','우리 오래 보자','네가 있어서 든든해'],tip:'노란 장미는 "우정"의 꽃이에요. 다만 "질투"라는 뜻도 있어서 연인에게는 피하는 게 좋아요.'},
+ {id:'spring',group:'season',name:'봄 꽃다발',desc:'2~4월 제철 꽃으로',key:['tulip','pink'],items:[['tulip','pink',5],['ranunculus','coral',3],['freesia','yellow',3],['sweetpea','pink',2]],shape:'natural',paper:'white',ribbon:'pink',
+  msgs:['봄이 왔어요','따뜻한 봄날 같은 너에게','새 계절도 함께해요'],tip:'봄에는 튤립, 라넌큘러스, 프리지아, 스위트피가 제철이에요. 제철 꽃은 싱싱하고 값도 착해요.'},
+ {id:'summer',group:'season',name:'여름 꽃다발',desc:'시원하고 싱그럽게',key:['hydrangea','blue'],items:[['hydrangea','blue',1],['sunflower','yellow',2],['delphinium','sky',2],['lisianthus','white',3],['euca','silver',2]],shape:'round',paper:'mint',ribbon:'navy',
+  msgs:['더위 잘 이겨 내요','시원한 여름 보내','오늘도 수고했어'],tip:'여름엔 수국, 해바라기, 델피니움이 좋아요. 더운 날엔 물을 하루 두 번 갈아 주면 훨씬 오래가요.'},
+ {id:'autumn',group:'season',name:'가을 꽃다발',desc:'따뜻한 가을빛으로',key:['dahlia','coral'],items:[['dahlia','coral',3],['cosmos','pink',3],['mum','yellow',3],['hypericum','red',2],['euca','silver',1]],shape:'natural',paper:'kraft',ribbon:'twine',
+  msgs:['가을 하늘처럼 맑은 날 되길','선선한 바람과 함께 보내요','고마운 마음을 담아'],tip:'가을엔 다알리아, 코스모스, 소국이 제철이에요. 히페리쿰 같은 열매 소재를 넣으면 가을 느낌이 살아요.'},
+ {id:'winter',group:'season',name:'겨울·크리스마스',desc:'포근하고 따뜻하게',key:['cotton','white'],items:[['rose','red',5],['cotton','white',2],['stock','white',3],['euca','silver',3]],shape:'round',paper:'white',ribbon:'red',
+  msgs:['메리 크리스마스!','따뜻한 겨울 보내요','올 한 해도 고마웠어'],tip:'겨울엔 목화와 스토크, 빨간 장미로 따뜻한 느낌을 내 보세요. 추운 날 차 안이나 바깥에 오래 두면 꽃이 얼 수 있어요.'},
+ {id:'free',name:'마음대로',desc:'테마 없이 자유롭게',key:['ranunculus','pink'],items:null,shape:null,paper:null,ribbon:null,
+  msgs:['고마워요','당신을 생각하며','좋은 하루 보내요'],tip:'담고 싶은 꽃을 자유롭게 골라 보세요. 주인공 꽃 1~2가지, 포인트 꽃 1가지, 채움 꽃과 잎 소재를 조금 넣으면 균형이 잘 맞아요.'}
+];
+var PHOTO={"rose":["photos/rose.jpg","Petro Stelte","CC BY-SA 4.0","https://commons.wikimedia.org/wiki/File:Red-Rose-Sitia-Crete.jpg"],"peony":["photos/peony.jpg","Ulf Eliasson","CC BY-SA 3.0","https://commons.wikimedia.org/wiki/File:Lactiflora1b.UME.jpg"],"hydrangea":["photos/hydrangea.jpg","Acabashi","CC BY-SA 4.0","https://commons.wikimedia.org/wiki/File:Hydrangea_%27Endless_Summer_Blue%27_Capel_Manor_College_Gardens_Enfield_London_England.jpg"],"sunflower":["photos/sunflower.jpg","Fir0002","GFDL 1.2","https://commons.wikimedia.org/wiki/File:Sunflower_sky_backdrop.jpg"],"tulip":["photos/tulip.jpg","Martin Ehrensberger","CC0","https://commons.wikimedia.org/wiki/File:Tulipa_cultivar_(red,_close-up)_2018.jpg"],"lily":["photos/lily.jpg","4028mdk09","CC BY-SA 3.0","https://commons.wikimedia.org/wiki/File:Wei%C3%9Fe_Lilienbl%C3%BCte.JPG"],"gerbera":["photos/gerbera.jpg","Dmitry Makeev","CC BY-SA 4.0","https://commons.wikimedia.org/wiki/File:Unidentified_Gerbera.jpg"],"ranunculus":["photos/ranunculus.jpg","Yoko Nekonomania","CC BY 2.0","https://commons.wikimedia.org/wiki/File:Flower,_Persian_buttercup_%22M-Sakura%22_-_Flickr_-_nekonomania.jpg"],"carnation":["photos/carnation.jpg","草花写真館","CC BY-SA 3.0","https://commons.wikimedia.org/wiki/File:W_carnation4051.jpg"],"calla":["photos/calla.jpg","Eric Hunt","CC BY-SA 2.5","https://commons.wikimedia.org/wiki/File:Zantedeschia_aethiopica_-1.jpg"],"orchid":["photos/orchid.jpg","Alvesgaspar","CC BY-SA 4.0","https://commons.wikimedia.org/wiki/File:Phalaenopsis_July_2020-2.jpg"],"dahlia":["photos/dahlia.jpg","Muhammad Mahdi Karim","GFDL 1.2","https://commons.wikimedia.org/wiki/File:Dahlia_x_hybrida.jpg"],"anemone":["photos/anemone.jpg","Zachi Evenor","CC BY 2.0","https://commons.wikimedia.org/wiki/File:Anemone-coronaria-2016-Zachi-Evenor.jpg"],"freesia":["photos/freesia.jpg","The original uploader was Jeantosti at English Wikipedia.","CC BY-SA 3.0","https://commons.wikimedia.org/wiki/File:Freesia.jpg"],"cosmos":["photos/cosmos.jpg","Joydeep","CC BY-SA 3.0","https://commons.wikimedia.org/wiki/File:Cosmos_bipinnatus_pink,_Burdwan,_West_Bengal,_India_10_01_2013.jpg"],"daisy":["photos/daisy.jpg","Dryas","CC BY-SA 3.0","https://commons.wikimedia.org/wiki/File:Argyranthemum_frutescens_subsp._canariae.JPG"],"sweetpea":["photos/sweetpea.jpg","Aftabbanoori","CC BY-SA 3.0","https://commons.wikimedia.org/wiki/File:Sweet_Pea-7.jpg"],"lavender":["photos/lavender.jpg","User:Fir0002","GFDL 1.2","https://commons.wikimedia.org/wiki/File:Single_lavender_flower02.jpg"],"stock":["photos/stock.jpg","KENPEI","CC BY-SA 3.0","https://commons.wikimedia.org/wiki/File:Matthiola_incana6.jpg"],"statice":["photos/statice.jpg","Nevit Dilmen","CC BY-SA 3.0","https://commons.wikimedia.org/wiki/File:Tema_Nezahat_Gokyigit_Park_1060783_20080513133708.JPG"],"forget":["photos/forget.jpg","Sedum Tauno Erik","CC BY-SA 2.5","https://commons.wikimedia.org/wiki/File:Myosotis_arvensis_ois.JPG"],"cotton":["photos/cotton.jpg","Wikimedia Commons","Public domain","https://commons.wikimedia.org/wiki/File:CottonPlant.JPG"],"euca":["photos/euca.jpg","Donald Hobern from Canberra, Australia","CC BY 2.0","https://commons.wikimedia.org/wiki/File:Eucalyptus_polyanthemos_leaves_1.jpg"],"ruscus":["photos/ruscus.jpg","Krzysztof Ziarnek, Kenraiz","CC BY-SA 4.0","https://commons.wikimedia.org/wiki/File:Danae_racemosa_kz1.jpg"],"lisianthus":["photos/lisianthus.jpg","Wikimedia Commons","CC BY-SA 2.0","https://commons.wikimedia.org/wiki/File:Eustoma_grandiflorum_purple_02.jpg"],"mum":["photos/mum.jpg","Aruna at Malayalam Wikipedia","CC BY-SA 3.0","https://commons.wikimedia.org/wiki/File:Chrysanthemum.JPG"],"delphinium":["photos/delphinium.jpg","Björn S.","CC BY-SA 3.0","https://commons.wikimedia.org/wiki/File:Delphinium_elatum_-_panoramio.jpg"],"gyp":["photos/gyp.jpg","Avenue","CC BY-SA 3.0","https://commons.wikimedia.org/wiki/File:Close-up_of_baby%27s_breath_(Gypsophila_paniculata)_flowers.jpg"],"hypericum":["photos/hypericum.jpg","Nesnad","CC BY 4.0","https://commons.wikimedia.org/wiki/File:Hypericum_berries_-_red_-_March_3_2021.jpeg"]};
+var TH={};THEMES.forEach(function(t){TH[t.id]=t;});
+
+/* ================= 꽃 그리기 (모두 원점 기준, 위쪽 = -y) ================= */
+function petalPath(L,w,tip){
+  if(tip==='point')return 'M0,0 C'+n(w)+','+n(-L*.3)+' '+n(w*.75)+','+n(-L*.82)+' 0,'+n(-L)+' C'+n(-w*.75)+','+n(-L*.82)+' '+n(-w)+','+n(-L*.3)+' 0,0Z';
+  if(tip==='notch')return 'M0,0 C'+n(w*1.1)+','+n(-L*.35)+' '+n(w*1.05)+','+n(-L)+' '+n(w*.45)+','+n(-L)+' L0,'+n(-L*.88)+' L'+n(-w*.45)+','+n(-L)+' C'+n(-w*1.05)+','+n(-L)+' '+n(-w*1.1)+','+n(-L*.35)+' 0,0Z';
+  return 'M0,0 C'+n(w*1.2)+','+n(-L*.18)+' '+n(w*1.12)+','+n(-L)+' 0,'+n(-L)+' C'+n(-w*1.12)+','+n(-L)+' '+n(-w*1.2)+','+n(-L*.18)+' 0,0Z';
+}
+function edge(c){return shade(c,lum(c)>.8?-.22:-.32);}
+function dRose(c,r,g){
+  var s='',a0=g()*360,dk=edge(c),sw=n(r*.028);
+  for(var i=0;i<5;i++){var a=a0+i*72+R(g,-10,10),rd=a*RAD,px=Math.cos(rd)*r*.4,py=Math.sin(rd)*r*.4;
+    s+='<ellipse cx="'+n(px)+'" cy="'+n(py)+'" rx="'+n(r*R(g,.56,.64))+'" ry="'+n(r*.48)+'" transform="rotate('+n(a)+' '+n(px)+' '+n(py)+')" fill="'+shade(c,-.1)+'" stroke="'+dk+'" stroke-width="'+sw+'"/>';}
+  s+='<circle r="'+n(r*.7)+'" fill="'+c+'" stroke="'+dk+'" stroke-width="'+sw+'"/>';
+  for(i=0;i<4;i++){var rr=r*(.58-i*.13),a1=(a0+i*115+R(g,-15,15))*RAD,b=a1+3.5;
+    s+='<path d="M'+n(Math.cos(a1)*rr)+','+n(Math.sin(a1)*rr)+' A'+n(rr)+','+n(rr*.9)+' 0 1 1 '+n(Math.cos(b)*rr*.82)+','+n(Math.sin(b)*rr*.82)+'" fill="'+shade(c,.035*i)+'" stroke="'+dk+'" stroke-width="'+n(r*.04)+'" stroke-linecap="round"/>';}
+  return s+'<circle r="'+n(r*.09)+'" fill="'+shade(c,-.28)+'"/>';
+}
+function dPeony(c,r,g){
+  var s='',L=[[11,.56,.46,-.1],[9,.4,.4,-.03],[8,.26,.32,.05],[6,.12,.24,.12]],dk=edge(c);
+  L.forEach(function(l){var a0=g()*360;for(var i=0;i<l[0];i++){var a=a0+i*360/l[0]+R(g,-8,8),rd=a*RAD,px=Math.cos(rd)*r*l[1],py=Math.sin(rd)*r*l[1];
+    s+='<ellipse cx="'+n(px)+'" cy="'+n(py)+'" rx="'+n(r*l[2])+'" ry="'+n(r*l[2]*.8)+'" transform="rotate('+n(a)+' '+n(px)+' '+n(py)+')" fill="'+shade(c,l[3]+R(g,-.03,.03))+'" stroke="'+dk+'" stroke-width="'+n(r*.02)+'"/>';}});
+  return s+'<circle r="'+n(r*.09)+'" fill="'+shade(c,.25)+'"/>';
+}
+function dRanunc(c,r,g){
+  var s='',dk=edge(c);
+  for(var i=0;i<7;i++){var rr=r*(1-i*.135);s+='<ellipse cx="'+n(R(g,-.02,.02)*r)+'" cy="'+n(-i*r*.035)+'" rx="'+n(rr)+'" ry="'+n(rr*.96)+'" fill="'+shade(c,-.12+i*.045)+'" stroke="'+dk+'" stroke-width="'+n(r*.022)+'"/>';}
+  return s+'<circle cy="'+n(-r*.25)+'" r="'+n(r*.09)+'" fill="'+mix(c,'#6d8a3a',.55)+'"/>';
+}
+function zig(rr,N,g,cy){var p=[];for(var j=0;j<N;j++){var a=j/N*TAU,rad=rr*(j%2?.86:1)*R(g,.95,1.04);p.push(n(Math.cos(a)*rad)+','+n(Math.sin(a)*rad+cy));}return p.join(' ');}
+function dCarn(c,r,g){
+  var s='',dk=edge(c);
+  for(var l=0;l<3;l++){var rr=r*(1-l*.27);s+='<polygon points="'+zig(rr,34-l*6,g,-l*r*.04)+'" fill="'+shade(c,-.1+l*.09)+'" stroke="'+dk+'" stroke-width="'+n(r*.022)+'" stroke-linejoin="round"/>';}
+  return s;
+}
+function dRadial(c,r,g,p){
+  var s='',a0=g()*360,dk=edge(c),cc=p.cc||shade(c,-.22);
+  for(var l=0;l<p.layers;l++){var L=r*(1-l*p.shrink),off=a0+l*(180/p.n);
+    for(var i=0;i<p.n;i++){var a=off+i*360/p.n+R(g,-3,3);
+      s+='<path d="'+petalPath(L*R(g,.9,1.04),r*p.w,p.tip)+'" transform="rotate('+n(a)+')" fill="'+shade(c,l*.07-.05+R(g,-.04,.04))+'" stroke="'+dk+'" stroke-width="'+n(r*.018)+'"/>';}}
+  s+='<circle r="'+n(r*p.cr)+'" fill="'+cc+'"/>';
+  if(p.dots===1){for(var k=0;k<26;k++){var a=k*137.5*RAD,d=Math.sqrt((k+.5)/26)*r*p.cr*.86;s+='<circle cx="'+n(Math.cos(a)*d)+'" cy="'+n(Math.sin(a)*d)+'" r="'+n(r*.035)+'" fill="'+shade(cc,.18)+'"/>';}}
+  if(p.dots===2){for(k=0;k<12;k++){var b=k/12*TAU;s+='<circle cx="'+n(Math.cos(b)*r*p.cr*1.15)+'" cy="'+n(Math.sin(b)*r*p.cr*1.15)+'" r="'+n(r*.04)+'" fill="#2a2433"/>';}}
+  return s;
+}
+function dHydr(c,r,g){
+  var s='<circle r="'+n(r*.95)+'" fill="'+shade(c,-.22)+'"/>',pts=[];
+  for(var k=0;k<30;k++){var a=g()*TAU,d=Math.sqrt(g())*r*.8;pts.push([Math.cos(a)*d,Math.sin(a)*d]);}
+  pts.sort(function(a,b){return a[1]-b[1];});
+  pts.forEach(function(q){var fr=r*R(g,.19,.25),rot=g()*90,col=shade(c,R(g,-.1,.18)),dk=edge(col);
+    s+='<g transform="translate('+n(q[0])+' '+n(q[1])+') rotate('+n(rot)+')">';
+    for(var j=0;j<4;j++)s+='<ellipse cy="'+n(-fr*.48)+'" rx="'+n(fr*.42)+'" ry="'+n(fr*.52)+'" transform="rotate('+(j*90)+')" fill="'+col+'" stroke="'+dk+'" stroke-width="'+n(r*.012)+'"/>';
+    s+='<circle r="'+n(fr*.12)+'" fill="'+shade(c,-.35)+'"/></g>';});
+  return s;
+}
+function dLisi(c,r,g){
+  var s='',a0=g()*360,dk=edge(c);
+  for(var i=0;i<5;i++)s+='<ellipse cy="'+n(-r*.42)+'" rx="'+n(r*.44)+'" ry="'+n(r*.56)+'" transform="rotate('+n(a0+i*72)+')" fill="'+shade(c,-.06)+'" stroke="'+dk+'" stroke-width="'+n(r*.022)+'"/>';
+  for(i=0;i<4;i++)s+='<ellipse cy="'+n(-r*.2)+'" rx="'+n(r*.3)+'" ry="'+n(r*.34)+'" transform="rotate('+n(a0+36+i*90)+')" fill="'+shade(c,.07)+'" stroke="'+dk+'" stroke-width="'+n(r*.02)+'"/>';
+  return s+'<circle r="'+n(r*.14)+'" fill="'+mix(c,'#8fa35c',.45)+'"/>';
+}
+function dTulip(c,r){
+  var k=function(x,y){return n(x*r)+','+n(y*r);},dk=edge(c);
+  return '<path d="M'+k(-.5,-.15)+' Q'+k(-.25,-1)+' '+k(0,-1.02)+' Q'+k(.25,-1)+' '+k(.5,-.15)+'Z" fill="'+shade(c,-.22)+'" stroke="'+dk+'" stroke-width="'+n(r*.03)+'"/>'+
+    '<path d="M'+k(-.58,-.7)+' Q'+k(-.66,.42)+' '+k(0,.55)+' Q'+k(.66,.42)+' '+k(.58,-.7)+' Q'+k(.3,-.38)+' '+k(0,-.6)+' Q'+k(-.3,-.38)+' '+k(-.58,-.7)+'Z" fill="'+c+'" stroke="'+dk+'" stroke-width="'+n(r*.03)+'"/>'+
+    '<path d="M'+k(-.3,.5)+' Q'+k(-.46,-.25)+' '+k(0,-.88)+' Q'+k(.46,-.25)+' '+k(.3,.5)+'Z" fill="'+shade(c,.08)+'" stroke="'+dk+'" stroke-width="'+n(r*.025)+'"/>';
+}
+function dCalla(c,r){
+  var k=function(x,y){return n(x*r)+','+n(y*r);},dk=edge(c);
+  return '<path d="M'+k(-.12,.95)+' Q'+k(-.18,.2)+' '+k(-.6,-.42)+' Q'+k(-.32,-.82)+' '+k(.12,-.88)+' Q'+k(.66,-.92)+' '+k(.52,-.52)+' Q'+k(.26,-.18)+' '+k(.14,.95)+'Z" fill="'+c+'" stroke="'+dk+'" stroke-width="'+n(r*.03)+'"/>'+
+    '<ellipse cx="'+n(r*.02)+'" cy="'+n(-r*.6)+'" rx="'+n(r*.32)+'" ry="'+n(r*.16)+'" transform="rotate(-12 '+n(r*.02)+' '+n(-r*.6)+')" fill="'+shade(c,-.18)+'"/>'+
+    '<path d="M'+k(0,-.55)+' Q'+k(.02,-.3)+' '+k(.05,-.12)+'" stroke="#e8c13a" stroke-width="'+n(r*.13)+'" stroke-linecap="round" fill="none"/>'+
+    '<path d="M'+k(-.12,.95)+' Q'+k(.01,.4)+' '+k(.14,.95)+'" fill="'+shade(c,-.1)+'"/>';
+}
+function dLily(c,r,g){
+  var s='',a0=g()*60,dk=edge(c),spot=mix(c,'#a3304e',.55);
+  for(var l=0;l<2;l++)for(var i=0;i<3;i++){var a=a0+i*120+l*60;
+    s+='<g transform="rotate('+n(a)+')"><path d="'+petalPath(r*(l?.95:1),r*.3,'point')+'" fill="'+shade(c,l?.04:-.06)+'" stroke="'+dk+'" stroke-width="'+n(r*.022)+'"/>'+
+      '<path d="M0,0 L0,'+n(-r*.7)+'" stroke="'+shade(c,-.15)+'" stroke-width="'+n(r*.02)+'"/>'+
+      '<circle cx="'+n(r*.06)+'" cy="'+n(-r*.3)+'" r="'+n(r*.025)+'" fill="'+spot+'"/><circle cx="'+n(-r*.05)+'" cy="'+n(-r*.42)+'" r="'+n(r*.02)+'" fill="'+spot+'"/></g>';}
+  s+='<circle r="'+n(r*.12)+'" fill="#b7c88a"/>';
+  for(i=0;i<6;i++){var b=(a0+30+i*60+R(g,-10,10))*RAD,x=Math.cos(b)*r*.55,y=Math.sin(b)*r*.55;
+    s+='<path d="M0,0 L'+n(x)+','+n(y)+'" stroke="#cdd7a6" stroke-width="'+n(r*.025)+'"/><ellipse cx="'+n(x)+'" cy="'+n(y)+'" rx="'+n(r*.07)+'" ry="'+n(r*.035)+'" transform="rotate('+n(b/RAD+90)+' '+n(x)+' '+n(y)+')" fill="#8a4b1d"/>';}
+  return s;
+}
+function dOrchid(c,r){
+  var dk=edge(c),lip=lum(c)>.8?'#d4627a':shade(c,-.35);
+  return '<ellipse cy="'+n(-r*.52)+'" rx="'+n(r*.2)+'" ry="'+n(r*.4)+'" fill="'+shade(c,-.05)+'" stroke="'+dk+'" stroke-width="'+n(r*.02)+'"/>'+
+    '<ellipse cy="'+n(-r*.52)+'" rx="'+n(r*.2)+'" ry="'+n(r*.4)+'" transform="rotate(130)" fill="'+shade(c,-.05)+'" stroke="'+dk+'" stroke-width="'+n(r*.02)+'"/>'+
+    '<ellipse cy="'+n(-r*.52)+'" rx="'+n(r*.2)+'" ry="'+n(r*.4)+'" transform="rotate(-130)" fill="'+shade(c,-.05)+'" stroke="'+dk+'" stroke-width="'+n(r*.02)+'"/>'+
+    '<circle cx="'+n(-r*.44)+'" cy="'+n(-r*.08)+'" r="'+n(r*.42)+'" fill="'+c+'" stroke="'+dk+'" stroke-width="'+n(r*.02)+'"/>'+
+    '<circle cx="'+n(r*.44)+'" cy="'+n(-r*.08)+'" r="'+n(r*.42)+'" fill="'+c+'" stroke="'+dk+'" stroke-width="'+n(r*.02)+'"/>'+
+    '<path d="M'+n(-r*.16)+','+n(r*.05)+' Q0,'+n(r*.55)+' '+n(r*.16)+','+n(r*.05)+' Q0,'+n(-r*.05)+' '+n(-r*.16)+','+n(r*.05)+'Z" fill="'+lip+'"/>'+
+    '<ellipse cy="'+n(-r*.06)+'" rx="'+n(r*.08)+'" ry="'+n(r*.1)+'" fill="#f6f0e2"/>';
+}
+/* 줄기 꽃·소재 (원점이 줄기 아래, 위로 자람) */
+function stemLine(x1,y1,x2,y2,cx,cy,w,col){return '<path d="M'+n(x1)+','+n(y1)+' Q'+n(cx)+','+n(cy)+' '+n(x2)+','+n(y2)+'" stroke="'+(col||'#5f7e45')+'" stroke-width="'+n(w)+'" fill="none" stroke-linecap="round"/>';}
+function dSpike(c,r,g,p){
+  var s='',kind=p.kind,L=r*(kind==='lav'?3.4:3);
+  s+=stemLine(0,0,0,-L,R(g,-.2,.2)*r,-L*.5,r*.07);
+  var N=kind==='lav'?16:kind==='delph'?10:11;
+  for(var k=0;k<N;k++){var t=k/(N-1),y=-L*(.3+.7*t),sz=r*(1-t*.55);
+    if(kind==='lav'){var e=sz*.16;s+='<ellipse cx="'+n(-e*.6)+'" cy="'+n(y)+'" rx="'+n(e*.6)+'" ry="'+n(e)+'" transform="rotate(-25 '+n(-e*.6)+' '+n(y)+')" fill="'+shade(c,R(g,-.12,.08))+'"/><ellipse cx="'+n(e*.6)+'" cy="'+n(y-e*.4)+'" rx="'+n(e*.6)+'" ry="'+n(e)+'" transform="rotate(25 '+n(e*.6)+' '+n(y-e*.4)+')" fill="'+shade(c,R(g,-.12,.08))+'"/>';}
+    else if(kind==='delph'){var fr=sz*.36,x=(k%2?1:-1)*fr*.45,col=shade(c,R(g,-.08,.1));
+      if(t>.82){s+='<circle cx="'+n(x*.5)+'" cy="'+n(y)+'" r="'+n(fr*.5)+'" fill="'+shade(c,-.1)+'"/>';continue;}
+      s+='<g transform="translate('+n(x)+' '+n(y)+')">';for(var j=0;j<5;j++)s+='<ellipse cy="'+n(-fr*.5)+'" rx="'+n(fr*.36)+'" ry="'+n(fr*.52)+'" transform="rotate('+(j*72)+')" fill="'+col+'" stroke="'+edge(c)+'" stroke-width="'+n(r*.015)+'"/>';s+='<circle r="'+n(fr*.18)+'" fill="#f4f1e6"/></g>';}
+    else{var fs=sz*.34,x2=(k%2?1:-1)*fs*.35,col2=shade(c,R(g,-.08,.1));
+      s+='<g transform="translate('+n(x2)+' '+n(y)+')"><circle cx="'+n(-fs*.35)+'" r="'+n(fs*.55)+'" fill="'+col2+'" stroke="'+edge(c)+'" stroke-width="'+n(r*.015)+'"/><circle cx="'+n(fs*.35)+'" r="'+n(fs*.55)+'" fill="'+col2+'" stroke="'+edge(c)+'" stroke-width="'+n(r*.015)+'"/><circle cy="'+n(-fs*.35)+'" r="'+n(fs*.5)+'" fill="'+shade(col2,.06)+'" stroke="'+edge(c)+'" stroke-width="'+n(r*.015)+'"/></g>';}
+  }
+  return s;
+}
+function funnel(c,sz,rot,x,y){var k=function(a,b){return n(a*sz)+','+n(b*sz);};
+  return '<g transform="translate('+n(x)+' '+n(y)+') rotate('+n(rot)+')"><path d="M'+k(-.12,.4)+' Q'+k(-.25,-.1)+' '+k(-.55,-.45)+' Q'+k(-.3,-.62)+' '+k(0,-.5)+' Q'+k(.3,-.62)+' '+k(.55,-.45)+' Q'+k(.25,-.1)+' '+k(.12,.4)+'Z" fill="'+c+'" stroke="'+edge(c)+'" stroke-width="'+n(sz*.04)+'"/><ellipse cy="'+n(-sz*.47)+'" rx="'+n(sz*.22)+'" ry="'+n(sz*.07)+'" fill="'+shade(c,-.2)+'"/></g>';}
+function dFreesia(c,r,g){
+  var s=stemLine(0,0,r*1.3,-r*2.5,r*.05,-r*1.9,r*.07),pts=[[.45,.9,-30],[.62,.75,-10],[.78,.6,15]],b;
+  for(var i=0;i<pts.length;i++){var t=pts[i][0],x=2*(1-t)*t*r*.05+t*t*r*1.3,y=2*(1-t)*t*(-r*1.9)+t*t*(-r*2.5);s+=funnel(shade(c,R(g,-.05,.05)),r*pts[i][1],pts[i][2],x,y);}
+  for(b=0;b<3;b++){var t2=.86+b*.05,x2=2*(1-t2)*t2*r*.05+t2*t2*r*1.3,y2=2*(1-t2)*t2*(-r*1.9)+t2*t2*(-r*2.5);s+='<ellipse cx="'+n(x2)+'" cy="'+n(y2-r*.1)+'" rx="'+n(r*.08)+'" ry="'+n(r*.18)+'" transform="rotate(40 '+n(x2)+' '+n(y2)+')" fill="'+mix(c,'#8fae5a',.45)+'"/>';}
+  return s;
+}
+function ruffle(c,rr,x,y,g){var p=[];for(var j=0;j<18;j++){var a=j/18*TAU,d=rr*(j%2?.9:1)*R(g,.96,1.04);p.push(n(x+Math.cos(a)*d)+','+n(y+Math.sin(a)*d*.88));}return '<polygon points="'+p.join(' ')+'" fill="'+c+'" stroke="'+edge(c)+'" stroke-width="'+n(rr*.05)+'" stroke-linejoin="round"/>';}
+function dSweet(c,r,g){
+  var s='',B=[[0,-1.9],[-.85,-1.35],[.8,-1.45]];
+  B.forEach(function(b){s+=stemLine(0,0,b[0]*r,b[1]*r+r*.3,b[0]*r*.3,b[1]*r*.5,r*.05);});
+  B.forEach(function(b,i){var x=b[0]*r,y=b[1]*r,col=shade(c,R(g,-.06,.06));s+=ruffle(col,r*(.5-i*.04),x,y,g)+'<ellipse cx="'+n(x-r*.18)+'" cy="'+n(y+r*.32)+'" rx="'+n(r*.2)+'" ry="'+n(r*.14)+'" fill="'+shade(col,-.12)+'"/><ellipse cx="'+n(x+r*.18)+'" cy="'+n(y+r*.32)+'" rx="'+n(r*.2)+'" ry="'+n(r*.14)+'" fill="'+shade(col,-.12)+'"/>';});
+  return s;
+}
+function branches(g,r,cnt,spread,h){var e=[];for(var k=0;k<cnt;k++){var x=R(g,-spread,spread)*r,y=-R(g,h*.55,h)*r;e.push([x,y]);}return e;}
+function dGyp(c,r,g){
+  var s='',E=branches(g,r,8,1.3,2.6),d='';
+  E.forEach(function(e){s+=stemLine(0,0,e[0],e[1],e[0]*.2,e[1]*.6,r*.035,'#8aa36c');});
+  E.forEach(function(e){for(var k=0;k<9;k++){var a=g()*TAU,dd=Math.sqrt(g())*r*.42;d+='<circle cx="'+n(e[0]+Math.cos(a)*dd)+'" cy="'+n(e[1]+Math.sin(a)*dd)+'" r="'+n(r*R(g,.055,.09))+'"/>';}});
+  return s+'<g fill="'+c+'" stroke="'+shade(c,-.18)+'" stroke-width="'+n(r*.015)+'">'+d+'</g>';
+}
+function dStatice(c,r,g){
+  var s='',E=branches(g,r,6,1.1,2.4);
+  E.forEach(function(e){s+=stemLine(0,0,e[0],e[1],e[0]*.15,e[1]*.6,r*.05);});
+  E.forEach(function(e){for(var k=0;k<7;k++){var x=e[0]+R(g,-.32,.32)*r,y=e[1]+R(g,-.25,.2)*r;s+='<circle cx="'+n(x)+'" cy="'+n(y)+'" r="'+n(r*.14)+'" fill="'+shade(c,R(g,-.1,.08))+'" stroke="'+edge(c)+'" stroke-width="'+n(r*.015)+'"/><circle cx="'+n(x)+'" cy="'+n(y)+'" r="'+n(r*.04)+'" fill="#f7f4ec"/>';}});
+  return s;
+}
+function dForget(c,r,g){
+  var s='',E=branches(g,r,5,1,2.2);
+  E.forEach(function(e){s+=stemLine(0,0,e[0],e[1],e[0]*.2,e[1]*.6,r*.04);});
+  E.forEach(function(e){for(var k=0;k<5;k++){var x=e[0]+R(g,-.3,.3)*r,y=e[1]+R(g,-.25,.2)*r,fr=r*.11;
+    for(var j=0;j<5;j++){var a=j/5*TAU;s+='<circle cx="'+n(x+Math.cos(a)*fr)+'" cy="'+n(y+Math.sin(a)*fr)+'" r="'+n(fr*.75)+'" fill="'+shade(c,R(g,-.06,.06))+'"/>';}
+    s+='<circle cx="'+n(x)+'" cy="'+n(y)+'" r="'+n(fr*.45)+'" fill="#f3d150"/>';}});
+  return s;
+}
+function leafP(L,w,col){return '<path d="'+petalPath(L,w,'point')+'" fill="'+col+'" stroke="'+shade(col,-.25)+'" stroke-width="'+n(L*.02)+'"/><path d="M0,0 L0,'+n(-L*.85)+'" stroke="'+shade(col,-.2)+'" stroke-width="'+n(L*.018)+'"/>';}
+function dHyper(c,r,g){
+  var s='',E=branches(g,r,5,1,2.1);
+  E.forEach(function(e,i){s+=stemLine(0,0,e[0],e[1],e[0]*.2,e[1]*.6,r*.05);if(i<3)s+='<g transform="translate('+n(e[0]*.5)+' '+n(e[1]*.55)+') rotate('+n(R(g,-70,70))+')">'+leafP(r*.75,r*.2,'#5d8248')+'</g>';});
+  E.forEach(function(e){for(var k=0;k<4;k++){var x=e[0]+R(g,-.28,.28)*r,y=e[1]+R(g,-.22,.18)*r,br=r*.17,col=shade(c,R(g,-.08,.08));
+    s+='<circle cx="'+n(x)+'" cy="'+n(y)+'" r="'+n(br)+'" fill="'+col+'" stroke="'+edge(c)+'" stroke-width="'+n(r*.015)+'"/><ellipse cx="'+n(x-br*.35)+'" cy="'+n(y-br*.35)+'" rx="'+n(br*.28)+'" ry="'+n(br*.18)+'" fill="#fff" opacity=".45"/><circle cx="'+n(x)+'" cy="'+n(y-br)+'" r="'+n(br*.18)+'" fill="#4a3a2a"/>';}});
+  return s;
+}
+function dCotton(c,r,g){
+  var s='',B=[[0,-2.1],[-.9,-1.5],[.85,-1.6]];
+  B.forEach(function(b){s+=stemLine(0,0,b[0]*r,b[1]*r,b[0]*r*.2,b[1]*r*.55,r*.06,'#6b4b30');});
+  B.forEach(function(b){var x=b[0]*r,y=b[1]*r,p=[];for(var j=0;j<10;j++){var a=j/10*TAU,d=r*(j%2?.25:.62);p.push(n(x+Math.cos(a)*d)+','+n(y+Math.sin(a)*d));}
+    s+='<polygon points="'+p.join(' ')+'" fill="#7a5638"/>';
+    for(var k=0;k<5;k++){var a2=k/5*TAU+R(g,-.2,.2);s+='<circle cx="'+n(x+Math.cos(a2)*r*.2)+'" cy="'+n(y+Math.sin(a2)*r*.2)+'" r="'+n(r*.27)+'" fill="'+shade(c,R(g,-.04,0))+'" stroke="#d9d2c4" stroke-width="'+n(r*.02)+'"/>';}});
+  return s;
+}
+function dEuca(c,r,g){
+  var L=r*3.1,bx=R(g,-.4,.4)*r,s=stemLine(0,0,bx*.4,-L,bx,-L*.5,r*.05,'#7a8f7e');
+  for(var k=0;k<9;k++){var t=.18+k*.095,x=2*(1-t)*t*bx+t*t*bx*.4,y=-L*t,side=k%2?1:-1,lr=r*.34*(1-t*.45);
+    s+='<ellipse cx="'+n(x+side*lr*.8)+'" cy="'+n(y)+'" rx="'+n(lr)+'" ry="'+n(lr*.92)+'" fill="'+shade(c,R(g,-.08,.08))+'" stroke="'+shade(c,-.22)+'" stroke-width="'+n(r*.015)+'"/>';}
+  return s;
+}
+function dRuscus(c,r,g){
+  var L=r*3,bx=R(g,-.3,.3)*r,s=stemLine(0,0,bx*.3,-L,bx,-L*.5,r*.045,'#3c6a37');
+  for(var k=0;k<8;k++){var t=.15+k*.105,x=2*(1-t)*t*bx+t*t*bx*.3,y=-L*t,side=k%2?1:-1;
+    s+='<g transform="translate('+n(x)+' '+n(y)+') rotate('+n(side*R(g,40,58))+')">'+leafP(r*(.85-t*.3),r*.2,shade(c,R(g,-.06,.08)))+'</g>';}
+  return s;
+}
+function drawFlower(f,c,r,g){
+  switch(f.draw){
+    case 'rose':return dRose(c,r,g);case 'peony':return dPeony(c,r,g);case 'ranunc':return dRanunc(c,r,g);case 'carnation':return dCarn(c,r,g);
+    case 'radial':return dRadial(c,r,g,f.p);case 'hydrangea':return dHydr(c,r,g);case 'lisi':return dLisi(c,r,g);case 'tulip':return dTulip(c,r,g);
+    case 'calla':return dCalla(c,r,g);case 'lily':return dLily(c,r,g);case 'orchid':return dOrchid(c,r,g);case 'spike':return dSpike(c,r,g,f.p);
+    case 'freesia':return dFreesia(c,r,g);case 'sweetpea':return dSweet(c,r,g);case 'gyp':return dGyp(c,r,g);case 'statice':return dStatice(c,r,g);
+    case 'forget':return dForget(c,r,g);case 'hyper':return dHyper(c,r,g);case 'cotton':return dCotton(c,r,g);case 'euca':return dEuca(c,r,g);case 'ruscus':return dRuscus(c,r,g);
+  }return '';
+}
+var iconCache={};
+function flowerIcon(f,ck){
+  var key=f.id+'|'+ck;if(iconCache[key])return iconCache[key];
+  var c=colOf(f,ck)[2],r=f.size,g=mulberry32(f.id.length*97+3),role=ROLE[f.draw],vb,inner;
+  if(role==='head'){vb=[-r*1.2,-r*1.2,r*2.4,r*2.4];inner=drawFlower(f,c,r,g);}
+  else{vb=[-r*1.75,-r*3.45,r*3.5,r*3.5];inner=f.draw==='freesia'?'<g transform="translate('+n(-r*.6)+' 0)">'+drawFlower(f,c,r,g)+'</g>':drawFlower(f,c,r,g);}
+  if(f.draw==='tulip'||f.draw==='calla')vb=[-r*1.1,-r*1.1,r*2.2,r*2.2];
+  var s='<svg viewBox="'+vb.map(n).join(' ')+'" aria-hidden="true" focusable="false">'+inner+'</svg>';
+  iconCache[key]=s;return s;
+}
+
+/* ================= 꽃다발 엮기 ================= */
+var CX=300,NECK=612;
+function compose(D,uid,opt){
+  opt=opt||{};
+  var g=mulberry32((D.seed||1)*7919+13),heads=[],peri=[],fills=[];
+  D.items.forEach(function(it){var f=FL[it.id];if(!f)return;var c=colOf(f,it.color)[2];
+    for(var k=0;k<it.n;k++){var o={f:f,c:c,r:f.size*R(g,.9,1.08),sd:(g()*1e9)|0},role=ROLE[f.draw];
+      if(role==='head')heads.push(o);else if(role==='fill')fills.push(o);else {o.role=role;peri.push(o);}}});
+  var shape=D.shape||'round';
+  heads.forEach(function(h){h.k=h.r*R(g,.7,1.3);});heads.sort(function(a,b){return b.k-a.k;});
+  var area=0;heads.forEach(function(h){area+=Math.PI*h.r*h.r;});
+  var dens=shape==='natural'?.6:.8,R0=Math.max(Math.sqrt(area/Math.PI/dens),fills.length||peri.length?55:40);
+  var ex=shape==='oneside'?R0*.9:shape==='natural'?R0*1.12:R0*1.04,ey=shape==='oneside'?R0*1.14:R0*.9,gapF=shape==='natural'?.95:.78;
+  var placed=[];
+  heads.forEach(function(h,i){var best=null,bs=1e18,tries=i===0?1:80;
+    for(var t=0;t<tries;t++){var x,y;
+      if(i===0){x=R(g,-.08,.08)*ex;y=R(g,-.08,.08)*ey;}
+      else{var a=g()*TAU,d=Math.sqrt(g());x=Math.cos(a)*d*Math.max(ex-h.r*.55,4);y=Math.sin(a)*d*Math.max(ey-h.r*.55,4);}
+      var ov=0;for(var j=0;j<placed.length;j++){var p=placed[j],dx=x-p.x,dy=y-p.y,dd=Math.sqrt(dx*dx+dy*dy),need=(h.r+p.r)*gapF;if(dd<need)ov+=(need-dd)*(need-dd);}
+      var dn=Math.sqrt(x*x/(ex*ex)+y*y/(ey*ey)),sc=ov+dn*h.r*h.r*.16;
+      if(shape==='oneside')sc+= (y/ey)*h.r*h.r*.03*(h.r<30?-1:1);
+      if(sc<bs){bs=sc;best=[x,y];}}
+    h.x=best[0];h.y=best[1];placed.push(h);});
+  /* 범위 */
+  var minX=-ex*.8,maxX=ex*.8,top=-ey*.8,bot=ey*.8;
+  heads.forEach(function(h){minX=Math.min(minX,h.x-h.r);maxX=Math.max(maxX,h.x+h.r);top=Math.min(top,h.y-h.r);bot=Math.max(bot,h.y+h.r);});
+  var hw=Math.max(-minX,maxX),extra=0;peri.forEach(function(o){extra=Math.max(extra,o.r*(o.role==='spike'?2.6:2.2));});fills.forEach(function(o){extra=Math.max(extra,o.r*1.6);});
+  var topExt=top-extra*.85,sideExt=hw+extra*.6;
+  var s=Math.min(1.8,250/sideExt,450/(bot-topExt));
+  var bottomY=468,cy=bottomY-bot*s;
+  var W2=function(x){return CX+x*s;},H2=function(y){return cy+y*s;};
+  var L=W2(-hw),Rt=W2(hw),T=H2(top),B=H2(bot),HW=Rt-L;
+  var paper=pick(PAPERS,D.paper)[2],rib=pick(RIBBONS,D.ribbon)[2],vel=D.paper==='vellum';
+  var out='<defs><filter id="'+uid+'sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="1.6" stdDeviation="1.8" flood-color="#3a2414" flood-opacity=".28"/></filter>'+
+    '<linearGradient id="'+uid+'pf" x1="0" x2="1"><stop offset="0" stop-color="'+shade(paper,-.07)+'"/><stop offset=".55" stop-color="'+shade(paper,.05)+'"/><stop offset="1" stop-color="'+shade(paper,-.1)+'"/></linearGradient>'+
+    '<linearGradient id="'+uid+'pg" x1="1" x2="0"><stop offset="0" stop-color="'+shade(paper,-.12)+'"/><stop offset=".6" stop-color="'+shade(paper,0)+'"/><stop offset="1" stop-color="'+shade(paper,-.05)+'"/></linearGradient></defs>';
+  if(!opt.noBg)out+='<rect width="600" height="700" fill="none"/>';
+  /* 뒤 포장지 */
+  var bk=function(col,pts){return '<path d="'+pts+'" fill="'+col+'" stroke="'+shade(paper,-.22)+'" stroke-width="1" stroke-linejoin="round"'+(vel?' fill-opacity=".72"':'')+'/>';};
+  var pT=T-28-extra*s*.25;
+  out+=bk(shade(paper,-.14),'M'+n(CX-14)+','+n(NECK+20)+' L'+n(L-48)+','+n(T+(B-T)*.32)+' Q'+n(L-34)+','+n(pT+18)+' '+n(L+HW*.2)+','+n(pT)+' L'+n(CX)+','+n(NECK-20)+'Z');
+  out+=bk(shade(paper,-.04),'M'+n(CX+14)+','+n(NECK+20)+' L'+n(Rt+48)+','+n(T+(B-T)*.3)+' Q'+n(Rt+30)+','+n(pT+14)+' '+n(Rt-HW*.22)+','+n(pT-4)+' L'+n(CX)+','+n(NECK-20)+'Z');
+  out+=bk(shade(paper,-.09),'M'+n(CX-22)+','+n(NECK)+' L'+n(L+HW*.12)+','+n(pT-6)+' Q'+n(CX)+','+n(pT-34)+' '+n(Rt-HW*.12)+','+n(pT-8)+' L'+n(CX+22)+','+n(NECK)+'Z');
+  /* 줄기 다발 (아래로 삐져나온 부분) */
+  var stems='';for(var k=0;k<9;k++){var sx=CX-26+k*6.5+R(g,-2,2);stems+='<path d="M'+n(CX-10+k*2.5)+','+n(NECK-40)+' L'+n(sx)+','+n(690+R(g,-6,4))+'" stroke="'+(k%2?'#5f7e45':'#6f8f50')+'" stroke-width="'+n(R(g,4,6))+'" stroke-linecap="butt"/>';}
+  out+=stems;
+  /* 둘레 소재 */
+  var drawAt=function(o,x,y,rot){var gg=mulberry32(o.sd);return '<g transform="translate('+n(x)+' '+n(y)+') rotate('+n(rot)+') scale('+n(s*100)/100+')">'+drawFlower(o.f,o.c,o.r,gg)+'</g>';};
+  var groups={green:[],spray:[],spike:[]};peri.forEach(function(o){groups[o.role].push(o);});
+  var range={green:[-205,25,.86],spray:[-172,-8,.72],spike:[-150,-30,.55]};
+  ['green','spray','spike'].forEach(function(key){var arr=groups[key],m=arr.length,rg=range[key];
+    for(var i=0;i<m;i++){var o=arr[i],ph=(rg[0]+(rg[1]-rg[0])*(i+.5)/m+R(g,-8,8))*RAD,d=rg[2]*R(g,.92,1.05);
+      if(shape==='oneside'&&key!=='green')ph=(-90+(ph/RAD+90)*.7)*RAD;
+      out+=drawAt(o,W2(Math.cos(ph)*ex*d),H2(Math.sin(ph)*ey*d),ph/RAD+90+R(g,-8,8));}});
+  /* 잎 바탕: 꽃 사이로 종이 대신 잎이 보이도록 */
+  if(heads.length){var nb=Math.max(14,Math.round(heads.length*3.2));for(var lb=0;lb<nb;lb++){var la=g()*TAU,ld=Math.sqrt(g())*.92,lx=Math.cos(la)*ex*ld,ly=Math.sin(la)*ey*ld,lc=shade(pick([['a','','#4f7440'],['b','','#5e8550'],['c','','#3f6435'],['d','','#6d9160']],['a','b','c','d'][(g()*4)|0])[2],R(g,-.05,.06));
+    out+='<g transform="translate('+n(W2(lx))+' '+n(H2(ly))+') rotate('+n(la/RAD+90+R(g,-50,50))+') scale('+n(s*100)/100+')">'+leafP(R(g,30,44),R(g,9,12),lc)+'</g>';}}
+  /* 자동 잎 */
+  heads.forEach(function(h){if(g()<.5)return;var a=Math.atan2(h.y,h.x)+R(g,-.5,.5),col=shade('#527a42',R(g,-.08,.1));
+    out+='<g transform="translate('+n(W2(h.x+Math.cos(a)*h.r*.55))+' '+n(H2(h.y+Math.sin(a)*h.r*.55))+') rotate('+n(a/RAD+90)+') scale('+n(s*100)/100+')">'+leafP(h.r*1.05,h.r*.3,col)+'</g>';});
+  /* 채움 꽃 */
+  fills.forEach(function(o,i){var ph,d,rot;
+    if(i%2===0){ph=(-195+210*g())*RAD;d=R(g,.7,.9);rot=ph/RAD+90;}else{ph=g()*TAU;d=Math.sqrt(g())*.7;rot=R(g,-35,35);}
+    out+=drawAt(o,W2(Math.cos(ph)*ex*d),H2(Math.sin(ph)*ey*d+o.r*.6),rot);});
+  /* 꽃송이 */
+  heads.slice().sort(function(a,b){return a.y-b.y;}).forEach(function(h){var X=W2(h.x),Y=H2(h.y),ang=Math.atan2(X-CX,NECK-Y)/RAD,
+    dir=(h.f.draw==='tulip'||h.f.draw==='calla'||h.f.draw==='lily'||h.f.draw==='orchid')?.7:.2;
+    out+='<g filter="url(#'+uid+'sh)" transform="translate('+n(X)+' '+n(Y)+') rotate('+n(ang*dir)+') scale('+n(s*100)/100+' '+n(s*94)/100+')">'+drawFlower(h.f,h.c,h.r,mulberry32(h.sd))+'</g>';});
+  /* 앞 포장지 */
+  var fT=B-(B-T)*.2,nw=30;
+  var fop=vel?' fill-opacity=".62"':'';
+  out+='<path d="M'+n(L-30)+','+n(fT)+' Q'+n(CX-HW*.05)+','+n(B+6)+' '+n(Rt-HW*.2)+','+n(B+18)+' L'+n(CX+nw+6)+','+n(NECK+40)+' L'+n(CX-nw)+','+n(NECK+44)+'Z" fill="url(#'+uid+'pg)" stroke="'+shade(paper,-.25)+'" stroke-width="1" stroke-linejoin="round"'+fop+'/>';
+  out+='<path d="M'+n(Rt+30)+','+n(fT-6)+' Q'+n(CX+HW*.1)+','+n(B+14)+' '+n(L+HW*.26)+','+n(B+26)+' L'+n(CX-nw-4)+','+n(NECK+42)+' L'+n(CX+nw)+','+n(NECK+46)+'Z" fill="url(#'+uid+'pf)" stroke="'+shade(paper,-.25)+'" stroke-width="1" stroke-linejoin="round"'+fop+'/>';
+  out+='<path d="M'+n(L+HW*.26)+','+n(B+26)+' Q'+n(CX-8)+','+n(B+60)+' '+n(CX-nw+6)+','+n(NECK+30)+'" stroke="'+shade(paper,-.18)+'" stroke-width="1.2" fill="none" opacity=".7"/>';
+  /* 리본 */
+  var ry=NECK+6,rd=shade(rib,-.18),rs=shade(rib,lum(rib)>.85?-.3:-.35);
+  if(D.ribbon==='twine'){out+='<path d="M'+(CX-34)+','+ry+' Q'+CX+','+(ry+8)+' '+(CX+34)+','+ry+'" stroke="'+rib+'" stroke-width="3" fill="none"/><path d="M'+(CX-34)+','+(ry+5)+' Q'+CX+','+(ry+13)+' '+(CX+34)+','+(ry+5)+'" stroke="'+rd+'" stroke-width="3" fill="none"/>'+
+    '<path d="M'+CX+','+(ry+8)+' C'+(CX-26)+','+(ry-16)+' '+(CX-34)+','+(ry+12)+' '+CX+','+(ry+8)+' C'+(CX+26)+','+(ry-16)+' '+(CX+34)+','+(ry+12)+' '+CX+','+(ry+8)+'" stroke="'+rib+'" stroke-width="3" fill="none"/><path d="M'+CX+','+(ry+8)+' q-8,26 -16,40 M'+CX+','+(ry+8)+' q6,24 12,42" stroke="'+rib+'" stroke-width="3" fill="none" stroke-linecap="round"/>';}
+  else{out+='<path d="M'+(CX-36)+','+(ry-4)+' Q'+CX+','+(ry+6)+' '+(CX+36)+','+(ry-4)+' L'+(CX+36)+','+(ry+8)+' Q'+CX+','+(ry+18)+' '+(CX-36)+','+(ry+8)+'Z" fill="'+rd+'" stroke="'+rs+'" stroke-width="1"/>'+
+    '<path d="M'+(CX-4)+','+(ry+10)+' L'+(CX-24)+','+(ry+74)+' L'+(CX-14)+','+(ry+68)+' L'+(CX-8)+','+(ry+80)+' L'+(CX+6)+','+(ry+14)+'Z" fill="'+rd+'" stroke="'+rs+'" stroke-width="1"/>'+
+    '<path d="M'+(CX+4)+','+(ry+10)+' L'+(CX+30)+','+(ry+70)+' L'+(CX+19)+','+(ry+66)+' L'+(CX+16)+','+(ry+79)+' L'+(CX-4)+','+(ry+14)+'Z" fill="'+rib+'" stroke="'+rs+'" stroke-width="1"/>'+
+    '<path d="M'+CX+','+(ry+6)+' C'+(CX-30)+','+(ry-34)+' '+(CX-62)+','+(ry-6)+' '+(CX-44)+','+(ry+12)+' C'+(CX-32)+','+(ry+24)+' '+(CX-12)+','+(ry+14)+' '+CX+','+(ry+6)+'Z" fill="'+rib+'" stroke="'+rs+'" stroke-width="1"/>'+
+    '<path d="M'+CX+','+(ry+6)+' C'+(CX+30)+','+(ry-34)+' '+(CX+62)+','+(ry-6)+' '+(CX+44)+','+(ry+12)+' C'+(CX+32)+','+(ry+24)+' '+(CX+12)+','+(ry+14)+' '+CX+','+(ry+6)+'Z" fill="'+shade(rib,-.06)+'" stroke="'+rs+'" stroke-width="1"/>'+
+    '<path d="M'+(CX-40)+','+(ry+4)+' Q'+(CX-30)+','+(ry-8)+' '+(CX-14)+','+(ry+2)+'" stroke="'+rs+'" stroke-width=".8" fill="none" opacity=".6"/>'+
+    '<rect x="'+(CX-9)+'" y="'+(ry-2)+'" width="18" height="16" rx="5" fill="'+rd+'" stroke="'+rs+'" stroke-width="1"/>';}
+  /* 카드 */
+  if(!opt.noCard&&(D.to||D.msg)){var cxp=Math.min(Rt-26,CX+165),cyp=B-30;
+    out+='<path d="M'+n(cxp-6)+','+n(cyp+20)+' L'+n(cxp-40)+','+n(cyp-56)+'" stroke="#a88b63" stroke-width="2"/>'+
+      '<g transform="translate('+n(cxp)+' '+n(cyp)+') rotate(8)"><rect x="-44" y="-4" width="96" height="62" rx="2" fill="#fffdf7" stroke="#cdbb9c"/><path d="M-44,8 L52,8" stroke="#eadfcb"/>'+
+      '<text x="4" y="30" text-anchor="middle" font-family="Nanum Pen Script, cursive" font-size="17" fill="#5a4636">'+esc(D.to?'To. '+D.to.slice(0,9):'For you')+'</text>'+
+      '<path d="M4,50 c-3,-4 -9,-3 -6,2 l6,5 l6,-5 c3,-5 -3,-6 -6,-2z" fill="#d06d80"/></g>';}
+  /* 크기 계산 (대략: 1단위≈1mm) */
+  var dia=Math.round((2*sideExt)/10/5)*5;
+  return {svg:out,count:heads.length+fills.length+peri.length,dia:Math.max(15,dia)};
+}
+function bouquetSVG(D,uid,opt){var b=compose(D,uid,opt);return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 700" role="img" aria-label="꽃다발 그림">'+b.svg+'</svg>';}
+
+/* ================= 상태 ================= */
+var S={theme:'love',items:[],shape:'round',paper:'white',ribbon:'red',seed:3,to:'',msg:'',from:'',font:'hand',letter:''};
+function applyTheme(id,quiet){var t=TH[id];S.theme=id;
+  if(t.items){S.items=t.items.map(function(x){return {id:x[0],color:x[1],n:x[2]};});S.shape=t.shape;S.paper=t.paper;S.ribbon=t.ribbon;S.seed=(S.seed%97)+1;}
+  if(!quiet)toast(t.items?t.name+'에 어울리는 꽃을 담았어요. 마음대로 바꿔 보세요.':'자유롭게 골라 보세요.');}
+function saveState(){try{localStorage.setItem('kkotnara-state',JSON.stringify(S));}catch(e){}}
+function loadState(){try{var o=JSON.parse(localStorage.getItem('kkotnara-state')||'null');if(o&&Array.isArray(o.items)&&TH[o.theme]){o.items=o.items.filter(function(it){return FL[it.id]&&it.n>0;});Object.assign(S,o);return true;}}catch(e){}return false;}
+
+/* ================= 화면 ================= */
+var cat='all',dexCat='all';
+function totalCount(){var t=0;S.items.forEach(function(it){t+=it.n;});return t;}
+function sizeName(c){return c<=5?'미니':c<=12?'스몰':c<=24?'미디움':'라지';}
+function renderThemes(){
+  var last='';
+  $('themes').innerHTML=THEMES.map(function(t){var f=FL[t.key[0]],grp=t.group==='season'?'season':t.id==='free'?'free':'heart',hd='';if(grp!==last){hd='<p class="th-group">'+(grp==='season'?'계절 꽃다발':grp==='free'?'그 밖에':'마음 전하기')+'</p>';last=grp;}return hd+'<button type="button" class="theme" data-id="'+t.id+'" aria-pressed="'+(S.theme===t.id)+'">'+flowerIcon(f,t.key[1])+'<b>'+esc(t.name)+'</b><small>'+esc(t.desc)+'</small></button>';}).join('');
+  var t=TH[S.theme];$('themeTip').textContent=t.tip;$('themeTip').hidden=false;
+  $('sugg').innerHTML=t.msgs.map(function(m){return '<button type="button" data-m="'+esc(m)+'">'+esc(m)+'</button>';}).join('');
+}
+function renderCats(){
+  var h=function(cur,attr){return CATS.map(function(c){return '<button type="button" class="chip" '+attr+'="'+c[0]+'" aria-pressed="'+(cur===c[0])+'">'+c[1]+'</button>';}).join('');};
+  $('cats').innerHTML=h(cat,'data-cat');$('dexCats').innerHTML=h(dexCat,'data-dcat');
+}
+function itemOf(id){for(var i=0;i<S.items.length;i++)if(S.items[i].id===id)return S.items[i];return null;}
+function renderGrid(){
+  $('flowerGrid').innerHTML=FLOWERS.filter(function(f){return cat==='all'||f.cat===cat;}).map(function(f){var it=itemOf(f.id),cnt=0;S.items.forEach(function(x){if(x.id===f.id)cnt+=x.n;});
+    return '<button type="button" class="card'+(cnt?' on':'')+'" data-add="'+f.id+'" aria-label="'+esc(f.name)+' 담기'+(cnt?' (지금 '+cnt+UNIT[f.cat]+')':'')+'">'+(PHOTO[f.id]?'<img src="'+PHOTO[f.id][0]+'" alt="" loading="lazy" width="46" height="46">':flowerIcon(f,it?it.color:f.colors[0][0]))+'<b>'+esc(f.name)+'</b><small>'+esc(f.mean||'모양을 잡아 주는 잎')+'</small>'+(cnt?'<span class="got">'+cnt+'</span>':'')+'</button>';}).join('');
+}
+function renderPicked(){
+  var tot=totalCount();
+  $('pickedSum').textContent=tot?'모두 '+tot+'대 · '+sizeName(tot)+' 크기':'';
+  if(!S.items.length){$('pickedList').innerHTML='<p class="empty">아직 담은 꽃이 없어요. 위에서 꽃을 눌러 보세요.</p>';return;}
+  $('pickedList').innerHTML=S.items.map(function(it,i){var f=FL[it.id];
+    return '<div class="prow">'+flowerIcon(f,it.color)+'<div class="nm">'+esc(f.name)+'<em>'+esc(colOf(f,it.color)[1])+' · '+esc(meanOf(f,it.color)||'잎 소재')+'</em></div>'+
+      '<div class="stepper"><button type="button" data-dec="'+i+'" aria-label="'+esc(f.name)+' 하나 빼기">−</button><output aria-live="polite">'+it.n+'</output><button type="button" data-inc="'+i+'" aria-label="'+esc(f.name)+' 하나 더">+</button><button type="button" class="del" data-del="'+i+'">빼기</button></div>'+
+      (f.colors.length>1?'<div class="sws" role="group" aria-label="'+esc(f.name)+' 색">'+f.colors.map(function(c){return '<button type="button" class="swatch" data-i="'+i+'" data-col="'+c[0]+'" aria-pressed="'+(it.color===c[0])+'" aria-label="'+esc(c[1])+'" title="'+esc(c[1])+'" style="background:'+c[2]+'"></button>';}).join('')+'</div>':'')+'</div>';}).join('');
+}
+function shapeIcon(k){
+  if(k==='round')return '<svg viewBox="0 0 60 52"><circle cx="30" cy="20" r="15" fill="#e7a2b0"/><path d="M14,24 L30,48 L46,24Z" fill="#d9c4a6"/></svg>';
+  if(k==='oneside')return '<svg viewBox="0 0 60 52"><ellipse cx="30" cy="18" rx="11" ry="16" fill="#e7a2b0"/><path d="M16,22 L30,50 L44,22Z" fill="#d9c4a6"/></svg>';
+  return '<svg viewBox="0 0 60 52"><circle cx="22" cy="18" r="8" fill="#e7a2b0"/><circle cx="39" cy="14" r="7" fill="#f0c86a"/><circle cx="31" cy="25" r="7" fill="#b9cf9a"/><path d="M12,26 L30,50 L48,26Z" fill="#d9c4a6"/></svg>';
+}
+function renderStyle(){
+  $('shapes').innerHTML=SHAPES.map(function(s){return '<button type="button" class="shape" data-shape="'+s[0]+'" aria-pressed="'+(S.shape===s[0])+'">'+shapeIcon(s[0])+'<b>'+s[1]+'</b><small>'+s[2]+'</small></button>';}).join('');
+  $('papers').innerHTML=PAPERS.map(function(p){return '<button type="button" class="pp" data-paper="'+p[0]+'" aria-pressed="'+(S.paper===p[0])+'"><i style="background:'+p[2]+(p[0]==='vellum'?';background-image:linear-gradient(135deg,rgba(255,255,255,.9),rgba(200,215,220,.5))':p[0]==='kraft'?';background-image:repeating-linear-gradient(80deg,rgba(0,0,0,.04) 0 2px,transparent 2px 5px)':'')+'"></i>'+p[1]+'</button>';}).join('');
+  $('ribbons').innerHTML=RIBBONS.map(function(p){return '<button type="button" class="pp rb" data-ribbon="'+p[0]+'" aria-pressed="'+(S.ribbon===p[0])+'"><i style="background:'+p[2]+'"></i>'+p[1]+'</button>';}).join('');
+  $('paperName').textContent=pick(PAPERS,S.paper)[1];$('ribbonName').textContent=pick(RIBBONS,S.ribbon)[1];
+}
+function renderDex(){
+  $('dexGrid').innerHTML=FLOWERS.filter(function(f){return dexCat==='all'||f.cat===dexCat;}).map(function(f){
+    var catName=pick(CATS,f.cat)[1];
+    return '<article class="dx">'+(PHOTO[f.id]?'<div class="dx-photo"><img src="'+PHOTO[f.id][0]+'" alt="'+esc(f.name)+' 사진" loading="lazy" width="400" height="300"></div>':'')+'<div class="dx-top">'+flowerIcon(f,f.colors[0][0])+'<div><b>'+esc(f.name)+'</b><small>'+esc(f.en)+' · '+catName+'</small></div></div>'+
+      '<div class="mean">'+esc(f.mean||'꽃말 대신 모양을 잡아 주는 잎')+'</div><p>'+esc(f.feat)+'</p>'+
+      '<ul>'+f.colors.map(function(c){return '<li><i style="background:'+c[2]+'"></i>'+esc(c[1])+(c[3]?' · '+esc(c[3]):'')+'</li>';}).join('')+'</ul>'+
+      '<div class="meta"><span>제철 '+esc(f.season)+'</span><span>꽃병에서 '+esc(f.life)+'</span></div>'+
+      '<button type="button" class="btn small" data-add="'+f.id+'">꽃다발에 담기</button></article>';}).join('');
+}
+function renderCredits(){$('creditList').innerHTML=FLOWERS.filter(function(f){return PHOTO[f.id];}).map(function(f){var p=PHOTO[f.id];return '<li>'+esc(f.name)+': <a href="'+esc(p[3])+'" target="_blank" rel="noopener">'+esc(p[1])+'</a> · '+esc(p[2])+'</li>';}).join('');}
+function design(){return {items:S.items,shape:S.shape,paper:S.paper,ribbon:S.ribbon,seed:S.seed,to:S.to,msg:S.msg};}
+function warnings(){
+  var w=[],has=function(id,col){return S.items.some(function(it){return it.id===id&&(!col||it.color===col);});},t=S.theme;
+  if(!S.items.length)w.push('꽃을 하나 이상 담아 주세요.');
+  if(has('mum','white'))w.push('흰 소국(국화)은 장례식이나 추모 때 쓰는 꽃이라 선물용 꽃다발에는 피하는 게 좋아요.');
+  if(has('carnation','white')&&(t==='parents'||t==='teacher'))w.push('흰 카네이션은 추모의 뜻으로도 쓰여요. 부모님·선생님께는 빨강이나 분홍을 추천해요.');
+  if(has('rose','yellow')&&(t==='love'||t==='propose'||t==='anniv'))w.push('노란 장미는 "질투"라는 뜻도 있어서 연인에게는 오해를 살 수 있어요.');
+  if(has('tulip','yellow')&&(t==='love'||t==='propose'||t==='anniv'))w.push('노란 튤립의 꽃말은 "헛된 사랑"이에요. 연인에게는 빨강이나 분홍을 추천해요.');
+  if(has('lily')&&t==='hospital')w.push('백합은 향이 아주 강해서 병실에는 맞지 않아요.');
+  if(totalCount()>60)w.push('꽃이 아주 많아요. 들고 다니기 무거울 수 있으니 꽃집과 미리 상의해 보세요.');
+  return w;
+}
+function mcardHTML(){var fz='fz-'+S.font,to=S.to.trim(),msg=S.msg.trim(),from=S.from.trim();
+  if(!to&&!msg&&!from)return '<div class="'+fz+'" style="color:#b3a493">카드 문구를 적으면 여기에 보여요.</div>';
+  return '<div class="'+fz+'">'+(to?'<div class="to">To. '+esc(to)+'</div>':'')+'<p>'+esc(msg)+'</p>'+(from?'<div class="from">From. '+esc(from)+'</div>':'')+'</div>';}
+function update(){
+  var D=design(),b=compose(D,'pv'),t=TH[S.theme],tot=totalCount();
+  $('stage').innerHTML='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 700" role="img" aria-label="지금 꽃다발 미리보기">'+b.svg+'</svg>';
+  $('pvName').textContent=t.id==='free'?'나의 꽃다발':t.name+' 꽃다발';
+  $('pvMeta').textContent=tot?tot+'대 · '+sizeName(tot)+' · 지름 약 '+b.dia+'cm':'꽃을 담아 주세요';
+  var b2=compose(D,'rs');$('resPic').innerHTML='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 700" role="img" aria-label="완성된 꽃다발">'+b2.svg+'</svg>';
+  $('resName').textContent=$('pvName').textContent;
+  $('resMeta').textContent=(tot?'모두 '+tot+'대 · '+sizeName(tot)+' 크기 · 지름 약 '+b.dia+'cm':'아직 꽃이 없어요')+' · '+pick(SHAPES,S.shape)[1]+' · 포장지 '+pick(PAPERS,S.paper)[1]+' · 리본 '+pick(RIBBONS,S.ribbon)[1];
+  var seen={},ml=[];S.items.forEach(function(it){var f=FL[it.id],k=it.id+'|'+it.color;if(seen[k])return;seen[k]=1;var m=meanOf(f,it.color);if(!m)return;
+    ml.push('<li>'+flowerIcon(f,it.color)+'<span><b>'+esc(f.name)+'</b> '+(f.colors.length>1?'('+esc(colOf(f,it.color)[1])+') ':'')+'— '+esc(m)+'</span></li>');});
+  $('meanings').innerHTML=ml.join('')||'<li><span style="grid-column:span 2;color:var(--muted)">꽃을 담으면 꽃말이 모여요.</span></li>';
+  var w=warnings();$('warn').hidden=!w.length;$('warn').innerHTML=w.map(function(x){return '<p>'+esc(x)+'</p>';}).join('');
+  $('compBody').innerHTML=S.items.map(function(it){var f=FL[it.id];return '<tr><td>'+esc(f.name)+'</td><td>'+esc(colOf(f,it.color)[1])+'</td><td>'+it.n+UNIT[f.cat]+'</td></tr>';}).join('');
+  $('mcard').innerHTML=mcardHTML();
+  var lt=S.letter.trim();$('letterView').className='letter fz-'+S.font+(lt?'':' emptyl');$('letterView').textContent=lt||'편지를 쓰면 여기에 보여요.';
+  saveState();
+}
+function refreshAll(){renderThemes();renderCats();renderGrid();renderPicked();renderStyle();update();}
+function addFlower(id){var f=FL[id],it=itemOf(id);
+  if(it)it.n=Math.min(40,it.n+1);else S.items.push({id:id,color:f.colors[0][0],n:f.cat==='main'?3:2});
+  renderGrid();renderPicked();update();}
+
+/* ================= 저장 ================= */
+function toast(m){var t=$('toast');t.textContent=m;t.hidden=false;clearTimeout(toast.tm);toast.tm=setTimeout(function(){t.hidden=true;},2600);}
+function saveBlob(name,blob){var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},2000);toast(name+' 저장을 시작했어요');}
+function fileBase(){var t=TH[S.theme];return '꽃나라_'+(t.id==='free'?'나의':t.name.replace(/·/g,''))+'_꽃다발';}
+function memoText(){var t=TH[S.theme],L=['[꽃나라 꽃다발 시안]','테마: '+t.name,'모양: '+pick(SHAPES,S.shape)[1]+' / 포장지: '+pick(PAPERS,S.paper)[1]+' / 리본: '+pick(RIBBONS,S.ribbon)[1],
+  '꽃: '+S.items.map(function(it){var f=FL[it.id];return f.name+(f.colors.length>1?'('+colOf(f,it.color)[1]+')':'')+' '+it.n+UNIT[f.cat];}).join(', ')];
+  if(S.to||S.msg||S.from)L.push('카드: '+(S.to?'To. '+S.to+' / ':'')+S.msg.replace(/\n/g,' ')+(S.from?' / From. '+S.from:''));
+  if(S.letter.trim())L.push('편지: 있음 ('+S.letter.trim().length+'자)');
+  return L.join('\n');}
+function copyText(txt,done){
+  var fb=function(){var ta=document.createElement('textarea');ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');toast(done);}catch(e){toast('복사하지 못했어요.');}ta.remove();};
+  if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(txt).then(function(){toast(done);},fb);else fb();}
+function svgImage(svg){return new Promise(function(res,rej){var img=new Image();var url=URL.createObjectURL(new Blob([svg],{type:'image/svg+xml'}));img.onload=function(){res(img);setTimeout(function(){URL.revokeObjectURL(url);},500);};img.onerror=rej;img.src=url;});}
+function wrapLines(ctx,text,maxW){var out=[];String(text).split('\n').forEach(function(par){var line='';for(var i=0;i<par.length;i++){var tst=line+par[i];if(ctx.measureText(tst).width>maxW&&line){out.push(line);line=par[i];}else line=tst;}out.push(line);});return out;}
+function downloadPNG(){
+  var D=design(),svg=bouquetSVG(D,'dl',{noCard:false});
+  var fontsReady=document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve();
+  fontsReady.then(function(){return svgImage(svg);}).then(function(img){
+    var W=1600,Hh=2000,cv=document.createElement('canvas');cv.width=W;cv.height=Hh;var x=cv.getContext('2d');
+    x.fillStyle='#f7f1ea';x.fillRect(0,0,W,Hh);
+    x.fillStyle='#fffdf9';x.fillRect(60,60,W-120,Hh-120);x.strokeStyle='#e6d9cb';x.lineWidth=2;x.strokeRect(60,60,W-120,Hh-120);
+    var t=TH[S.theme],title=t.id==='free'?'나의 꽃다발':t.name+' 꽃다발',tot=totalCount();
+    x.fillStyle='#b5485f';x.font='40px "Nanum Pen Script", cursive';x.fillText('꽃나라 Flower Land · 꽃다발 시안',110,140);
+    x.fillStyle='#33291f';x.font='bold 64px "Gowun Batang", serif';x.fillText(title,110,220);
+    x.fillStyle='#7a6c60';x.font='28px "Gowun Dodum", sans-serif';
+    x.fillText((tot?'모두 '+tot+'대 · '+sizeName(tot)+' 크기':'')+' · '+pick(SHAPES,S.shape)[1]+' · 포장지 '+pick(PAPERS,S.paper)[1]+' · 리본 '+pick(RIBBONS,S.ribbon)[1],110,270);
+    x.fillStyle='#f3ebe1';x.fillRect(110,310,820,957);x.drawImage(img,110,310,820,957);
+    /* 오른쪽: 꽃말 + 구성 */
+    var cx=980,y=350;x.fillStyle='#b5485f';x.font='40px "Nanum Pen Script", cursive';x.fillText('이 꽃다발이 전하는 말',cx,y);y+=52;
+    x.font='27px "Gowun Dodum", sans-serif';var seen={};
+    S.items.forEach(function(it){var f=FL[it.id],k=it.id+'|'+it.color;if(seen[k])return;seen[k]=1;var m=meanOf(f,it.color);if(!m)return;
+      x.fillStyle=colOf(f,it.color)[2];x.beginPath();x.arc(cx+12,y-9,11,0,TAU);x.fill();x.strokeStyle='rgba(0,0,0,.18)';x.lineWidth=1.5;x.stroke();
+      x.fillStyle='#33291f';wrapLines(x,f.name+(f.colors.length>1?'('+colOf(f,it.color)[1]+')':'')+' — '+m,500).forEach(function(l,i){x.fillText(l,cx+34,y+i*36);y+=i?36:0;});y+=44;});
+    y+=20;x.fillStyle='#b5485f';x.font='40px "Nanum Pen Script", cursive';x.fillText('구성',cx,y);y+=50;x.font='27px "Gowun Dodum", sans-serif';x.fillStyle='#33291f';
+    S.items.forEach(function(it){var f=FL[it.id];x.fillText('· '+f.name+' '+colOf(f,it.color)[1]+' '+it.n+UNIT[f.cat],cx,y);y+=40;});
+    /* 아래: 카드 + 편지 */
+    var fam=S.font==='hand'?'"Nanum Pen Script", cursive':S.font==='serif'?'"Gowun Batang", serif':'"Gowun Dodum", sans-serif',big=S.font==='hand'?40:30;
+    var by=1320;x.save();x.translate(150,by);x.rotate(-.025);x.fillStyle='#fff';x.shadowColor='rgba(120,90,60,.18)';x.shadowOffsetX=4;x.shadowOffsetY=6;x.fillRect(0,0,520,300);x.shadowColor='transparent';x.strokeStyle='#d8c7b5';x.lineWidth=2;x.strokeRect(0,0,520,300);
+    x.fillStyle='#5a4636';x.font=big+'px '+fam;var cy2=60;
+    if(S.to.trim()){x.fillText('To. '+S.to.trim(),34,cy2);cy2+=big*1.4;}
+    wrapLines(x,S.msg.trim()||' ',450).slice(0,4).forEach(function(l){x.fillText(l,34,cy2);cy2+=big*1.3;});
+    if(S.from.trim()){x.textAlign='right';x.fillText('From. '+S.from.trim(),490,270);x.textAlign='left';}
+    x.restore();
+    var lx=730,lw=760;x.fillStyle='#fffdf6';x.fillRect(lx,by,lw,560);x.strokeStyle='#eadfc8';x.strokeRect(lx,by,lw,560);
+    x.strokeStyle='#eee2cc';x.lineWidth=1.5;for(var ly=by+70;ly<by+550;ly+=46){x.beginPath();x.moveTo(lx+24,ly);x.lineTo(lx+lw-24,ly);x.stroke();}
+    x.fillStyle='#5a4636';x.font=(S.font==='hand'?36:26)+'px '+fam;var lines=wrapLines(x,S.letter.trim()||'(편지 없음)',lw-70);
+    lines.slice(0,11).forEach(function(l,i){x.fillText(l,lx+34,by+60+i*46);});if(lines.length>11){x.fillStyle='#7a6c60';x.fillText('…',lx+34,by+60+11*46);}
+    x.fillStyle='#7a6c60';x.font='24px "Gowun Dodum", sans-serif';x.fillText('꽃나라 · 경상북도 포항시 북구 삼호로 67 · 0507-1396-0776',110,1915);
+    x.textAlign='right';x.fillText(new Date().toLocaleDateString('ko-KR'),W-110,1915);
+    cv.toBlob(function(bl){if(bl)saveBlob(fileBase()+'.png',bl);else toast('이미지를 만들지 못했어요.');},'image/png');
+  }).catch(function(){toast('이미지를 만들지 못했어요. 다시 눌러 주세요.');});
+}
+
+/* ================= 이벤트 ================= */
+function bind(){
+  $('themes').addEventListener('click',function(e){var b=e.target.closest('[data-id]');if(!b)return;applyTheme(b.dataset.id);refreshAll();});
+  document.addEventListener('click',function(e){
+    var c=e.target.closest('[data-cat]');if(c){cat=c.dataset.cat;renderCats();renderGrid();return;}
+    var d=e.target.closest('[data-dcat]');if(d){dexCat=d.dataset.dcat;renderCats();renderDex();return;}
+    var a=e.target.closest('[data-add]');if(a){addFlower(a.dataset.add);if(a.closest('#dexGrid'))toast(FL[a.dataset.add].name+'을(를) 꽃다발에 담았어요.');return;}
+  });
+  $('pickedList').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var d=b.dataset;
+    if(d.inc!=null){var it=S.items[+d.inc];it.n=Math.min(40,it.n+1);}
+    else if(d.dec!=null){var it2=S.items[+d.dec];it2.n--;if(it2.n<=0)S.items.splice(+d.dec,1);}
+    else if(d.del!=null){S.items.splice(+d.del,1);}
+    else if(d.col){S.items[+d.i].color=d.col;}
+    else return;
+    renderGrid();renderPicked();update();});
+  $('shapes').addEventListener('click',function(e){var b=e.target.closest('[data-shape]');if(!b)return;S.shape=b.dataset.shape;renderStyle();update();});
+  $('papers').addEventListener('click',function(e){var b=e.target.closest('[data-paper]');if(!b)return;S.paper=b.dataset.paper;renderStyle();update();});
+  $('ribbons').addEventListener('click',function(e){var b=e.target.closest('[data-ribbon]');if(!b)return;S.ribbon=b.dataset.ribbon;renderStyle();update();});
+  $('btnShuffle').addEventListener('click',function(){S.seed=(S.seed%997)+1;update();});
+  var tm;var txt=function(id,key,cnt){$(id).addEventListener('input',function(){S[key]=this.value;if(cnt)$(cnt).textContent=this.value.length;clearTimeout(tm);tm=setTimeout(update,120);});};
+  txt('inTo','to');txt('inFrom','from');txt('inMsg','msg','msgCount');txt('inLetter','letter','letterCount');
+  $('inFont').addEventListener('change',function(){S.font=this.value;update();});
+  $('sugg').addEventListener('click',function(e){var b=e.target.closest('[data-m]');if(!b)return;S.msg=b.dataset.m;$('inMsg').value=S.msg;$('msgCount').textContent=S.msg.length;update();});
+  $('dlPng').addEventListener('click',downloadPNG);
+  $('dlSvg').addEventListener('click',function(){saveBlob(fileBase()+'.svg',new Blob([bouquetSVG(design(),'sv')],{type:'image/svg+xml'}));});
+  $('copyMemo').addEventListener('click',function(){copyText(memoText(),'주문 메모를 복사했어요. 문자나 메신저에 붙여 넣으세요.');});
+  $('copyAddr').addEventListener('click',function(){copyText('경상북도 포항시 북구 삼호로 67 꽃나라','주소를 복사했어요.');});
+  var mq=window.matchMedia('(max-width: 960px)'),fold=function(){$('btnFold').hidden=!mq.matches;};fold();if(mq.addEventListener)mq.addEventListener('change',fold);
+  $('btnFold').addEventListener('click',function(){var p=$('preview'),f=p.classList.toggle('folded');this.textContent=f?'펴기':'접기';});
+}
+
+/* 첫 화면 예시 */
+var heroList=['love','birthday','grad','parents','anniv','cheer','opening','friend'],hi=0;
+function hero(){if(!$('heroBox'))return;var t=TH[heroList[hi%heroList.length]];hi++;
+  var D={items:t.items.map(function(x){return {id:x[0],color:x[1],n:x[2]};}),shape:t.shape,paper:t.paper,ribbon:t.ribbon,seed:hi*5+2};
+  $('heroBox').innerHTML=bouquetSVG(D,'h'+hi,{noCard:true});$('heroCap').textContent=t.name+' 꽃다발';}
+
+if(!loadState())applyTheme('love',true);
+$('inTo').value=S.to;$('inFrom').value=S.from;$('inMsg').value=S.msg;$('inLetter').value=S.letter;$('inFont').value=S.font;
+$('msgCount').textContent=S.msg.length;$('letterCount').textContent=S.letter.length;
+bind();refreshAll();renderDex();renderCredits();hero();
+if(!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches))setInterval(hero,5200);
+window.__kk={compose:compose,FLOWERS:FLOWERS,THEMES:THEMES,S:S,bouquetSVG:bouquetSVG};
+})();
+</script>
+</body>
+</html>

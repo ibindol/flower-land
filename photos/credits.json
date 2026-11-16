@@ -1,0 +1,176 @@
+{
+ "rose": {
+  "f": "photos/rose.jpg",
+  "artist": "Petro Stelte",
+  "lic": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Red-Rose-Sitia-Crete.jpg"
+ },
+ "peony": {
+  "f": "photos/peony.jpg",
+  "artist": "Ulf Eliasson",
+  "lic": "CC BY-SA 3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Lactiflora1b.UME.jpg"
+ },
+ "hydrangea": {
+  "f": "photos/hydrangea.jpg",
+  "artist": "Acabashi",
+  "lic": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Hydrangea_%27Endless_Summer_Blue%27_Capel_Manor_College_Gardens_Enfield_London_England.jpg"
+ },
+ "sunflower": {
+  "f": "photos/sunflower.jpg",
+  "artist": "Fir0002",
+  "lic": "GFDL 1.2",
+  "page": "https://commons.wikimedia.org/wiki/File:Sunflower_sky_backdrop.jpg"
+ },
+ "tulip": {
+  "f": "photos/tulip.jpg",
+  "artist": "Martin Ehrensberger",
+  "lic": "CC0",
+  "page": "https://commons.wikimedia.org/wiki/File:Tulipa_cultivar_(red,_close-up)_2018.jpg"
+ },
+ "lily": {
+  "f": "photos/lily.jpg",
+  "artist": "4028mdk09",
+  "lic": "CC BY-SA 3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Wei%C3%9Fe_Lilienbl%C3%BCte.JPG"
+ },
+ "gerbera": {
+  "f": "photos/gerbera.jpg",
+  "artist": "Dmitry Makeev",
+  "lic": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Unidentified_Gerbera.jpg"
+ },
+ "ranunculus": {
+  "f": "photos/ranunculus.jpg",
+  "artist": "Yoko Nekonomania",
+  "lic": "CC BY 2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Flower,_Persian_buttercup_%22M-Sakura%22_-_Flickr_-_nekonomania.jpg"
+ },
+ "carnation": {
+  "f": "photos/carnation.jpg",
+  "artist": "草花写真館",
+  "lic": "CC BY-SA 3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:W_carnation4051.jpg"
+ },
+ "calla": {
+  "f": "photos/calla.jpg",
+  "artist": "Eric Hunt",
+  "lic": "CC BY-SA 2.5",
+  "page": "https://commons.wikimedia.org/wiki/File:Zantedeschia_aethiopica_-1.jpg"
+ },
+ "orchid": {
+  "f": "photos/orchid.jpg",
+  "artist": "Alvesgaspar",
+  "lic": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Phalaenopsis_July_2020-2.jpg"
+ },
+ "dahlia": {
+  "f": "photos/dahlia.jpg",
+  "artist": "Muhammad Mahdi Karim",
+  "lic": "GFDL 1.2",
+  "page": "https://commons.wikimedia.org/wiki/File:Dahlia_x_hybrida.jpg"
+ },
+ "anemone": {
+  "f": "photos/anemone.jpg",
+  "artist": "Zachi Evenor",
+  "lic": "CC BY 2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Anemone-coronaria-2016-Zachi-Evenor.jpg"
+ },
+ "freesia": {
+  "f": "photos/freesia.jpg",
+  "artist": "The original uploader was Jeantosti at English Wikipedia.",
+  "lic": "CC BY-SA 3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Freesia.jpg"
+ },
+ "cosmos": {
+  "f": "photos/cosmos.jpg",
+  "artist": "Joydeep",
+  "lic": "CC BY-SA 3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Cosmos_bipinnatus_pink,_Burdwan,_West_Bengal,_India_10_01_2013.jpg"
+ },
+ "daisy": {
+  "f": "photos/daisy.jpg",
+  "artist": "Dryas",
+  "lic": "CC BY-SA 3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Argyranthemum_frutescens_subsp._canariae.JPG"
+ },
+ "sweetpea": {
+  "f": "photos/sweetpea.jpg",
+  "artist": "Aftabbanoori",
+  "lic": "CC BY-SA 3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Sweet_Pea-7.jpg"
+ },
+ "lavender": {
+  "f": "photos/lavender.jpg",
+  "artist": "User:Fir0002",
+  "lic": "GFDL 1.2",
+  "page": "https://commons.wikimedia.org/wiki/File:Single_lavender_flower02.jpg"
+ },
+ "stock": {
+  "f": "photos/stock.jpg",
+  "artist": "KENPEI",
+  "lic": "CC BY-SA 3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Matthiola_incana6.jpg"
+ },
+ "statice": {
+  "f": "photos/statice.jpg",
+  "artist": "Nevit Dilmen",
+  "lic": "CC BY-SA 3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Tema_Nezahat_Gokyigit_Park_1060783_20080513133708.JPG"
+ },
+ "forget": {
+  "f": "photos/forget.jpg",
+  "artist": "Sedum Tauno Erik",
+  "lic": "CC BY-SA 2.5",
+  "page": "https://commons.wikimedia.org/wiki/File:Myosotis_arvensis_ois.JPG"
+ },
+ "cotton": {
+  "f": "photos/cotton.jpg",
+  "artist": "",
+  "lic": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:CottonPlant.JPG"
+ },
+ "euca": {
+  "f": "photos/euca.jpg",
+  "artist": "Donald Hobern from Canberra, Australia",
+  "lic": "CC BY 2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Eucalyptus_polyanthemos_leaves_1.jpg"
+ },
+ "ruscus": {
+  "f": "photos/ruscus.jpg",
+  "artist": "Krzysztof Ziarnek, Kenraiz",
+  "lic": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Danae_racemosa_kz1.jpg"
+ },
+ "lisianthus": {
+  "f": "photos/lisianthus.jpg",
+  "artist": "",
+  "lic": "CC BY-SA 2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Eustoma_grandiflorum_purple_02.jpg"
+ },
+ "mum": {
+  "f": "photos/mum.jpg",
+  "artist": "Aruna at Malayalam Wikipedia",
+  "lic": "CC BY-SA 3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Chrysanthemum.JPG"
+ },
+ "delphinium": {
+  "f": "photos/delphinium.jpg",
+  "artist": "Björn S.",
+  "lic": "CC BY-SA 3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Delphinium_elatum_-_panoramio.jpg"
+ },
+ "gyp": {
+  "f": "photos/gyp.jpg",
+  "artist": "Avenue",
+  "lic": "CC BY-SA 3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Close-up_of_baby%27s_breath_(Gypsophila_paniculata)_flowers.jpg"
+ },
+ "hypericum": {
+  "f": "photos/hypericum.jpg",
+  "artist": "Nesnad",
+  "lic": "CC BY 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Hypericum_berries_-_red_-_March_3_2021.jpeg"
+ }
+}
